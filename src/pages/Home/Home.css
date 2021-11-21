@@ -1,0 +1,8 @@
+.home-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50vh !important;
+    min-height: 670px;
+    background-image: url(https://www.wallpapers4u.org/wp-content/uploads/dark_background_line_surface_65896_1920x1080.jpg);
+}

@@ -1,13 +1,14 @@
 import React from 'react';
 import './App.css';
-import Profile from './pages/Home/Profile';
+import Contact from './pages/Contact/Contact';
+import Home from './pages/Home/Home';
 
 function App() {
   return (
-    <div className="App">
-      <Profile />
-      
-    </div>
+    <>
+      <Contact/>
+
+    </>
   );
 }
 
