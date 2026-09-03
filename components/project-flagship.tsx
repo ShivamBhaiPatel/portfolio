@@ -23,8 +23,8 @@ export function ProjectFlagship({ project }: { project: Project }) {
         {project.live && project.live.status === "up" ? (
           <span className="font-mono text-meta text-muted flex items-center gap-1.5">
             <span className="relative flex h-1.5 w-1.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-accent" />
             </span>
             <a href={project.live.url} target="_blank" rel="noopener noreferrer" className="hover:underline">
               Live Dashboard ↗

@@ -56,7 +56,7 @@ export const projects: Project[] = [
       },
       {
         quote:
-          "// Everything re-exported here must run headless — no VS Code extension host.\n// pulling in an editor-only module is a compile error rather than a runtime crash",
+          "// Everything re-exported here must run headless — no VS Code extension host.\n// The build is scoped in tsconfig.json to this exact dependency closure so that\n// pulling in an editor-only module is a compile error rather than a runtime\n// \"Cannot find module 'vscode'\" crash (WFST-70).",
         source: "packages/core/src/index.ts:7-10",
         lang: "ts",
       },
@@ -103,7 +103,7 @@ export const projects: Project[] = [
       },
       {
         quote:
-          "// extract Playwright's injected script from the shipped\n// playwright-core bundle and vendor it as a pinned build artifact.",
+          "// vendor-injected.mjs — extract Playwright's injected script from the shipped\n// playwright-core bundle and vendor it as a pinned build artifact.",
         source: "flowtrace/recorder/scripts/vendor-injected.mjs:2-3",
         lang: "js",
       },
