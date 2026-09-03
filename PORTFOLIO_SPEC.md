@@ -377,10 +377,76 @@ TradeSense carries a compliance line in its own README ("no component places an
 order, in any phase"). Reproduce that framing on the card — showing that you
 scoped a system's blast radius deliberately is a senior signal.
 
-### 4.6 Experience — carry over verbatim
+### 4.6 Experience — dates CONFIRMED, use exactly these
 
-Reused from `portfolio-site/src/components/sections/Experience.tsx`. These are
-specific and metric-bearing; they are the strongest thing on the current site.
+> **✅ Q8 RESOLVED 2026-09-03 by Shivam directly. Not blocking any more.**
+>
+> | Role | Location | Dates |
+> |---|---|---|
+> | Software Engineer, Reflexis Systems (Zebra Technologies) | Pune, India | **Nov 2021 – Mar 2024** |
+> | Independent Software Consultant | Remote, India | **Apr 2024 – Present** |
+> | ↳ FirstCron Services Pvt Ltd (SyntraFlow) — *current client* | Delhi, India | ongoing |
+> | ↳ SamMegh Technologies — *contract* | — | **Dec 2024 – Sep 2025** |
+>
+> Rendering notes:
+> - **"FirstCron Services Pvt Ltd"** is the full legal name — use it on first
+>   mention, then "FirstCron". **SyntraFlow** is the *product* built for them, not
+>   the company; do not use the two as synonyms.
+> - **The product is called SyntraFlow** (confirmed by Shivam 2026-09-04). It was
+>   formerly *SyntraIntelli*; the client renamed it because the old name was hard
+>   to pronounce. Use SyntraFlow, with no "formerly known as" gloss. Anything in
+>   older notes saying SyntraIntelli is stale, not wrong-at-the-time.
+> - SyntraFlow is the **client's** product. FlowTrace is **Shivam's own**. Two
+>   systems, two owners — never written as aliases.
+> - The client engagements are **nested under** the consulting span, not listed as
+>   separate employers. Three top-level entries would misrepresent a
+>   two-position history.
+> - **Locations belong to the right party.** Shivam works remote from Prayagraj;
+>   Delhi is FirstCron's location, not his. Do not render "Delhi, India" as his
+>   own posting.
+> - SamMegh is labelled **contract** and is closed (Sep 2025). FirstCron is
+>   ongoing. That contrast is useful — it shows a retained client alongside a
+>   completed engagement — so keep both visible rather than collapsing them.
+>
+> **On the apparent contradiction, recorded so it does not resurface.** A peer
+> agent reported Shivam describing a 5–6 month gap and a total nearer 4.5 years,
+> which looked inconsistent with continuous dates. It is not. "Independent
+> Software Consultant, Apr 2024 – Present" is a *self-employment span*, and a
+> quiet stretch with no client work inside that span does not make the dates
+> false — it means the span is not wall-to-wall billed engagement, which is
+> ordinary for consulting and requires no explanation on a portfolio.
+>
+> **The one rule that follows:** state the dates plainly and do **not** add any
+> claim of continuous or unbroken client delivery across that period. No "3+
+> years of consecutive client delivery", no implied utilisation. The dates are
+> accurate; a gloss on top of them would not be.
+>
+> Total experience reads as "four years" in the hero (Reflexis Nov 2021 to now is
+> longer, so "four years" is conservative and safe). Do not inflate it to five.
+>
+> The bullets below are reused from
+> `portfolio-site/src/components/sections/Experience.tsx` — specific,
+> metric-bearing, and the strongest thing on the current site. **The dates are a
+> separate matter and must not be copied through.**
+>
+> As written, the current site presents continuous employment: Reflexis
+> Nov 2021 – Mar 2024, Independent Consultant Apr 2024 – Present, SamMegh
+> Dec 2024 – Sep 2025 nested inside. That is 4 y 10 m with no break. A peer agent
+> reports Shivam has since described a gap of 5–6 months and a total nearer
+> 4.5 years — arithmetically consistent with a real gap, and inconsistent with
+> the site as it stands.
+>
+> **This reaches the spec second-hand and is NOT confirmed by Shivam here.**
+> Treat it as unresolved. But the risk runs one way: if there is a gap, the live
+> site papers over it, and a recruiter cross-checking against LinkedIn or a
+> résumé will find the discrepancy. A gap costs a sentence; a contradiction
+> between a candidate's own site and his own résumé costs the interview.
+>
+> **Blocking on Q8. Do not write the experience section until Shivam confirms the
+> real dates.** Career gaps are ordinary and need no apology — an honest range,
+> with at most a short factual note, is sufficient.
+
+The achievements themselves, once the dates are settled:
 
 **Independent Software Consultant** (Apr 2024 – Present) — FirstCron / SyntraIntelli,
 SamMegh Technologies. Oracle Fusion ERP automation across 50+ entities; Playwright
@@ -726,7 +792,19 @@ reasoning; short enough that it gets read.
 
 1. **Q1** — Is DealDekho being redeployed before launch? (Confirmed built; the blocker is hosting.)
 2. **Q2** — Availability status line: actively looking, open to conversations, or omit it entirely? (Affects hero.)
-3. **Q3** — Is there an up-to-date `resume.pdf`? The current site links `/resume.pdf`; it needs to match the new positioning.
+3. ~~**Q3** — Is there an up-to-date `resume.pdf`?~~ **Answered 2026-09-03: there
+   is none.** `portfolio-site/public/` holds four images and no PDF (verified in
+   the live git-tracked repo, not the stale zip copy). The current site links
+   `/resume.pdf`, so **that link is broken in production today.** Either a résumé
+   is written before launch or the link is cut — the hero CTA and §4.7 depend on
+   which.
+8. ~~**Q8** — real employment dates?~~ **RESOLVED 2026-09-03.** Reflexis
+   Nov 2021 – Mar 2024; Independent Consultant Apr 2024 – Present. See §4.6 for
+   the dates and the one rule attached to them.
+9. **Q9** — Are the repos public or private? A peer agent reports **all repos are
+   private**; unverified here. If true, every `repo` field in §6's content model
+   must be omitted rather than linked, and the case studies carry quoted
+   evidence instead. This changes §4.2–4.4 materially, so settle it before P3.
 4. **Q4** — Which repos are public? A case study that links to a 404 repo is worse than one that links to nothing.
 5. **Q5** — R6: how much of Workflow Studio's internals go public?
 6. ~~**Q6** — May FlowTrace be shown?~~ **Resolved 2026-09-03** — independent
@@ -756,4 +834,687 @@ reasoning; short enough that it gets read.
 
 > Reviewers: append below. Format — `[severity] section — finding — suggested action`.
 
-_(empty)_
+### Review #1 — PORT-opus5-M1, 2026-09-03, against the build on `localhost:3005`
+
+Implementation by `WFST-opus5-M1`. Structure and craft are sound: header nav with
+real anchors, skip link, theme toggle with a System state, three genuinely
+different project treatments (check 5 honoured), inline architecture diagrams,
+mono evidence blocks with path attribution, and a `/styleguide` route with a
+contrast table. Nothing structural needs redoing. Four content defects:
+
+| # | Sev | Finding | Action |
+|---|-----|---------|--------|
+| D1 | **critical** | **Fabricated citation.** The PracharFlow card cites `render/.../SkiaRenderer.java:42`. That file does not exist — `find` over the repo returns nothing. Real files include `CompositorService.java`, `compose/LayoutComposer.java`, `font/TypefaceRegistry.java`. | Remove immediately; replace with a real file and a line actually opened. Re-verify every other citation on the site. |
+| D2 | **critical** | **The evidence is the defect.** The Workflow Studio card quotes `"@workflow-studio/core": "link:../workflow-studio/core"` as proof. The line is real (`tradesense/package.json:21`) but it does not resolve — core is at `packages/core`, the link omits `packages/`. | Fix the repo first, then quote the corrected line; or quote a different artefact. Never quote a broken link as proof of craft. |
+| D3 | high | **"Extracted the entire core" is false.** `packages/core/src/index.ts` is a 37-line re-export barrel — 17 `export *` statements pointing back into root `src/`. Its own comment (lines 25–28) says exporting the DAG runtime "is an export change, not an extraction". | Say the true thing, which is stronger: a boundary drawn through an existing codebase with the compiler enforcing it. |
+| D4 | high | **Inflated adjectives** (§9 violation). "Zero-trust *cryptographic* state verification" — nothing cryptographic exists; the engine independently re-verifies the page. "Chrome MV3 *AST* extraction" — it is marker-based string extraction from a minified bundle. | Replace with the literal mechanism. Both are more impressive stated accurately. |
+| D5 | low | FlowTrace quote attributed to `README.md:12`; the text is at lines 84–85. | Correct the line number. |
+
+**Lesson for the spec, not the implementer.** D1 and D4 are the same failure in
+two costumes: reaching for an impressive-sounding artefact instead of the real
+one. Check 9 exists to prevent exactly this, and it was not enough on its own —
+because it says *what* to do without saying *verify before you write it*. §5
+check 9 is therefore amended: **every citation must be opened and its line number
+confirmed before it ships, and CI must fail the build on a citation whose file or
+line cannot be resolved.** A fabricated path on a page whose entire argument is
+"this work is real" is self-refuting.
+
+---
+
+## 14. Review #2 — contrast, the hero panel, and interactivity (2026-09-03)
+
+Raised by Shivam after a browser review. All three of his observations are
+correct. Two of them trace back to defects in §5, one is an implementation
+defect, and the most serious problem is one he did not raise — I found it while
+checking the first.
+
+### F1 — The light theme has no tonal range. Shivam is right.
+
+Measured from `styles/globals.css`:
+
+| Token | Light | Note |
+|---|---|---|
+| `--paper` | `#f7f5f0` | page ground |
+| `--raised` | `#ffffff` | cards |
+
+Those two surfaces are roughly **3% apart in luminance**. Every section, every
+card, and the page behind them therefore occupy the top sliver of the tonal
+range. Text contrast is not the problem — `ink` measures 16.79:1 and `muted`
+5.18:1, both comfortably AA. The problem is **surface separation and the absence
+of any dark anchor**: nothing on the page is darker than a hairline rule.
+
+That is why it reads as "white on white on cream". A page can be light and still
+have range; this one has lightness without range.
+
+**Root cause is §5, not the implementation.** The token table gives six colours
+of which five are pale. It never provided a dark ground, so none was used.
+
+**The fix, which stays inside check 1 (no new palette values):** use `--ink` as a
+*surface*, not only as text. One or two full-bleed bands grounded in `--ink`
+with `--paper` text — the classic editorial dark plate. Candidates: the flagship
+Workflow Studio band, and the contact section as a closing plate. This gives the
+page rhythm — light, dark, light — costs nothing in new colour, and makes the
+diagrams inside those bands far stronger.
+
+Secondary: widen the `paper`/`raised` gap slightly so a card reads as a card
+without a shadow, and introduce `--paper-sunk` (a shade *below* paper) for inset
+areas such as code blocks. Both derived by `color-mix` from existing tokens.
+
+### F2 — CRITICAL: the hero panel is the exact thing this spec exists to prevent
+
+Shivam noted the right-hand panel "is not properly interactive — on tab it shows
+one fixed value". That is true, but it is the least of what is wrong with it.
+`components/hero.tsx` lines 91–139:
+
+**It violates check 1 wholesale.** The panel is built from raw Tailwind default
+values and bypasses the token system entirely: `neutral-100/200/300/400/500/600/
+800/900`, `emerald-400/500/600`. Under check 1, "if a hex is greppable in
+Tailwind's defaults it is wrong", this is an automatic build failure.
+
+**It violates check 2.** Those neutrals are *cool* greys. In dark mode the panel
+goes cool-slate while the rest of the page is warm charcoal `#14130f`.
+
+**It violates the §5 anti-pattern list three times over** — `backdrop-blur-md`
+(glassmorphism), `rounded-xl` with `shadow-[0_4px_20px_-4px_...]` (rounded card
+with a drop shadow doing the hierarchy), and a pulsing emerald status dot.
+
+**And the content is fabricated.** `SYS_NODE_PRAYAGRAJ`, `v2.4.0`,
+`PING: 14ms (ACK)`, `SECURE_IPC_BRIDGE`, `ACTIVE (99.99% UP)`. None of it is
+real. There is no node, no ping, no IPC bridge, no uptime measurement. It is a
+decorative dashboard imitating live telemetry that does not exist.
+
+**This is the same defect as the fabricated `SkiaRenderer.java` citation**, in a
+more prominent position. §9 requires every number to be traceable; "99.99% UP" is
+not merely untraceable, it is invented. A portfolio arguing "my work is real"
+should not open with a fake instrument panel — and a reader who *does* build
+monitoring systems will recognise it as decoration on sight.
+
+**Ruling: do not make it more interactive. Remove it or make it true.** Animating
+fabricated telemetry produces a more elaborate fiction, not a better hero.
+
+Three honest replacements, best first:
+
+1. **Nothing.** Delete the panel; let the hero be the claim and whitespace. §3
+   already argued the restraint is the statement, and the current panel is the
+   single strongest reason the page reads as generated.
+2. **A real status row.** The apps genuinely are live. Fetch real HTTP status for
+   `prachar`, `tradesense`, `workflow`, `enterprise-platform` at build time and
+   render actual results — including "down" where it is down. Real, useful,
+   falsifiable, and it doubles as the §6 link check.
+3. **A static artefact.** The `@workflow-studio/core` boundary diagram, or the
+   quoted `tsconfig` line. Set in the token palette, no chrome.
+
+### F3 — The doubled separator after the hero
+
+Shivam is right that the band under the hero looks odd. Cause:
+`hero.tsx:11` ends the section with `border-b border-rule`, and the following
+`<Section>` is rendered with `rule={true}`, drawing a second hairline. Two rules
+with an empty gap between them read as an unfinished divider.
+
+**Fix:** one rule, not two. Drop `rule` on the first section after the hero. Do
+not "fill" the band with decoration — the answer to an odd empty strip is to stop
+drawing it, not to put something in it.
+
+### F4 — Raw palette values and decorative motion beyond the hero
+
+Same class as F2, found in `app/page.tsx:46`: `border-t-neutral-900`,
+`dark:border-t-neutral-100`, `hover:border-neutral-400`,
+`dark:hover:border-neutral-600` — all outside the token system. `TiltCard`
+(3D tilt on hover) also exceeds §5's motion rule, which permits opacity and
+translate only, ≤200 ms.
+
+**Action:** grep the whole tree for Tailwind default colour utilities and replace
+every one with a token. Then add the CI guard §5 check 1 always implied but never
+enforced: **fail the build if any `neutral-|slate-|gray-|zinc-|emerald-|indigo-|
+violet-|red-|amber-` utility appears in the source.** Like the citation checker,
+this converts an editorial rule into something a machine enforces — and it would
+have caught the hero panel before it was ever seen.
+
+### F5 — Where interactivity is actually warranted
+
+Shivam wants the page to feel more alive; the instinct is right, the location was
+wrong. Interaction should **demonstrate the work**, never decorate it:
+
+- **The architecture diagram** — hover or focus a surface (extension, CLI,
+  dashboard, TradeSense) and highlight what it imports from `core`. This teaches
+  the boundary that is the whole point of the case study.
+- **FlowTrace self-healing** — step through: selector drifts → model proposes →
+  engine re-verifies → fix written back. The mechanism *is* the story.
+- **Real live status**, per F2 option 2.
+- **Copy-to-clipboard** on evidence blocks and the email address. Small, useful,
+  never fake.
+
+Every one must work without JavaScript and be reachable by keyboard, not just
+hover.
+
+---
+
+## 15. Review #3 — end-to-end browser audit (2026-09-03)
+
+Method: headless Chromium (Playwright 1.62.1) driven by a purpose-written
+harness — **5 routes × 4 viewports × 2 colour schemes = 40 page loads**. Per load
+it captured console output, failed requests, layout overflow, heading order,
+link/button accessible names, section geometry, and computed WCAG contrast for
+every text node against its resolved background (~249 nodes per page).
+Screenshots reviewed at 1920 in both themes.
+
+Artefacts: `scratchpad/audit.mjs`, `audit.json`, `home-light.png`, `home-dark.png`.
+
+### What is clean — verified, not assumed
+
+- **Zero console errors, zero page errors, zero failed requests** across all 40 loads.
+- **Zero images missing `alt`.** Zero links without an accessible name. Zero links
+  with `target="_blank"` lacking `rel="noopener"`. Zero buttons without a name.
+- **Exactly one `<h1>` per route.**
+- **Text contrast passes AA nearly everywhere** — 2 failures out of ~249 nodes
+  per page.
+
+That is a genuinely well-built front end. The findings below are design and
+content, not hygiene.
+
+### G1 — Contrast: Shivam's complaint is real, but it is NOT a text-contrast bug
+
+Measured, so the fix targets the right thing:
+
+| | Result |
+|---|---|
+| Text nodes checked per page | ~249 |
+| AA failures | **2** |
+| The failure | `muted` on the terminal band: `rgb(105,100,89)` on `rgb(8,7,6)` = **3.42:1**, needs 4.5 (11px). Both themes, home page, `[dag-engine]` label. |
+
+So legibility is fine. The flatness comes from **surface geometry**, and the
+harness proves it — home page, light, 1920:
+
+```
+section#work        1920px wide   bg = rgba(0,0,0,0)   ← transparent
+section#secondary   1920px wide   bg = oklab(0.970 …/0.7)  ← 0.970 vs paper 0.968
+section#experience  1920px wide   bg = rgba(0,0,0,0)
+section#principles  1920px wide   bg = rgba(0,0,0,0)
+section#contact     1920px wide   bg = rgba(0,0,0,0)
+body                             rgb(247,245,240)
+```
+
+**Five of six sections are fully transparent, and the sixth is 0.2% lighter than
+the page.** The entire light theme is one surface. There is no dark plate, no
+sunk surface, nothing to give the eye a rhythm. Shivam described it as
+"white/near-white on white" — that is exactly what the numbers say.
+
+**Dark mode does not have this problem.** The screenshots make it plain: warm
+charcoal `#14130f` with `#edeae1` text reads well, and the terminal band and HUD
+sit into it naturally. **The light theme is the one that needs work**, which is
+worth knowing before anyone "fixes contrast" globally and breaks the good half.
+
+Fix as in §14 F1: promote `--ink` to a *surface* for one or two full-bleed bands,
+add a `--paper-sunk` below paper for inset areas, and widen `paper`/`raised`
+slightly. All by `color-mix` from the existing six — check 1 stays satisfied.
+Also fix the one real failure by using `ink`-on-terminal at ≥4.5:1 rather than
+`muted`.
+
+### G2 — Ragged left margin: sections do not share a left edge
+
+Visible in the screenshot and confirmed by geometry. At 1920:
+
+| Element | Container | Left edge |
+|---|---|---|
+| Header, hero | `shell` (80rem = 1280px) | x ≈ 360 |
+| `#work`, `#experience`, `#contact`, … | `wide` (72rem = 1152px) | x ≈ 424 |
+
+A 64px step between the hero's left edge and every section beneath it. On a page
+whose whole argument is precision, a wandering left margin is the first thing a
+designer's eye catches — and it is *more* damaging than the width itself.
+
+**Fix:** one shared page edge. Adopt Amendment 1 (§13) — bands full-bleed with
+contents to 80rem — and make every section resolve to the same left edge as the
+header. Prose measure narrows *inside* that column; it must not move the column.
+
+### G3 — The empty band beneath the hero, quantified
+
+Confirms §14 F3 with a measurement: an **~85px strip bounded by two hairline
+rules** and containing nothing (visible in both screenshots between y≈563 and
+y≈648). Cause is the doubled rule — `hero.tsx:11` `border-b border-rule` plus the
+next `<Section rule={true}>`.
+
+**Fix:** delete one rule. Do not fill the band.
+
+### G4 — Mobile horizontal overflow (390px viewport)
+
+Real bug, both themes: `document.scrollWidth` **400px** against a 390px viewport,
+so the whole page scrolls sideways. Culprits, from the harness:
+
+| Element | Width |
+|---|---|
+| `table.w-full.min-w-[640px]` (inventory) | **745px** |
+| `div.…overflow-hidden.min-w-[640px]` (its wrapper) | 640px |
+| two `<svg>` diagrams | **580px** each |
+
+**Fix:** §5 already requires wide content to scroll *inside its own*
+`overflow-x:auto` container. The wrapper has `overflow-hidden`, not `auto`, so
+the table pushes the page instead of scrolling within itself. Give the diagrams
+`max-width:100%` with `viewBox` scaling. Nothing but the intended scroller may
+exceed the viewport.
+
+### G5 — Heading hierarchy skips h2 → h4 on every case study
+
+`/work/workflow-studio`, `/work/flowtrace`, `/work/pracharflow` all jump from
+`h2` to `h4` at "Consequence & Verified Outcome" and again at "Active Roadmap".
+Screen-reader users navigating by heading level lose the structure.
+
+**Fix:** make them `h3`, or restructure so the level is earned. Purely a tag
+change; the visual size is set by classes and need not move.
+
+### G6 — Navigation label disagrees with itself
+
+The header calls the section **"Values"**; the hero's inline nav calls the same
+anchor **"How I Work"**; the section id is `#principles`. Three names, one
+destination.
+
+**Fix:** pick one. §3 specifies **"How I Work"**; the section id can stay
+`#principles`.
+
+### G7 — Light-mode HUD is a colour-temperature outlier
+
+Visible in `home-light.png`: the hero panel is cool grey on warm cream — it reads
+as pasted in from another site, because its palette *is* from another system
+(§14 F2, raw `neutral-*`). In dark mode the mismatch largely disappears, which is
+why this must be judged in light mode.
+
+Superseded anyway by §14 F2: the panel's content is fabricated telemetry and it
+should be removed or made real, not restyled.
+
+### Priority order for these
+
+1. **G4** mobile overflow — a broken page on phones, and cheap to fix.
+2. **§14 F2** the fabricated HUD — highest credibility risk.
+3. **G2 + §13** shared left edge and width — the "A4 document" complaint.
+4. **G1** light-theme tonal range.
+5. **G3, G5, G6** — small, quick, visible.
+6. **§14 F4** palette guard + citation guard in CI, so none of this returns.
+
+---
+
+## 16. Review #4 — the proposed footer rebuild (2026-09-03)
+
+An external agent proposed a four-column footer with copy-paste TSX. **Verdict:
+adopt the structure, reject the code.** The diagnosis is largely right; the
+implementation would reverse several fixes landed today and ship a dead link.
+
+### Where the proposal is right
+
+- **Remove the location from the copyright line.** Agreed — it is already in the
+  hero, and the copyright line is not the place for it.
+- **A footer project directory.** Agreed. A reader who has scrolled to the bottom
+  is the most interested reader on the page and should not have to scroll back up.
+- **The footer should feel like an anchor.** Agreed in principle — with the
+  caveat in H3 below, because "deep structured technical console" is the exact
+  reasoning that produced the fabricated HUD.
+
+### Blocking defects in the proposed code
+
+**H1 — Roughly 30 raw Tailwind palette values.** `neutral-100/200/300/400/500/
+600/800/900/950` and `emerald-400/500/600` throughout. This is §5 check 1, the
+single rule the project's whole visual argument rests on, and it would fail the
+palette guard specified in §14 F4. Every colour must be a token.
+
+> Note: the **current** footer already violates this — `components/footer.tsx:7`
+> is `border-neutral-800 bg-neutral-950 text-neutral-400`. So this is a
+> pre-existing defect the proposal preserves rather than introduces. Both need
+> fixing. `bg-neutral-950` is also cool black against a warm-charcoal page
+> (check 2).
+
+**H2 — Two broken anchors.** The proposal links `#inventory` and `#values`.
+Neither exists. The real ids, verified in `app/page.tsx`, are `work`,
+`secondary`, `experience`, `principles`, `contact`. A footer whose links do
+nothing is worse than no footer.
+
+**H3 — Fabricated status line, again.**
+`SYS_STATUS: NOMINAL · ZERO CLIENT-SIDE RUNTIME BLOAT`. Nothing measures
+"NOMINAL", and the second half is **false** — the page ships client JavaScript
+(`hero.tsx`, `tilt-card.tsx`, `theme-toggle.tsx` are all `"use client"`). This is
+the same defect as the hero HUD and the `SkiaRenderer.java` citation: invented
+instrumentation as decoration. Cut it.
+
+**H4 — The Cal.com link is dead.** `https://cal.com/shivambhaipatel/intro`
+returns **404** (checked). It is already in `content/site.ts:13`, and the
+proposal promotes it to a prominent "Book Intro Call (20m)" call to action. Shipping
+a 404 as your primary conversion CTA is worse than having no booking link.
+**Either create the Cal.com event or remove the link from `site.ts`.** GitHub and
+LinkedIn both resolve 200.
+
+**H5 — Reintroduces the ragged left margin.** `max-w-6xl` is 72rem. §13 and G2
+require every band to resolve to the same 80rem edge as the header. This would
+re-open the defect fixed hours earlier.
+
+**H6 — A directory where three of four entries go to the same place.** Workflow
+Studio, FlowTrace and PracharFlow all link `#work`. Deep-link each to its case
+study — `/work/workflow-studio`, `/work/flowtrace`, `/work/pracharflow` — which
+is what a reader clicking a project name wants.
+
+**H7 — Two factual errors in the labels.**
+- *"FlowTrace / SyntraFlow"* — ~~SyntraFlow does not exist~~ **RETRACTED
+  2026-09-04: SyntraFlow is the correct current name; the client renamed it from
+  SyntraIntelli. My claim was based on stale memory and cost six correct strings
+  on the live page before Shivam caught it. The *ownership* point below stands
+  and was always the real issue.** SyntraFlow is
+  the product built for FirstCron (client work); FlowTrace is the independent
+  product. Merging the names re-imports precisely the client-IP confusion removed
+  from agent-memory today. Label it **FlowTrace**, nothing else.
+- *"DealDekho · Telemetry Platform"* — DealDekho is a **price-comparison
+  aggregator**. It has nothing to do with telemetry.
+
+**H8 — DealDekho must not be linked at all right now.** It is down (§4.1). The
+§6 content model requires `live.status !== 'up'` to render without a link.
+
+**H9 — Small regressions.** Hardcoded `© 2026` replaces the existing
+`new Date().getFullYear()`. Emails and URLs are hardcoded rather than read from
+`content/site.ts`, duplicating the single source of truth. The `href` values
+arrive as `[https://…](https://…)` — Markdown link syntax that would ship
+literally. And the proposal adds a *second* availability badge while its own
+critique argues against redundancy.
+
+### What to build instead
+
+Four columns, same structure, all colours from tokens:
+
+1. **Identity** — name, "Systems engineer", one-line description, copyright with
+   a computed year. No location, no availability badge (the hero has it), no
+   fake status string.
+2. **Systems** — Workflow Studio, FlowTrace, PracharFlow deep-linked to their
+   case studies. DealDekho listed **without a link** until it is redeployed.
+3. **Navigation** — `#work`, `#secondary`, `#experience`, `#principles`,
+   `#contact`, `/resume`. Use real ids.
+4. **Connect** — GitHub, LinkedIn, email (all from `site.ts`), plus Cal.com
+   **only once the event exists**.
+
+Optional colophon: "Built with Next.js." Honest and checkable. Nothing about
+bloat.
+
+**Open question Q10:** `content/site.ts:8` uses `shivambhaipatel1997@gmail.com`;
+the old live site uses `shivam25797@gmail.com`. Confirm which is canonical — a
+portfolio should show the address you actually read.
+
+---
+
+## 17. SEO and machine-readability (2026-09-03)
+
+### Current state: essentially nothing
+
+Audited `app/layout.tsx` and the tree. Present: a title template and
+`themeColor`. **Absent:** description, `metadataBase`, canonical, Open Graph,
+Twitter card, OG image, `robots.txt`, `sitemap.xml`, JSON-LD, favicon, manifest,
+`llms.txt`, per-route metadata. The description is a deliberate placeholder with
+a comment saying real copy lands with the content work — correct call at the
+time, now due.
+
+### Be honest about the goal
+
+This site will not rank for "java developer india". That term is owned by job
+boards with millions of backlinks, and chasing it is wasted effort. The
+achievable and genuinely valuable targets are:
+
+1. **His name.** "Shivam Bhai Patel" must return this site first — above
+   LinkedIn, GitHub and any namesake. A recruiter who has his CV *will* search
+   the name. This is the single highest-value SEO outcome and it is winnable.
+2. **His project names.** "Workflow Studio multi-agent", "FlowTrace ERP
+   replay", "PracharFlow". Low competition, and someone searching these is
+   already interested.
+3. **Answer engines.** Increasingly a recruiter asks an assistant "who is this
+   candidate, what have they built". That is what the AI-context work below is
+   for, and it is the part most portfolios have not done.
+
+**No keyword stuffing.** §9 governs: it would trip the same over-claiming
+reflex the whole site is built to avoid, and modern ranking punishes it anyway.
+
+### S1 — Core metadata (`app/layout.tsx`)
+
+- `metadataBase: new URL("https://shivambhaipatel.com")` — required, or OG and
+  canonical URLs render relative and break on every social platform.
+- `description` — one sentence, ~155 chars, plain English, no buzzwords. Must
+  survive a non-technical reader (see the recruiter review, §18).
+- `alternates.canonical` per route. `trailingSlash: true` is set, so canonicals
+  must match that form exactly or they self-conflict.
+- `openGraph`: type `profile`, siteName, locale `en_IN`, title, description, url,
+  images.
+- `twitter`: `summary_large_image`.
+- `robots`: `index, follow`, plus `googleBot` with `max-image-preview:large`,
+  `max-snippet:-1` — otherwise Google may truncate the snippet in exactly the
+  result that matters.
+- `authors`, `creator`.
+- **Per-route metadata on every `/work/*` page and `/resume`.** Generic
+  inherited titles waste the pages most likely to rank.
+
+### S2 — OG image
+
+Recruiters share links in Slack, WhatsApp and email. A link with no preview card
+looks broken. Generate with `next/og` `ImageResponse` at 1200×630: name, "Systems
+engineer", and the project name on case-study routes. Site palette, no stock art.
+
+> **Static export caveat:** `output: "export"` cannot render `ImageResponse` at
+> request time. Generate at build into static files, or commit pre-rendered PNGs.
+> Verify the built output actually contains them — a missing OG image fails
+> silently and is only visible when someone shares the link.
+
+### S3 — `robots.txt` and `sitemap.xml`
+
+Use `app/robots.ts` and `app/sitemap.ts` (both work under static export).
+Sitemap lists `/`, the three `/work/*` routes, and `/resume`, with real
+`lastModified` values.
+
+### S4 — Structured data (JSON-LD) — the highest-leverage item
+
+This is what makes Google show a knowledge panel for his name, and what answer
+engines read first. Inline `<script type="application/ld+json">`:
+
+- **`Person`** on the home page — `name`, `jobTitle`, `url`, `image`, `email`,
+  `sameAs` (GitHub, LinkedIn — this is how search engines *link the identities
+  together*, and it is the mechanism behind ranking for his name),
+  `worksFor`, `alumniOf`, `address` (Prayagraj, IN), `knowsAbout` (a real,
+  short list — not 40 keywords).
+- **`WebSite`** with `url` and `publisher`.
+- **`SoftwareApplication`** or **`CreativeWork`** per case study —
+  `name`, `description`, `author` (referencing the `Person`), `url`,
+  `programmingLanguage`.
+- **`BreadcrumbList`** on `/work/*`.
+
+Every value must match visible page content. Structured data that contradicts
+the page is a manual-action risk, and it is the same honesty rule as §9.
+
+### S5 — AI and scraper context ("AI context")
+
+Deliberate position: **he wants to be read by AI crawlers.** Most sites block
+them; blocking here would be self-defeating, because the target reader
+increasingly asks an assistant about a candidate before opening the site.
+
+- **`/llms.txt`** — the emerging convention: a plain-Markdown summary at the
+  root, written for a model rather than a browser. Who he is, what he has built,
+  each project in two lines with its real constraint and decision, the stack,
+  the contact routes, and links to the case studies. This is the file an
+  assistant will quote when asked "what has this person built" — so it must be
+  factual, specific and free of adjectives. Draft it from §4 of this spec, which
+  is already written to that standard.
+- **`robots.txt` explicitly ALLOWS** `GPTBot`, `ClaudeBot`, `PerplexityBot`,
+  `Google-Extended`, `CCBot`, `Applebot-Extended`. State the intent in a comment
+  so the choice reads as deliberate.
+- **Semantic HTML, real text.** Nothing that matters may live only inside an
+  image, a canvas, or a `::before`. The diagrams are inline SVG — good — but each
+  needs `<title>`/`<desc>` so its meaning survives extraction.
+- **Server-rendered content.** Static export already guarantees this; keep it
+  that way. Anything rendered only after hydration is invisible to most
+  scrapers.
+
+### S6 — Hygiene
+
+Favicon and `apple-touch-icon` (currently absent — the tab shows a blank page
+icon, which reads as unfinished). `manifest.webmanifest`. `lang="en"` is set;
+consider `en-IN`. Verify no `noindex` survives from development.
+
+### S7 — What to measure after launch
+
+Google Search Console verified; confirm the name query ranks first within a
+fortnight. Test the OG card with a real share into Slack or WhatsApp before
+announcing the site. Validate JSON-LD in the Rich Results Test. Re-run
+Lighthouse SEO — target 100, which is achievable on a static site.
+
+---
+
+## 19. CONSOLIDATED STATE — read this before changing anything (2026-09-04)
+
+Ten review messages have gone to the implementer. This section is the single
+current statement of what is settled, what is protected, what was rejected, and
+what is left. **Where this section disagrees with an older one, this wins.**
+
+### 19.1 PROTECTED — do not change without asking
+
+These survived review and several were singled out as the site's strongest
+assets. Changing them is a regression, not an improvement.
+
+| Protected | Why |
+|---|---|
+| **Case-study structure**: situation → constraint → decision → consequence | The recruiter called it "genuinely rare — better than most 10-year engineers produce" |
+| **"Trade-offs & What's Left" sections** | Same. Admitted limitations are the strongest honesty signal on the site |
+| **The plain-English lead sentences** on Workflow Studio, FlowTrace, PracharFlow | These do the first-filter job. A "tighter" rewrite was proposed and **rejected** — see 19.3 |
+| **"I build the machinery other software runs on."** | The one line a non-technical person can repeat to a hiring manager |
+| **The terminal / editorial aesthetic** | Well executed; lands with engineering managers. The objection was never the style |
+| **Status labels** — "in redeployment", "cold start ~10 s" | Honesty mechanism. Removing them was proposed and **rejected** — see 19.3 |
+| **`/resume.pdf`** — real 192 KB `%PDF-1.4` file | Verified working. Do not replace with a print-dialog flow |
+| **Token palette + the six-colour system** | The whole anti-generic argument rests on it |
+| **Skip link, one `h1` per route, accessible names, `rel="noopener"`** | Verified clean across 40 page loads. Do not regress |
+| **`content/*.ts` as single source of truth** | Status flags and copy must stay data-driven, not hardcoded in markup |
+
+### 19.2 SETTLED FACTS — do not re-derive or "correct"
+
+| Fact | Status |
+|---|---|
+| Product for FirstCron is **SyntraFlow** | Renamed from SyntraIntelli. Anything saying SyntraIntelli is **stale**. Confirmed by Shivam 2026-09-04 |
+| **FlowTrace ≠ SyntraFlow** | FlowTrace is Shivam's own product; SyntraFlow is the client's. Never aliases, never a slash |
+| **FlowTrace is NOT used in SyntraFlow, and is not deployed at FirstCron** | Confirmed by Shivam 2026-09-04. SyntraFlow has its **own separate** recorder/replayer. FlowTrace is an internal tool intended for the **enterprise automation platform** (SAP / Oracle / ERP) — and that integration is **planned, not shipped**, so it may only ever appear in future tense. The "50+ business entities" figure belongs to the FirstCron engagement in the experience section, never attached to FlowTrace. *Merged three times now — treat any sentence containing both names as stop-and-ask.* |
+| **Workflow Studio: "used on" ≠ "imported by"** | Two distinct relationships, never to be blurred. **USED ON** — it is a development-time tool run while *building* FlowTrace, PracharFlow and the enterprise platform; those repos keep a `.workflowstudio/` directory but contain no Workflow Studio code and do not depend on it at runtime. **IMPORTED BY** — exactly one product depends on it as a library: **TradeSense** (`tradesense/package.json`, finance nodes on the DAG runtime). Listing projects that merely *used* the tool alongside the one that *imports* it would weaken the rare claim by diluting it into the common one |
+| **FlowTrace ↔ enterprise platform: NOT integrated** | Confirmed 2026-09-04. Both sides are built: FlowTrace recorder + replayer tested standalone and working; the platform's UI and backend built, with login and dashboard tested. **The API bindings between them are unwritten** — Shivam estimates ~4–5 hours, his goal for the weekend of 2026-09-05. Never "integrated", "powering", "deployed within" or "runs on top of" until it lands |
+| **PracharFlow: Telegram tested, WhatsApp coded but untested** | Confirmed 2026-09-04. Accurate wording: "Delivered over Telegram in production. WhatsApp delivery is implemented; end-to-end testing is pending." Distinguishing *written* from *tested* is a credibility asset, not a weakness |
+| **Electron packages the FlowTrace desktop build** | Confirmed 2026-09-04 — Windows executable/installer and macOS DMG. Stack chip is correct |
+| **SQLite WAL is real** | Verified in source: `workflow-studio/src/engine/db.ts:559` runs `pragma('journal_mode = WAL')`. Keep the label |
+| Reflexis: **Nov 2021 – Mar 2024**; Consulting: **Apr 2024 – Present** | Confirmed. FirstCron ongoing; SamMegh contract Dec 2024 – Sep 2025 |
+| **800 ms → 300 ms belongs to SamMegh only** | FirstCron pipeline work is a *different task*; must not borrow the number |
+| **"Available within 1 week · Full-time / Contract"** — exact wording | Not "0-day", not "immediate joiner". **No explanatory clause** — a "currently on a per-day contract" note was proposed and dropped 2026-09-04: a recruiter can read it as a *preference* ("does contract work, not available full-time") rather than as a circumstance. The line needs no justification |
+| **All GitHub repos are private** (five checked, all 404) | Quoted-artefact evidence cannot be presented as reader-verifiable |
+| Hero total reads **"four years"** | Conservative and safe. Do not inflate |
+| **"Open to relocation anywhere in India — or remote"** | Confirmed by Shivam 2026-09-04. **Name no city.** "Bangalore" was an *inference* written as a claim; it is also narrower than the truth and filters him out of Hyderabad / Pune / NCR / Chennai roles. Lead with mobility, not with his base city — "Prayagraj" first triggers the Tier-2 geographic discount |
+| `cal.com/shivambhaipatel/intro` is **404** | Link must not ship until the event exists |
+
+### 19.2b THE RULE THAT KEEPS BEING BROKEN — facts only Shivam owns
+
+Three times in one day a claim about Shivam's *life* was written onto the page
+without him saying it: "0-day notice", "Open to Bangalore", and (earlier) the
+invented telemetry and citation. The Bangalore case is the instructive one,
+because the inference was **reasonable and roughly true** — which makes it
+harder to catch, not less serious.
+
+**Anything about where he will live, when he can start, what he is paid, what he
+will accept, who he has worked for, or what he is willing to do is a fact only he
+owns.** It cannot be inferred, reasoned toward, or filled in from context. If it
+is not in writing from him, leave the field out or ask. A plausible guess is the
+worst outcome available: it is invisible until a recruiter asks him about it in a
+call and he does not recognise his own portfolio.
+
+This applies with equal force to review suggestions. A reviewer proposing "add
+0-day notice" or "say Bangalore" is proposing **content about his life**, not
+copy — it routes to Shivam, never straight to the page.
+
+### 19.3 REJECTED PROPOSALS — do not action if re-circulated
+
+1. **Strip the "in redeployment" / "cold start" labels.** Removing the label
+   while keeping the link sends recruiters to a dead page — strictly worse. The
+   honest options are fix the deploy, or drop the project from the primary
+   inventory. Shivam's call.
+2. **The "tighter HR-friendly lead"** ("Developer Productivity Infrastructure:
+   a multi-agent orchestration engine…"). More jargon, not less; contradicts its
+   own reviewer's advice. Current sentence stays.
+3. **"0-day notice / immediate joiner."** Overstates a genuinely strong
+   position and invites correction at offer stage.
+4. **The verbatim footer TSX** (§16). Structure adopted; code rejected — raw
+   palette, broken anchors, fabricated status line, dead Cal.com CTA, 72rem width.
+5. **Live client-side status fetching.** CORS makes it unreliable and it breaks
+   `window.open`. Build-time probe plus optional Worker instead (§17 / the
+   link-status design).
+
+### 19.4 OPEN QUEUE — in order
+
+1. J2 — remove the 800/300 line from the FirstCron block; grep for a third copy
+2. H1 — availability wording in the recruiter card
+3. J5 — "Archived" contradicts the FlowTrace case study
+4. J6 — "50+ entities" → "50+ business entities at a single client"
+5. G4 + J9 — mobile horizontal overflow (400px at a 390px viewport) and the clipped theme toggle
+6. G2 + §13 — one shared left edge; bands full-bleed to 80rem
+7. G1 — light-theme tonal range (five of six sections are transparent)
+8. G3, G5, G6 — doubled rule under the hero; h2→h4 skips; nav naming
+9. A2 — Enterprise Platform over-claim
+10. CI guards — palette guard and citation resolver
+11. §17 — SEO and `llms.txt`, JSON-LD first
+
+### 19.5 BLOCKED ON SHIVAM
+
+- Cal.com: create the event or remove the link.
+- Canonical email: `shivambhaipatel1997@` (in `site.ts`) vs `shivam25797@` (old site).
+- DealDekho: redeploy before launch, or move it out of the primary inventory.
+- Real figure for the FirstCron pipeline improvement, if one exists.
+- Reflexis baseline volume, if he can source and defend it.
+- Whether to make a repo public or publish `@workflow-studio/core` to npm —
+  the single highest-leverage credibility fix available (§18 / recruiter #1).
+
+---
+
+## 13. Amendment 1 — page width and chrome (2026-09-03)
+
+Raised by Shivam on seeing the build: it reads as a desktop page squeezed into an
+A4 document. **He is right, and this is a defect in §5, not in the
+implementation.** "Single measured column, ~68ch for prose. Not a full-bleed
+1440px grid" was my rule; it was implemented faithfully (`wide` = 72rem = 1152px
+for every band, `shell` = 80rem for header and footer).
+
+**What went wrong in the reasoning.** A 68ch measure is correct for *running
+prose* and I over-generalised it into a rule for the *page*. A portfolio home
+page is not an essay: it carries a hero, architecture diagrams, an evidence
+table, and a project inventory, none of which obey a reading measure. Applying
+one measure to all of it produces the document look — and a document is the one
+thing a portfolio must not be mistaken for, because "first impression" is the
+whole job of the page.
+
+**The amendment.** Keep the editorial character; stop letting the reading measure
+govern structure.
+
+| Element | Before | After |
+|---|---|---|
+| Running prose, case-study body | 68ch | **68ch — unchanged.** This part was right. |
+| Section bands, project cards, inventory table | 72rem | **full-bleed background, contents to 80rem** |
+| Architecture diagrams | 72rem | **up to 90rem**; they are the widest thing on the page and should feel it |
+| Hero | 72rem | **80rem**, with the claim itself still breaking at ~20ch so it stays a shape, not a line |
+| Header / footer | 80rem | unchanged |
+
+The test: on a 1920px display the page must not look like a sheet of paper
+floating on a background. Bands should touch both edges; only the *text inside
+them* should be measured.
+
+### Chrome — what the page needs, decided
+
+Shivam asked whether it needs a header, sidebar, footer, contact and messaging.
+Answers, with reasons:
+
+- **Header — yes, and it exists.** Keep it. A portfolio without navigation makes
+  the reader scroll to find out whether there is anything worth scrolling for.
+- **Footer — yes, and it exists.** Repeat the contact routes there; the footer is
+  where a convinced reader looks.
+- **Sidebar — no.** It adds chrome without content and is the shape of an app,
+  not a portfolio. **Instead:** a sticky marginalia rail on wide viewports
+  showing section position, which §5 already calls for and which does the useful
+  half of a sidebar's job.
+- **Contact section — yes, and it exists. No form.** §4.7 stands: nobody senior
+  fills a four-field form, and it costs a server route, a dependency and a spam
+  surface. Make the routes unmissable instead — email as a large direct link with
+  copy-to-clipboard, LinkedIn, GitHub, and a booking link if Shivam wants one.
+- **Messaging / live chat — no.** A chat widget on a personal portfolio signals
+  "vendor", is unstaffed the moment he is asleep, and is third-party JS on a page
+  whose whole argument is craft.
+
+**Still blocking, unchanged:** Q8 (real employment dates). Shivam has said the
+timeline is a simple date correction and not a concern — but the dates themselves
+have not yet been supplied, so §4.6 cannot be written. Everything else in P2/P3
+can proceed around it.

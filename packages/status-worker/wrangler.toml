@@ -1,0 +1,6 @@
+name = "portfolio-status-probe"
+main = "index.ts"
+compatibility_date = "2024-09-01"
+
+[placement]
+mode = "smart"

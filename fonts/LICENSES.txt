@@ -1,0 +1,50 @@
+Self-hosted typefaces — licence record
+======================================
+
+Spec §5 Type names three faces. All three are licensed under the
+SIL Open Font License 1.1, which permits commercial use, embedding,
+and redistribution as part of a bundled software/web project, provided
+the font files are not sold on their own and the copyright notice below
+travels with them. No attribution is required in the rendered page.
+
+Files were subset by Google Fonts (latin + latin-ext) and fetched on
+2026-09-03 from fonts.gstatic.com. They are served by next/font/local
+from this directory — not from public/ — so Next.js fingerprints them
+and emits the @font-face rules itself. No runtime request leaves the
+origin; see spec §5 "Self-host via next/font".
+
+--------------------------------------------------------------------
+Fraunces  (display)
+  fraunces-latin.woff2, fraunces-latin-ext.woff2
+  Copyright (c) 2019 The Fraunces Project Authors
+    https://github.com/undercasetype/Fraunces
+  Licence: SIL Open Font License, Version 1.1
+    https://openfontlicense.org
+  Variable. Google's subsetter serves the wght axis (400..700).
+  We request `font-optical-sizing: auto`; if the opsz axis is absent
+  from this cut the declaration is inert rather than wrong.
+
+Instrument Sans  (body)
+  instrument-sans-latin.woff2, instrument-sans-latin-ext.woff2
+  Copyright (c) 2023 The Instrument Sans Project Authors
+    https://github.com/Instrument/instrument-sans
+  Licence: SIL Open Font License, Version 1.1
+  Variable on wght (400..700).
+
+JetBrains Mono  (technical)
+  jetbrains-mono-latin.woff2, jetbrains-mono-latin-ext.woff2
+  Copyright (c) 2020 The JetBrains Mono Project Authors
+    https://github.com/JetBrains/JetBrainsMono
+  Licence: SIL Open Font License, Version 1.1
+  Variable on wght; we use 400 and 500.
+--------------------------------------------------------------------
+
+OFL 1.1 summary of obligations we meet:
+  - Fonts are bundled with, and only with, this website.
+  - Font files are not sold separately.
+  - The copyright notices above are retained in this file, which ships
+    with the repository.
+  - No Reserved Font Name is used to describe a modified version; we
+    ship the upstream subsets unmodified.
+
+Full licence text: https://openfontlicense.org/open-font-license-official-text/

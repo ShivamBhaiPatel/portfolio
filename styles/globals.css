@@ -1,0 +1,401 @@
+@import "tailwindcss";
+
+/* =============================================================================
+ * PORTFOLIO DESIGN TOKENS
+ *
+ * This file is the whole design system. Every colour, type size, spacing step,
+ * radius and duration on the site is defined here and nowhere else, so a
+ * restyle is one file rather than a hunt through components. A raw hex, px
+ * size or ms duration appearing in a .tsx file is a review failure.
+ *
+ * Values marked (§5) are copied verbatim from PORTFOLIO_SPEC.md §5. Do not
+ * change those without changing the spec first — that document is owned
+ * elsewhere. Everything else is derived and explained in place.
+ *
+ * Spec §5 check 1: no unmodified framework palette values. Nothing below is
+ * greppable in Tailwind's default palette. Tints are produced with color-mix()
+ * from the six tokens rather than by introducing a seventh hex.
+ * ========================================================================== */
+
+/* -----------------------------------------------------------------------------
+ * 1. COLOUR — light is the default; the site is paper.
+ *
+ * Held in plain custom properties (not @theme) because they have to change at
+ * runtime for dark mode. @theme inline below re-exports them to Tailwind so
+ * `bg-paper` / `text-ink` / `border-rule` resolve through the same variables.
+ * -------------------------------------------------------------------------- */
+:root {
+  color-scheme: light;
+
+  --paper: #f7f5f0; /* (§5) page ground */
+  --raised: #ffffff; /* (§5) cards, rare */
+  --ink: #16150f; /* (§5) body text, headings */
+  --muted: #6b675c; /* (§5) captions, metadata */
+  --rule: #e0dcd2; /* (§5) 1px separators */
+  --accent: #8a3b12; /* (§5) links, one live-status dot. Burnt sienna, sparingly */
+
+  /* Derived, so that check 1 stays true: every tint is a mix of the six above.
+     --wash is the only "fill" in the system — selection, code blocks, the
+     marginalia gutter. There is no card colour beyond --raised, on purpose. */
+  --wash: color-mix(in oklab, var(--accent) 9%, var(--paper));
+  --wash-strong: color-mix(in oklab, var(--accent) 16%, var(--paper));
+  --rule-strong: color-mix(in oklab, var(--rule) 55%, var(--ink));
+
+  /* Measures for Container maxWidth */
+  --measure-prose: 68ch;
+  --measure-narrow: 52ch;
+  --measure-wide: 80rem;
+  --measure-shell: 80rem;
+  --measure-diagram: 90rem;
+}
+
+/* Dark: warm charcoal, never slate. (§5 check 2.)
+   Applies under prefers-color-scheme UNLESS the reader has explicitly chosen
+   light; the explicit toggle below always wins in both directions. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #14130f; /* (§5) */
+    --raised: #1c1b16; /* (§5) */
+    --ink: #edeae1; /* (§5) */
+    --muted: #918c7e; /* (§5) */
+    --rule: #2e2c25; /* (§5) */
+    --accent: #d98b5f; /* (§5) */
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #14130f;
+  --raised: #1c1b16;
+  --ink: #edeae1;
+  --muted: #918c7e;
+  --rule: #2e2c25;
+  --accent: #d98b5f;
+}
+
+/* Measured contrast, both themes, against --paper and --raised
+   (WCAG 2.1 relative luminance; see the numbers in the styleguide's
+   contrast table, which computes them live rather than trusting this comment):
+     ink    16.79:1 light / 15.45:1 dark   — AA body, comfortably
+     muted   5.18:1 light /  5.54:1 dark   — AA body
+     accent  7.10:1 light /  6.91:1 dark   — AA body, and AA for the focus ring
+   --rule is ~1.3:1 by design. It is a decorative separator, not a UI control
+   or meaningful graphic, so 1.4.11 does not apply to it. Nothing is ever
+   distinguished by --rule alone. */
+
+/* Let the Tailwind `dark:` variant follow the same two rules as the tokens,
+   so a component that does reach for it cannot disagree with the palette. */
+@custom-variant dark {
+  @media (prefers-color-scheme: dark) {
+    &:where(:root:not([data-theme="light"]), :root:not([data-theme="light"]) *) {
+      @slot;
+    }
+  }
+  &:where([data-theme="dark"], [data-theme="dark"] *) {
+    @slot;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+ * 2. STATIC TOKENS — type, space, geometry, motion.
+ * Exposed to Tailwind as utilities (text-display, p-lg, rounded-sm, ...).
+ * -------------------------------------------------------------------------- */
+@theme {
+  /* --- Type faces (§5 Type). Self-hosted via next/font/local; the
+     --font-*-src variables are injected by app/fonts.ts. Fallback stacks are
+     metric-neighbours, not system-ui, so a font failure degrades to something
+     with the same colour rather than to the anti-pattern in check 4. */
+  --font-display: var(--font-fraunces), "Iowan Old Style", "Palatino Linotype",
+    Palatino, Georgia, serif;
+  --font-sans: var(--font-instrument-sans), "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo,
+    Consolas, monospace;
+
+  /* --- Type scale. Roughly a 1.25 ratio, fluid only at the two display sizes
+     so that a phone gets a headline that fits rather than one that wraps to
+     four lines. Body is 17px: this is a reading site, not a dashboard. */
+  --text-display: clamp(2.75rem, 1.55rem + 4.4vw, 4.5rem); /* hero claim */
+  --text-title: clamp(1.875rem, 1.45rem + 1.6vw, 2.5rem); /* page h1 */
+  --text-heading: 1.5rem; /* section h2 */
+  --text-subheading: 1.1875rem; /* h3 */
+  --text-lead: 1.25rem; /* standfirst under a heading */
+  --text-body: 1.0625rem; /* 17px — prose */
+  --text-small: 0.9375rem; /* 15px — captions, table cells */
+  --text-meta: 0.8125rem; /* 13px — mono metadata, marginalia */
+
+  /* Line height. Prose gets 1.65; headings get tight, because Fraunces at
+     display size with default leading looks like a slide deck. */
+  --leading-display: 0.98;
+  --leading-title: 1.1;
+  --leading-heading: 1.25;
+  --leading-body: 1.65;
+  --leading-tight: 1.35;
+
+  /* Tracking. Negative on display (optical), open on mono metadata (caps). */
+  --tracking-display: -0.021em;
+  --tracking-title: -0.015em;
+  --tracking-body: 0em;
+  --tracking-meta: 0.06em;
+
+  /* --- Measure (Prose for reading comfort, wide & shell for spacious desktop grids) */
+  --measure-prose: 68ch;
+  --measure-narrow: 52ch;
+  --measure-wide: 80rem;
+  --measure-shell: 80rem; /* outer bound for header, bands, and wide grids */
+  --measure-diagram: 90rem; /* architecture diagrams: widest element on page */
+
+  /* --- Spacing. Named steps, not a numeric ramp, so that "the gap between
+     sections" is one decision made once rather than a 24-vs-32 argument per
+     component. Roughly x1.45 between steps. */
+  --spacing-3xs: 0.25rem;
+  --spacing-2xs: 0.5rem;
+  --spacing-xs: 0.75rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2.25rem;
+  --spacing-xl: 3.5rem;
+  --spacing-2xl: 5.5rem;
+  --spacing-3xl: 8rem;
+  --spacing-gutter: 1.5rem; /* page edge, mobile */
+  --spacing-gutter-lg: 2.5rem; /* page edge, desktop */
+
+  /* --- Geometry. Deliberately almost flat. §5 forbids rounded-2xl cards with
+     shadow-lg, and separators are 1px rules; nothing here should ever be
+     big enough to read as a "card". 4px is the ceiling. */
+  --radius-hair: 2px;
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --radius-full: 9999px; /* status dot only */
+
+  /* No --shadow-* tokens exist. That is not an omission: §5 says whitespace
+     and type scale carry hierarchy, and a token that does not exist cannot be
+     reached for at 2am. */
+
+  /* --- Motion (§5: opacity/translate, <=200ms, off under reduced motion) */
+  --ease-out: cubic-bezier(0.2, 0, 0, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-instant: 90ms;
+  --duration-fast: 140ms;
+  --duration-base: 190ms; /* the ceiling; nothing may exceed 200ms */
+  --rise: 6px; /* translate distance for a scroll-in. Small on purpose. */
+
+  /* --- Border widths. One hairline, one emphasis. */
+  --rule-width: 1px;
+  --rule-width-strong: 2px;
+}
+
+/* Re-export the runtime colour variables to Tailwind. `inline` keeps the
+   var() reference intact instead of freezing today's value, which is what
+   makes bg-paper follow the theme. */
+@theme inline {
+  --color-paper: var(--paper);
+  --color-raised: var(--raised);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-accent: var(--accent);
+  --color-wash: var(--wash);
+  --color-wash-strong: var(--wash-strong);
+}
+
+/* -----------------------------------------------------------------------------
+ * 3. BASE
+ * -------------------------------------------------------------------------- */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+html {
+  /* Anchor links land below the top edge rather than flush against it. */
+  scroll-padding-block-start: var(--spacing-xl);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: var(--wash-strong);
+  color: var(--ink);
+}
+
+/* Headings are Fraunces and are the only place it appears (§5 Type: display,
+   headings only). Optical sizing is on so the large sizes get the tighter,
+   higher-contrast cut and the small ones stay readable. */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-weight: 600;
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-title);
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.92em; /* JetBrains Mono runs large next to Instrument Sans */
+}
+
+/* -----------------------------------------------------------------------------
+ * 4. FOCUS — a hard requirement, not a polish step.
+ *
+ * The ring is --accent, which measures 7.1:1 on paper and 6.9:1 on charcoal,
+ * so it clears 1.4.11's 3:1 for a UI indicator with room to spare. The offset
+ * keeps it off the glyphs. :focus-visible only, so a mouse click on a link
+ * does not leave a ring behind, but every keyboard path shows one.
+ * -------------------------------------------------------------------------- */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: var(--rule-width-strong) solid var(--accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-hair);
+}
+
+/* Nothing may remove the ring without replacing it. Kept as a visible rule
+   here so that a future `outline: none` has to argue with this comment. */
+
+/* -----------------------------------------------------------------------------
+ * 5. MOTION — honoured globally, so no component has to remember.
+ * -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes flowDash {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+.animate-flow-dash {
+  animation: flowDash 1.2s linear infinite;
+}
+
+/* -----------------------------------------------------------------------------
+ * 6. PRINT STYLESHEET — Single-column ATS-compliant PDF export.
+ * Strips all web chrome, navbars, and modals, positioning #resume-document
+ * squarely on physical letter paper with clean selectable text.
+ * -------------------------------------------------------------------------- */
+@media screen {
+  #resume-document {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+@media print {
+  /* Hide the web application chrome */
+  body * {
+    visibility: hidden;
+  }
+
+  #resume-document,
+  #resume-document * {
+    visibility: visible;
+  }
+
+  #resume-document {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 9pt !important;
+    line-height: 1.28 !important;
+    background: #fff !important;
+    color: #000 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  #resume-document h1 {
+    font-size: 16pt !important;
+    line-height: 1.1 !important;
+    margin-bottom: 2pt !important;
+  }
+
+  #resume-document h2 {
+    font-size: 10pt !important;
+    margin-top: 5pt !important;
+    margin-bottom: 2pt !important;
+    padding-bottom: 1pt !important;
+  }
+
+  #resume-document h3 {
+    font-size: 9.5pt !important;
+  }
+
+  #resume-document p,
+  #resume-document li {
+    font-size: 8.5pt !important;
+    line-height: 1.3 !important;
+  }
+
+  @page {
+    margin: 0.35in 0.45in !important;
+    size: A4 portrait;
+  }
+
+  #resume-document ul,
+  ul {
+    list-style-type: disc !important;
+    padding-left: 1.15rem !important;
+    margin: 2pt 0 !important;
+  }
+
+  #resume-document li,
+  li {
+    display: list-item !important;
+    list-style-type: disc !important;
+    list-style-position: outside !important;
+    margin-bottom: 1.5pt !important;
+    font-size: 8.5pt !important;
+    line-height: 1.3 !important;
+  }
+
+  h1, h2, h3 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  section, .mb-1, .mb-1\.5, .mb-2 {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+
+
+

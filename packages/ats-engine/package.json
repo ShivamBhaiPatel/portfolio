@@ -1,0 +1,19 @@
+{
+  "name": "@portfolio/ats-engine",
+  "version": "1.0.0",
+  "description": "Portable, zero-dependency client/server ATS resume parser, linter, and compiler",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "ats",
+    "parser",
+    "resume",
+    "linter"
+  ],
+  "author": "Shivam Bhai Patel",
+  "license": "MIT"
+}

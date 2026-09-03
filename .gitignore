@@ -4,3 +4,13 @@ out/
 dist/
 .env*
 *.log
+
+# TypeScript incremental build cache
+*.tsbuildinfo
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json

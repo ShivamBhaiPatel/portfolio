@@ -1,0 +1,46 @@
+# shivambhaipatel.com
+#
+# AI crawlers are allowed here deliberately. This is a portfolio: the intent is
+# to be read, cited and summarised, including by assistants answering questions
+# about the person who wrote it. Blocking them would be self-defeating.
+#
+# A plain-text summary written for machine readers is at /llms.txt.
+
+User-agent: *
+Allow: /
+
+# Named explicitly so the permission reads as a decision rather than an oversight.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+Sitemap: https://shivambhaipatel.com/sitemap.xml
