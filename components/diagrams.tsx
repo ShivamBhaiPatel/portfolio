@@ -42,8 +42,8 @@ export function WorkflowStudioDiagram() {
           <line
             x1="210"
             y1="75"
-            x2="290"
-            y2="120"
+            x2="250"
+            y2="105"
             stroke="var(--accent)"
             strokeWidth="1.5"
             strokeDasharray="4 4"
@@ -52,8 +52,8 @@ export function WorkflowStudioDiagram() {
           <line
             x1="210"
             y1="185"
-            x2="290"
-            y2="140"
+            x2="250"
+            y2="155"
             stroke="var(--accent)"
             strokeWidth="1.5"
             strokeDasharray="4 4"
@@ -61,8 +61,8 @@ export function WorkflowStudioDiagram() {
           />
           <line
             x1="510"
-            y1="120"
-            x2="590"
+            y1="105"
+            x2="550"
             y2="75"
             stroke="var(--accent)"
             strokeWidth="1.5"
@@ -71,8 +71,8 @@ export function WorkflowStudioDiagram() {
           />
           <line
             x1="510"
-            y1="140"
-            x2="590"
+            y1="155"
+            x2="550"
             y2="185"
             stroke="var(--accent)"
             strokeWidth="1.5"
@@ -87,23 +87,33 @@ export function WorkflowStudioDiagram() {
             className="cursor-pointer group"
           >
             <rect
-              x="290"
-              y="85"
-              width="220"
-              height="95"
+              x="250"
+              y="68"
+              width="260"
+              height="124"
               rx="4"
               fill="var(--raised)"
               stroke="var(--accent)"
               strokeWidth="2"
               className="group-hover:stroke-accent group-hover:fill-wash transition-colors"
             />
-            <text x="400" y="118" textAnchor="middle" fill="var(--ink)" fontWeight="bold" fontSize="14" fontFamily="var(--font-mono)">
+            <text x="380" y="102" textAnchor="middle" fill="var(--ink)" fontWeight="bold" fontSize="15" fontFamily="var(--font-mono)">
               @workflow-studio/core
             </text>
-            <text x="400" y="140" textAnchor="middle" fill="var(--muted)" fontSize="11" fontFamily="var(--font-mono)">
-              DAG Engine · SQLite Engine · Local API
+            <text x="380" y="128" textAnchor="middle" fill="var(--muted)" fontSize="10.5" fontFamily="var(--font-mono)">
+              DAG Engine · SQLite · Local API
             </text>
-            <text x="400" y="162" textAnchor="middle" fill="var(--accent)" fontSize="11" fontFamily="var(--font-mono)">
+            <rect
+              x="270"
+              y="146"
+              width="220"
+              height="26"
+              rx="3"
+              fill="var(--wash)"
+              stroke="var(--rule)"
+              strokeWidth="1"
+            />
+            <text x="380" y="163" textAnchor="middle" fill="var(--accent)" fontWeight="500" fontSize="10.5" fontFamily="var(--font-mono)">
               types: [&quot;node&quot;] (strict isolation)
             </text>
           </g>
@@ -203,8 +213,8 @@ export function WorkflowStudioDiagram() {
             <text x="640" y="182" textAnchor="middle" fill="var(--ink)" fontWeight="600" fontSize="13" fontFamily="var(--font-mono)">
               TradeSense Desk
             </text>
-            <text x="640" y="200" textAnchor="middle" fill="var(--accent)" fontSize="8" fontFamily="var(--font-mono)">
-              link:../workflow-studio/packages/core
+            <text x="640" y="200" textAnchor="middle" fill="var(--accent)" fontSize="9.5" fontFamily="var(--font-mono)">
+              packages/core (isolated import)
             </text>
           </g>
 
