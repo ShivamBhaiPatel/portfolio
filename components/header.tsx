@@ -131,7 +131,7 @@ export function Header() {
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={mobileOpen}
-              className="inline-flex items-center justify-center p-2 rounded-sm bg-wash border border-rule text-ink hover:bg-raised transition-colors cursor-pointer"
+              className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] p-2.5 rounded-sm bg-wash border border-rule text-ink hover:bg-raised active:scale-95 transition-all cursor-pointer"
             >
               {mobileOpen ? (
                 <svg

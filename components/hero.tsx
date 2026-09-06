@@ -5,10 +5,10 @@ import { Container } from "./container";
 
 export function Hero() {
   return (
-    <section className="relative pt-lg md:pt-xl pb-lg md:pb-xl overflow-hidden">
+    <section className="relative pt-6 sm:pt-lg md:pt-xl pb-8 sm:pb-lg md:pb-xl">
       {/* Blueprint Grid Background with radial mask */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.05] dark:opacity-[0.08]"
+        className="absolute inset-0 pointer-events-none opacity-[0.05] dark:opacity-[0.08] overflow-hidden"
         style={{
           backgroundImage: "radial-gradient(currentColor 1px, transparent 1px)",
           backgroundSize: "24px 24px",
@@ -18,56 +18,77 @@ export function Hero() {
       />
 
       <Container width="shell">
-        <div className="max-w-[56rem] space-y-md sm:space-y-lg">
+        <div className="max-w-[56rem] space-y-3 sm:space-y-md lg:space-y-lg">
           {/* Availability Beacon */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-wash border border-rule font-mono text-meta tracking-meta text-muted uppercase">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-wash border border-rule font-mono text-[11px] sm:text-meta tracking-meta text-muted uppercase">
             <span className="relative flex h-2 w-2 shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
             </span>
-            <span>{site.availability}</span>
+            <span className="leading-tight">{site.availability}</span>
           </div>
 
           {/* Primary Display Claim */}
-          <div className="space-y-3">
-            <h1 className="text-display font-display text-ink leading-none tracking-tight">
-              {site.role}.
+          <div className="space-y-2 sm:space-y-3">
+            <h1 className="text-3xl sm:text-4xl lg:text-display font-display text-ink leading-[1.05] tracking-tight text-balance">
+              {site.role}
             </h1>
-            <p className="text-xl sm:text-2xl font-display text-ink font-medium leading-snug">
+            <p className="text-base sm:text-xl lg:text-2xl font-display text-ink font-medium leading-snug">
               {site.tagline}
             </p>
           </div>
 
           {/* Bio Support */}
-          <p className="text-base sm:text-lg leading-relaxed text-muted max-w-[48rem]">
+          <p className="text-sm sm:text-base lg:text-lg leading-relaxed text-muted max-w-[48rem]">
             {site.bio}
           </p>
 
           {/* Engineering Technical Matrix */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-3 pb-3 border-y border-rule font-mono text-xs">
-            <div className="space-y-1">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 pt-3 pb-3 border-y border-rule font-mono text-xs">
+            <div className="space-y-1.5">
               <span className="text-[10px] uppercase tracking-wider text-accent font-semibold block">
                 Primary Backend &amp; APIs
               </span>
-              <p className="text-ink font-medium leading-relaxed">
-                Java 21 · Spring Boot 3 · REST APIs · Microservices · PostgreSQL · MySQL · DB2
-              </p>
+              <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
+                {["Java 21", "Spring Boot 3", "REST APIs", "Microservices", "PostgreSQL", "MySQL", "DB2"].map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-2 py-0.5 rounded-xs bg-wash border border-rule text-ink text-[11px] font-mono leading-tight whitespace-nowrap"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
-            <div className="space-y-1">
+            <div className="space-y-1.5">
               <span className="text-[10px] uppercase tracking-wider text-muted font-semibold block">
                 Frontend &amp; Full-Stack
               </span>
-              <p className="text-ink font-medium leading-relaxed">
-                Next.js 15 (App Router) · React · TypeScript · Tailwind CSS
-              </p>
+              <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
+                {["Next.js 15/16", "React", "TypeScript", "Tailwind CSS"].map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-2 py-0.5 rounded-xs bg-wash border border-rule text-ink text-[11px] font-mono leading-tight whitespace-nowrap"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
-            <div className="space-y-1">
+            <div className="space-y-1.5">
               <span className="text-[10px] uppercase tracking-wider text-muted font-semibold block">
                 Platform Automation &amp; Tooling
               </span>
-              <p className="text-ink font-medium leading-relaxed">
-                Playwright Runtime · Headless Node Daemons · Chrome MV3 · Docker
-              </p>
+              <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
+                {["Playwright", "Chrome MV3", "Headless Node Daemons", "Docker"].map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-2 py-0.5 rounded-xs bg-wash border border-rule text-ink text-[11px] font-mono leading-tight whitespace-nowrap"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 

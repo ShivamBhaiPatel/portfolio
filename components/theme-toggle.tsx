@@ -68,9 +68,9 @@ export function ThemeToggle() {
       // what pressing it does, which the visible text cannot.
       aria-label={`Theme: ${LABEL[mode]}. Activate to switch to ${LABEL[next].toLowerCase()}.`}
       className="font-mono text-meta tracking-meta text-muted uppercase
-                 border border-rule rounded-sm px-2xs py-3xs
+                 border border-rule rounded-sm min-h-[44px] px-2.5 py-1.5 md:min-h-0 md:px-2xs md:py-3xs
                  transition-colors duration-fast ease-out
-                 hover:text-ink hover:border-rule-strong"
+                 hover:text-ink hover:border-rule-strong cursor-pointer active:scale-95 inline-flex items-center justify-center"
     >
       {/* suppressHydrationWarning: the label is intentionally different after
           mount, because only the client knows what is in localStorage. */}
