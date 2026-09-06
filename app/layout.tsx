@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     description: site.bio,
   },
   alternates: {
-    canonical: "https://shivambhaipatel.com",
+    canonical: "https://shivambhaipatel.com/",
   },
 };
 

@@ -1,0 +1,4 @@
+# Canonical Apex Single-Hop 301 Redirects
+http://www.shivambhaipatel.com/*  https://shivambhaipatel.com/:splat  301!
+https://www.shivambhaipatel.com/* https://shivambhaipatel.com/:splat  301!
+http://shivambhaipatel.com/*      https://shivambhaipatel.com/:splat  301!

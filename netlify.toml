@@ -6,3 +6,30 @@
   NODE_VERSION = "22.14.0"
   PNPM_VERSION = "11.22.0"
 
+# Canonical Apex 301 Direct Single-Hop Redirects
+[[redirects]]
+  from = "http://www.shivambhaipatel.com/*"
+  to = "https://shivambhaipatel.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.shivambhaipatel.com/*"
+  to = "https://shivambhaipatel.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://shivambhaipatel.com/*"
+  to = "https://shivambhaipatel.com/:splat"
+  status = 301
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
