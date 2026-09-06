@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { type Project } from "../content/projects";
 import { WorkflowTopologyDiagram } from "./workflow-topology";
-import { WorkflowSimulator } from "./workflow-simulator";
 import { TiltCard } from "./tilt-card";
 
 export function ProjectFlagship({ project }: { project: Project }) {
@@ -45,38 +44,25 @@ export function ProjectFlagship({ project }: { project: Project }) {
       {/* Full-width Responsive Topology & DAG Diagram */}
       <WorkflowTopologyDiagram />
 
-      {/* Interactive Terminal Simulator */}
-      <WorkflowSimulator />
-
       {/* Split Grid: The Constraint (Left) + The Decision & Proof (Right) */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-md my-md border-t border-rule pt-md">
-        <div className="bg-wash/50 p-sm rounded-sm border border-rule">
+        <div className="bg-wash/50 p-md rounded-sm border border-rule">
           <h4 className="font-mono text-meta tracking-meta uppercase text-muted mb-2xs font-semibold">
-            The Constraint
+            The Architectural Challenge
           </h4>
           <p className="text-sm text-ink leading-relaxed">
             {project.tension}
           </p>
         </div>
-        <div className="bg-wash/50 p-sm rounded-sm border border-rule">
+        <div className="bg-wash/50 p-md rounded-sm border border-rule">
           <h4 className="font-mono text-meta tracking-meta uppercase text-muted mb-2xs font-semibold">
-            The Decision &amp; Proof
+            The Engineering Solution
           </h4>
           <p className="text-sm text-ink leading-relaxed">
             {project.decision}
           </p>
         </div>
       </div>
-
-      {/* Verbatim Code Proof */}
-      {project.evidence[0] ? (
-        <div className="my-md bg-wash rounded-sm p-sm border border-rule font-mono text-xs text-ink overflow-x-auto">
-          <p className="text-muted text-meta tracking-meta uppercase mb-2xs">
-            Verbatim dependency edge ({project.evidence[0].source}):
-          </p>
-          <code>{project.evidence[0].quote}</code>
-        </div>
-      ) : null}
 
       {/* Action / Case Study link */}
       <div className="mt-md pt-sm border-t border-rule flex flex-wrap items-center justify-between gap-sm">

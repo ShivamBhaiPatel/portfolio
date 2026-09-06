@@ -50,12 +50,7 @@ export function ProjectTable({ projects }: { projects: Project[] }) {
                   )}
                 </td>
                 <td className="py-md px-md text-muted align-top max-w-sm">
-                  <p className="text-ink">{p.summary}</p>
-                  {p.evidence[0] ? (
-                    <p className="font-mono text-meta text-muted mt-1">
-                      {p.evidence[0].source}
-                    </p>
-                  ) : null}
+                  <p className="text-ink leading-relaxed">{p.summary}</p>
                 </td>
                 <td className="py-md px-md font-mono text-meta text-muted align-top">
                   <div className="flex flex-wrap gap-1">

@@ -6,31 +6,31 @@ export type Principle = {
 
 export const principles: Principle[] = [
   {
-    title: "Compiler-Enforced Boundaries",
+    title: "Compile-Time Boundaries over Runtime Discipline",
     statement:
-      "I put boundaries where the compiler can enforce them rather than relying on developer discipline.",
+      "Enforce architectural separation where the compiler can catch violations rather than trusting team conventions or documentation.",
     evidence:
-      "In Workflow Studio, packages/core/tsconfig.json sets types: ['node'], so importing the VS Code editor API into the engine triggers an immediate build failure instead of a runtime crash.",
+      "In Workflow Studio, packages/core/tsconfig.json scopes types strictly to Node. Any accidental import of VS Code UI or editor APIs into the core engine triggers an immediate build-time error rather than a runtime failure.",
   },
   {
-    title: "Honest Failure over False Greens",
+    title: "State Verification over False Greens",
     statement:
-      "A visible failure is cheap; an unverified false green that silently reports success is catastrophic.",
+      "A fast, loud failure is cheap to fix; an unverified false green that silently reports success masks catastrophic defects.",
     evidence:
-      "In FlowTrace, the engine refuses to accept a model's claim of step success unless destination DOM state passes strict assertion rules. If a save dialog cannot be confirmed, it fails loudly.",
+      "In FlowTrace, the replay engine refuses to mark an automation step complete until the destination DOM state satisfies strict assertion rules. Replaying a save button click requires verifying subsequent modal state mutation.",
   },
   {
-    title: "Deterministic Composition over Hallucination",
+    title: "Deterministic Canvas over Generative Hallucination",
     statement:
-      "When correctness is non-negotiable, choose deterministic parametric composition over generative diffusion.",
+      "When business requirements demand 100% typography accuracy and brand fidelity, choose deterministic code composition over stochastic AI models.",
     evidence:
-      "In PracharFlow, campaign creatives require exact political party symbols and regional Devanagari typography. We use Skia parametric layout trees with typed slots to guarantee deterministic layout and typography rendering in under 150ms.",
+      "In PracharFlow, regional campaigns require exact political symbols and Devanagari/Gujarati script rendering. We built a Java 21 / Skia compositor with typed layout slots, delivering sub-150ms rendering with zero GPU overhead.",
   },
   {
-    title: "Aggregator Architecture over Adversarial Scraping",
+    title: "Upstream Aggregation over Adversarial Scraping",
     statement:
-      "Avoid brittle, adversarial anti-bot battles by designing upstream aggregation and verified client telemetry.",
+      "Avoid brittle, high-maintenance anti-bot arms races by pairing upstream price comparison APIs with verified client-side telemetry.",
     evidence:
-      "In DealDekho, price tracking pairs multi-aggregator ingestion via nexus-service with real user telemetry from the ShopLens extension rather than fragile direct scraping.",
+      "In DealDekho, catalog indexing pairs upstream aggregator APIs with price verification telemetry from the ShopLens browser extension rather than maintaining fragile direct scrapers against marketplace bot guards.",
   },
 ];

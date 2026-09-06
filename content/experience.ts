@@ -24,8 +24,8 @@ export interface ExperienceItem {
 
 export const experience: ExperienceItem[] = [
   {
-    role: "Independent Software Consultant",
-    company: "Consulting Practice",
+    role: "Independent Software Consultant — Backend & Automation",
+    company: "Client Advisory & Engineering",
     location: "Remote, India (Prayagraj)",
     period: "Apr 2024 – Present",
     summary:
@@ -67,7 +67,7 @@ export const experience: ExperienceItem[] = [
     stack: ["Java", "Spring Boot", "TypeScript", "Playwright", "React", "MySQL", "AWS"],
   },
   {
-    role: "Software Engineer",
+    role: "Software Engineer — Platform & Enterprise Retail",
     company: "Reflexis Systems (Zebra Technologies)",
     location: "Pune, India",
     period: "Nov 2021 – Mar 2024",
