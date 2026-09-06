@@ -96,26 +96,16 @@ export function ResumeSheet() {
           </div>
           <ul className="list-disc list-outside pl-4 space-y-0.5 text-neutral-900 text-[8.5pt] leading-snug">
             <li>
-              Architected{" "}
-              <a
-                href="https://shivambhaipatel.com/work/flowtrace"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline text-black font-semibold hover:text-accent"
-                title="View FlowTrace case study"
-              >
-                SyntraFlow (powered by FlowTrace) ↗
-              </a>
-              , deploying end-to-end regression automation infrastructure across 50+ business entities at a single enterprise client for FirstCron Services Pvt Ltd.
+              <strong className="font-semibold text-black">FirstCron Services Pvt Ltd</strong> (Mar 2026 – Present): Architected <strong className="font-semibold text-black">SyntraFlow</strong>, an enterprise regression automation infrastructure for Oracle Fusion ERP deployed across 50+ business entities.
             </li>
             <li>
               Engineered a three-tier execution engine (Chrome MV3 extension + desktop runner daemon + headless Playwright service) with self-healing DOM locators, cutting regression cycles by 40%.
             </li>
             <li>
-              Diagnosed database execution bottlenecks and refactored Spring Boot query paths for SamMegh Technologies, reducing end-to-end API response latency from ~800ms to &lt;300ms.
+              <strong className="font-semibold text-black">SamMegh Technologies</strong> (Apr 2024 – Feb 2026): Diagnosed database execution bottlenecks and refactored Spring Boot query paths, reducing end-to-end API response latency from ~800ms to &lt;300ms.
             </li>
             <li>
-              Architected Spring Boot API gateways with role-based access control (RBAC), multi-tenant persistence, and SOC2 compliance audit report generation.
+              Architected Spring Boot API gateways with role-based access control (RBAC), multi-tenant persistence, and query optimization eliminating N+1 bottlenecks.
             </li>
           </ul>
         </div>
