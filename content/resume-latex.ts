@@ -82,7 +82,7 @@ export const RESUME_LATEX_CODE = `%-------------------------
 %----------HEADING----------
 \\begin{center}
     \\textbf{\\Huge \\scshape Shivam Bhai Patel} \\\\ \\vspace{1pt}
-    \\textbf{\\small Senior Systems \\& Full-Stack Engineer} \\\\ \\vspace{2pt}
+    \\textbf{\\small Full-Stack \\& Backend Systems Engineer} \\\\ \\vspace{2pt}
     \\small Prayagraj, India $\\cdot$ \\href{mailto:shivambhaipatel1997@gmail.com}{\\underline{shivambhaipatel1997@gmail.com}} $\\cdot$ 
     \\href{https://linkedin.com/in/shivambhaipatel}{\\underline{linkedin.com/in/shivambhaipatel}} $\\cdot$
     \\href{https://github.com/ShivamBhaiPatel}{\\underline{github.com/ShivamBhaiPatel}}
@@ -90,16 +90,16 @@ export const RESUME_LATEX_CODE = `%-------------------------
 
 %-----------PROFESSIONAL SUMMARY-----------
 \\section{Professional Summary}
-\\small{Senior Systems and Full-Stack Engineer with 4+ years of experience engineering autonomous developer tooling, distributed data ingestion pipelines, and enterprise JVM backends. Proven track record refactoring enterprise retail workforce systems at Zebra Technologies, building self-healing browser automation engines across 50+ Oracle ERP entities, and architecting multi-agent SDLC orchestration platforms.}
+\\small{Full-Stack \\& Backend Systems Engineer with 4+ years of experience architecting robust Spring Boot APIs, deterministic Playwright automation engines, and modern Next.js/React full-stack applications. Proven track record scaling enterprise retail workforce platforms at Zebra Technologies (servicing 150K+ daily active store associates under sub-100ms SLAs), optimizing high-concurrency database access, and engineering autonomous task orchestration platforms.}
 
 %-----------TECHNICAL SKILLS-----------
 \\section{Technical Skills}
  \\begin{itemize}[leftmargin=0.15in, label={}]
     \\small{\\item{
-     \\textbf{Backend \\& Systems}{: Java (8/11/17/21), Spring Boot 3, Spring Security, Microservices, JVM Tuning \\& Profiling, REST APIs, WebSockets, Node.js.} \\\\
-     \\textbf{Frontend \\& Automation}{: Next.js 15/16, React, TypeScript, JavaScript, Playwright, Chrome Extensions (Manifest V3), Electron, Tailwind CSS.} \\\\
-     \\textbf{Databases \\& Infra}{: PostgreSQL, MySQL, SQLite (WAL mode), Redis, BullMQ, Docker, Jenkins CI/CD, AWS (S3, EC2), Flyway, Linux/Bash.} \\\\
-     \\textbf{Architecture}{: Multi-Agent Orchestration, Event-Driven Architecture, Task DAGs, Self-Healing Automation, Monolithic vs Distributed Design.}
+     \\textbf{Backend \\& Systems}{: Java (8/11/17/21), Spring Boot 3, Spring Security, REST APIs, Microservices, PostgreSQL, MySQL, IBM DB2, Redis, Kafka, Node.js.} \\\\
+     \\textbf{Frontend \\& Automation}{: Next.js 15/16 (App Router), React, TypeScript, JavaScript, Tailwind CSS, Playwright, Chrome Extensions (Manifest V3).} \\\\
+     \\textbf{Databases \\& Infra}{: Docker, Jenkins CI/CD, AWS (S3, EC2), Flyway, SQLite (WAL mode), Linux/Bash, JVM Profiling (Eclipse MAT).} \\\\
+     \\textbf{Architecture}{: Microservice Isolation, Task DAGs, Event-Driven Architecture, Self-Healing Locators, High-Concurrency Transaction Locking.}
     }}
  \\end{itemize}
 
@@ -108,8 +108,8 @@ export const RESUME_LATEX_CODE = `%-------------------------
   \\resumeSubHeadingListStart
 
     \\resumeSubheading
-      {Independent Systems \\& Software Consultant}{Apr 2024 -- Present}
-      {Self-Employed}{Remote (Prayagraj, India)}
+      {Independent Software Consultant --- Full-Stack \\& Systems Automation}{Apr 2024 -- Present}
+      {Client Advisory \\& Independent Engineering}{Remote (Prayagraj, India)}
       \\resumeItemListStart
         \\resumeItem{Architected \\textbf{SyntraFlow}, an enterprise browser automation and regression execution engine deployed across 50+ business entities at a single client for FirstCron Services Pvt Ltd.}
         \\resumeItem{Engineered a three-tier execution system (Chrome MV3 extension + desktop daemon + Playwright replay engine) with self-healing DOM selector heuristics, reducing test maintenance overhead by 40\\%.}

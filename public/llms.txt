@@ -1,6 +1,6 @@
 # Shivam Bhai Patel — Full-Stack & Backend Systems Engineer
 
-> JVM Core · Platform Automation · Next.js
+> Building robust Spring Boot APIs, Next.js applications, and platform automation engines.
 
 Portfolio: https://shivambhaipatel.com
 Full Architectural Context: https://shivambhaipatel.com/llms-full.txt
@@ -20,7 +20,7 @@ JVM backends, deterministic Playwright automation engines, and modern Next.js/Re
 full-stack interfaces. Production experience spanning enterprise retail platforms
 (Reflexis / Zebra) to distributed ERP automation.
 
-- Role: Full-Stack & Backend Systems Engineer (JVM Core · Platform Automation · Next.js)
+- Role: Full-Stack & Backend Systems Engineer (Spring Boot APIs · Next.js Applications · Platform Automation)
 - Location: Prayagraj / Remote (Open to Bangalore, NCR).
 - Availability: Available for Senior Full-Stack, Backend, or Automation Platform roles.
 - Contact: shivambhaipatel1997@gmail.com

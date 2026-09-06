@@ -105,25 +105,25 @@ export const RESUME_DATA = {
 };
 
 export const RESUME_PLAIN_TEXT = `SHIVAM BHAI PATEL
-Senior Systems & Full-Stack Engineer
+Full-Stack & Backend Systems Engineer
 Prayagraj, India · Remote | shivambhaipatel1997@gmail.com | github.com/ShivamBhaiPatel | linkedin.com/in/shivambhaipatel | shivambhaipatel.com
 
 PROFESSIONAL SUMMARY
-Senior Systems and Full-Stack Engineer with 4+ years of experience engineering autonomous developer tooling, distributed data ingestion pipelines, and enterprise JVM backends. Proven track record refactoring enterprise retail workforce systems at Zebra Technologies, building self-healing browser automation engines across 50+ Oracle ERP entities, and architecting multi-agent SDLC orchestration platforms.
+Full-Stack & Backend Systems Engineer with 4+ years of experience architecting robust Spring Boot APIs, deterministic Playwright automation engines, and modern Next.js/React full-stack applications. Proven track record scaling enterprise retail workforce platforms at Zebra Technologies (servicing 150K+ daily active store associates under sub-100ms SLAs), optimizing high-concurrency database access, and engineering autonomous task orchestration platforms.
 
 TECHNICAL SKILLS
-- Backend & Systems: Java (8/11/17/21), Spring Boot 3, Spring Security, Microservices, JVM Tuning & Profiling, REST APIs, WebSockets, Node.js.
-- Frontend & Automation: Next.js 15/16, React, TypeScript, JavaScript, Playwright, Chrome Extensions (Manifest V3), Electron, Tailwind CSS.
-- Databases & Infrastructure: PostgreSQL, MySQL, SQLite (WAL mode), Redis, BullMQ, Docker, Jenkins CI/CD, AWS (S3, EC2), Flyway, Linux/Bash.
-- Architectural Patterns: Multi-Agent Orchestration, Event-Driven Architecture, Task DAGs, Self-Healing Automation, Monolithic vs Distributed Design.
+- Backend & Systems: Java (8/11/17/21), Spring Boot 3, Spring Security, REST APIs, Microservices, PostgreSQL, MySQL, IBM DB2, Redis, Kafka, Node.js.
+- Frontend & Automation: Next.js 15/16 (App Router), React, TypeScript, JavaScript, Tailwind CSS, Playwright, Chrome Extensions (Manifest V3).
+- Databases & Infrastructure: Docker, Jenkins CI/CD, AWS (S3, EC2), Flyway, SQLite (WAL mode), Linux/Bash, JVM Profiling (Eclipse MAT).
+- Architectural Patterns: Microservice Isolation, Task DAGs, Event-Driven Architecture, Self-Healing Locators, High-Concurrency Transaction Locking.
 
 WORK EXPERIENCE
-Independent Systems & Software Consultant | Apr 2024 – Present
-Self-Employed · Remote (Prayagraj, India)
-- Architected SyntraFlow, an enterprise browser automation and regression execution engine deployed across 50+ business entities at a single client (FirstCron Services Pvt Ltd).
-- Engineered a three-tier execution system (Chrome MV3 extension + desktop daemon + Playwright replay engine) with self-healing DOM selector heuristics, reducing test maintenance overhead by 40%.
-- Diagnosed database bottlenecks and refactored Spring Boot query paths for SamMegh Technologies, cutting endpoint latency from ~800ms to <300ms.
-- Integrated role-based access control (RBAC), deterministic DOM state capture, and automated PDF audit report generation for compliance reporting.
+Independent Software Consultant — Full-Stack & Systems Automation | Apr 2024 – Present
+Client Advisory & Independent Engineering · Remote (Prayagraj, India)
+- Architected SyntraFlow, an enterprise regression automation infrastructure for Oracle Fusion ERP deployed across 50+ business entities at FirstCron Services Pvt Ltd.
+- Built a three-tier execution engine (MV3 Chrome extension + desktop daemon + Playwright replay engine) with self-healing DOM selector heuristics, cutting regression cycles by 40%.
+- Diagnosed database execution bottlenecks and refactored Spring Boot query paths for SamMegh Technologies, reducing end-to-end API response latency from ~800ms to under 300ms.
+- Implemented database query plan indexing, connection pool tuning, and strict DTO validation with idempotency keys.
 
 Software Engineer | Nov 2021 – Mar 2024
 Reflexis Systems (Zebra Technologies) · Pune, India

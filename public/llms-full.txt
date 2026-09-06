@@ -13,7 +13,7 @@
 Shivam Bhai Patel is a Full-Stack & Backend Systems Engineer with 4+ years of professional engineering experience spanning high-throughput JVM backends (Java 21, Spring Boot 3), production React/Next.js interfaces, deterministic browser automation engines (Playwright, Chrome MV3), and multi-agent developer tooling (Workflow Studio).
 
 ### Core Contact & Availability Telemetry
-- **Current Role**: Full-Stack & Backend Systems Engineer (JVM Core · Platform Automation · Next.js)
+- **Current Role**: Full-Stack & Backend Systems Engineer (Spring Boot APIs · Next.js Applications · Platform Automation)
 - **Location**: Prayagraj / Remote (Open to Bangalore, NCR)
 - **Mobility**: Available for Senior Full-Stack, Backend, or Automation Platform roles
 - **Direct Email**: shivambhaipatel1997@gmail.com

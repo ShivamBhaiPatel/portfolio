@@ -124,7 +124,7 @@ export const projects: Project[] = [
     slug: "flowtrace",
     name: "FlowTrace",
     summary:
-      "Regression test recording and deterministic replay engine for dynamic enterprise web apps like Oracle Fusion ERP. Automates browser verification when quarterly vendor updates break standard selectors.",
+      "Deterministic regression recording and replay engine for dynamic enterprise web apps like Oracle Fusion ERP. Solves brittle selector failures across quarterly vendor updates using a two-tier verification engine (Chrome MV3 + headless Node.js Playwright daemon) with 4-step self-healing fallbacks.",
     situation:
       "Large enterprise applications (Oracle Fusion ERP, SAP) regenerate DOM element IDs across sessions and break brittle E2E tests on quarterly vendor patches. Manual regression verification costs ~20 minutes per business flow.",
     tension:
@@ -217,7 +217,7 @@ export const projects: Project[] = [
     slug: "dealdekho",
     name: "DealDekho",
     summary:
-      "Multi-marketplace price intelligence platform across Amazon, Flipkart, and Croma with resilient price normalization pipelines.",
+      "Multi-marketplace price intelligence platform across Amazon, Flipkart, and Croma with Next.js full-stack architecture, resilient price normalization pipelines, and PostgreSQL persistence.",
     tension:
       "Direct scraping of dynamic marketplace frontends leads to immediate IP bans, aggressive captchas, and brittle scrapers.",
     decision:
