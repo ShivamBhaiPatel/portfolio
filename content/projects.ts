@@ -112,7 +112,7 @@ export const projects: Project[] = [
     live: {
       url: "https://flowtrace.shivambhaipatel.com",
       status: "up",
-      note: "Production Verified",
+      note: "Live ↗",
     },
     tier: "featured",
     roadmap: [
@@ -201,9 +201,9 @@ export const projects: Project[] = [
     ],
     stack: ["Java 21", "Spring Boot 3", "Next.js 15"],
     live: {
-      url: "https://enterprise-platform.netlify.app",
+      url: "https://platform.shivambhaipatel.com",
       status: "up",
-      note: "Live Prototype ↗",
+      note: "Live ↗",
     },
     tier: "compact",
   },
@@ -226,11 +226,11 @@ export const projects: Project[] = [
       },
     ],
     stack: ["Next.js 15", "TypeScript", "PostgreSQL"],
-    repo: "https://github.com/ShivamBhaiPatel",
+    repo: "https://github.com/ShivamBhaiPatel/DealDekho",
     live: {
-      url: "https://github.com/ShivamBhaiPatel",
+      url: "https://dealdekho.shivambhaipatel.com",
       status: "up",
-      note: "Architecture Spec ↗",
+      note: "Live ↗",
     },
     tier: "compact",
   },

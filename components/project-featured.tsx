@@ -14,7 +14,9 @@ export function ProjectFeatured({ project }: { project: Project }) {
         {project.live && project.live.status === "up" ? (
           <span className="font-mono text-meta text-muted flex items-center gap-1.5">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent" />
-            Live
+            <a href={project.live.url} target="_blank" rel="noopener noreferrer" className="hover:underline">
+              Live Platform ↗
+            </a>
           </span>
         ) : null}
       </div>

@@ -5,7 +5,7 @@ import { Container } from "./container";
 
 export function Hero() {
   return (
-    <section className="relative pt-2xl pb-2xl overflow-hidden">
+    <section className="relative pt-lg md:pt-xl pb-lg md:pb-xl overflow-hidden">
       {/* Blueprint Grid Background with radial mask */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.05] dark:opacity-[0.08]"
@@ -18,7 +18,7 @@ export function Hero() {
       />
 
       <Container width="shell">
-        <div className="max-w-[56rem] space-y-lg">
+        <div className="max-w-[56rem] space-y-md sm:space-y-lg">
           {/* Availability Beacon */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-wash border border-rule font-mono text-meta tracking-meta text-muted uppercase">
             <span className="relative flex h-2 w-2 shrink-0">

@@ -7,12 +7,18 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   // Systems directory driven from content/projects.ts
-  const footerProjects = projects.map((p) => ({
-    name: p.name,
-    href: p.tier === "flagship" || p.tier === "featured" ? `/work/${p.slug}` : undefined,
-    status: p.live?.status,
-    statusLabel: p.live?.status === "up" ? "Live" : p.live?.note || "Archived",
-  }));
+  const footerProjects = projects.map((p) => {
+    const isInternalCaseStudy = p.tier === "flagship" || p.tier === "featured";
+    const href = isInternalCaseStudy ? `/work/${p.slug}` : (p.live?.url || p.repo);
+    const isExternal = !isInternalCaseStudy && Boolean(href);
+    return {
+      name: p.name,
+      href,
+      isExternal,
+      status: p.live?.status,
+      statusLabel: p.live?.status === "up" ? "Live" : (p.live?.note || "Archived"),
+    };
+  });
 
   return (
     <footer className="border-t border-rule bg-raised/40 text-muted mt-3xl py-16 transition-colors print:hidden">
@@ -42,12 +48,23 @@ export function Footer() {
               {footerProjects.map((p) => (
                 <li key={p.name} className="flex items-baseline justify-between gap-2">
                   {p.href ? (
-                    <Link
-                      href={p.href}
-                      className="text-muted hover:text-ink transition-colors hover:underline underline-offset-4 font-medium"
-                    >
-                      {p.name}
-                    </Link>
+                    p.isExternal ? (
+                      <a
+                        href={p.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted hover:text-ink transition-colors hover:underline underline-offset-4 font-medium"
+                      >
+                        {p.name} ↗
+                      </a>
+                    ) : (
+                      <Link
+                        href={p.href}
+                        className="text-muted hover:text-ink transition-colors hover:underline underline-offset-4 font-medium"
+                      >
+                        {p.name}
+                      </Link>
+                    )
                   ) : (
                     <span className="text-muted/80">{p.name}</span>
                   )}
@@ -87,8 +104,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/#principles" className="hover:text-ink transition-colors">
-                  How I Work
+                <Link href="/#trade-offs" className="hover:text-ink transition-colors">
+                  Engineering Trade-Offs
                 </Link>
               </li>
               <li>
@@ -145,7 +162,7 @@ export function Footer() {
         {/* Bottom Hairline Metadata */}
         <div className="pt-lg border-t border-rule flex flex-col sm:flex-row items-baseline justify-between gap-sm font-mono text-meta text-muted">
           <p>
-            © {currentYear} {site.name}. Systems engineer.
+            © {currentYear} {site.name} · {site.role}.
           </p>
           <p>
             Built with Next.js 16.

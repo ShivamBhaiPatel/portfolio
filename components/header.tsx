@@ -48,10 +48,10 @@ export function Header() {
                 Experience
               </Link>
               <Link
-                href="/#principles"
+                href="/#trade-offs"
                 className="hidden xl:inline-block hover:text-ink transition-colors hover:underline underline-offset-4"
               >
-                How I Work
+                Trade-Offs
               </Link>
               <Link
                 href="/#contact"

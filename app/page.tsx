@@ -43,15 +43,18 @@ export default function Home() {
         {/* Treatment 2: FlowTrace — Two-Column Card with Simulator */}
         {flowtrace ? (
           <TiltCard className="my-2xl rounded-sm border border-rule bg-raised p-md md:p-lg relative">
-            <span className="absolute -top-1.5 -left-1.5 font-mono text-[10px] text-muted/50 select-none">+</span>
-            <span className="absolute -top-1.5 -right-1.5 font-mono text-[10px] text-muted/50 select-none">+</span>
-            <span className="absolute -bottom-1.5 -left-1.5 font-mono text-[10px] text-muted/50 select-none">+</span>
-            <span className="absolute -bottom-1.5 -right-1.5 font-mono text-[10px] text-muted/50 select-none">+</span>
-
             <div className="flex flex-wrap items-baseline justify-between gap-xs mb-xs">
               <span className="font-mono text-meta tracking-meta text-accent uppercase font-semibold">
                 Featured System · Two-Tier Isolation
               </span>
+              {flowtrace.live && flowtrace.live.status === "up" ? (
+                <span className="font-mono text-meta text-muted flex items-center gap-1.5">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent" />
+                  <a href={flowtrace.live.url} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    Live Platform ↗
+                  </a>
+                </span>
+              ) : null}
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-xl items-start">
@@ -204,15 +207,16 @@ export default function Home() {
         <ExperienceSection />
       </Section>
 
-      {/* 5. How I Work */}
+      {/* 5. Engineering Trade-Offs */}
       <Section
-        id="principles"
+        id="trade-offs"
         kicker="04 / Architectural Decisions"
         subkicker="Trade-Offs & Rules of Thumb"
         title="Engineering Trade-Offs"
         rule={true}
         width="wide"
       >
+        <span id="principles" className="sr-only" />
         <p className="text-body text-muted leading-relaxed max-w-[var(--measure-prose)] mb-md">
           Practical architectural heuristics and trade-offs drawn from building high-throughput JVM backends, browser automation suites, and developer platform tooling.
         </p>

@@ -8,12 +8,6 @@ import { TiltCard } from "./tilt-card";
 export function ProjectFlagship({ project }: { project: Project }) {
   return (
     <TiltCard maxTilt={2} className="relative my-xl rounded-sm border border-rule border-t-2 border-t-ink bg-raised p-md md:p-xl hover:border-rule-strong transition-colors">
-      {/* Corner Crosshairs */}
-      <span className="absolute -top-1.5 -left-1.5 font-mono text-[10px] text-muted/50 select-none">+</span>
-      <span className="absolute -top-1.5 -right-1.5 font-mono text-[10px] text-muted/50 select-none">+</span>
-      <span className="absolute -bottom-1.5 -left-1.5 font-mono text-[10px] text-muted/50 select-none">+</span>
-      <span className="absolute -bottom-1.5 -right-1.5 font-mono text-[10px] text-muted/50 select-none">+</span>
-
       {/* Header Bar */}
       <div className="flex flex-wrap items-baseline justify-between gap-xs mb-xs">
         <span className="font-mono text-meta tracking-meta text-accent uppercase font-semibold">
