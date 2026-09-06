@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { RESUME_PLAIN_TEXT } from "../../content/resume";
 import { ATSAuditDrawer } from "../../components/ats-audit-drawer";
 import { LatexModal } from "../../components/latex-modal";
@@ -9,6 +9,17 @@ export function PrintButton() {
   const [copied, setCopied] = useState(false);
   const [atsOpen, setAtsOpen] = useState(false);
   const [latexOpen, setLatexOpen] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("print") === "true") {
+        setTimeout(() => {
+          window.print();
+        }, 400);
+      }
+    }
+  }, []);
 
   function copyText() {
     navigator.clipboard.writeText(RESUME_PLAIN_TEXT);

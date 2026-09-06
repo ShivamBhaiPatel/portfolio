@@ -1,6 +1,8 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { projects } from "../../../content/projects";
+import { site } from "../../../content/site";
 import { PageShell } from "../../../components/page-shell";
 import { Section } from "../../../components/section";
 import { Container } from "../../../components/container";
@@ -18,6 +20,47 @@ export function generateStaticParams() {
     }));
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
+  if (!project) return {};
+
+  const title = `${project.name} — Architecture Case Study`;
+  const description = `${project.summary} Tension: ${project.tension} Decision: ${project.decision}`;
+  const canonical = `https://shivambhaipatel.com/work/${project.slug}/`;
+
+  return {
+    title,
+    description,
+    keywords: [
+      project.name,
+      ...project.stack,
+      "Architecture Case Study",
+      "Systems Engineering",
+      site.name,
+    ],
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      title: `${project.name} — ${site.name}`,
+      description,
+      url: canonical,
+      type: "article",
+      siteName: site.name,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.name} — ${site.name}`,
+      description,
+    },
+  };
+}
+
 export default async function CaseStudyPage({
   params,
 }: {
@@ -30,8 +73,70 @@ export default async function CaseStudyPage({
     notFound();
   }
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": `https://shivambhaipatel.com/work/${project.slug}/#article`,
+        headline: `${project.name} — Architecture Case Study`,
+        description: project.summary,
+        author: {
+          "@type": "Person",
+          name: site.name,
+          url: "https://shivambhaipatel.com",
+        },
+        publisher: {
+          "@type": "Person",
+          name: site.name,
+        },
+        mainEntityOfPage: `https://shivambhaipatel.com/work/${project.slug}/`,
+        keywords: project.stack.join(", "),
+        articleBody: `Tension: ${project.tension}. Architectural Decision: ${project.decision}. Consequence & Outcome: ${project.consequence}`,
+      },
+      {
+        "@type": "SoftwareApplication",
+        name: project.name,
+        applicationCategory: "DeveloperApplication",
+        operatingSystem: "Cross-platform",
+        description: project.summary,
+        author: {
+          "@type": "Person",
+          name: site.name,
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://shivambhaipatel.com/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Selected Work",
+            item: "https://shivambhaipatel.com/#work",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: project.name,
+            item: `https://shivambhaipatel.com/work/${project.slug}/`,
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <PageShell>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="py-xl">
         <Container width="wide">
           {/* Breadcrumb Back link */}

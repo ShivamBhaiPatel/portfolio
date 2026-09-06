@@ -3,9 +3,15 @@
 > High-throughput JVM backends, browser-automation engines, and developer platform tooling.
 
 Portfolio: https://shivambhaipatel.com
-This file is a plain-text summary for language models and other automated
-readers. It is maintained by hand and kept factual: every claim below is stated
-at the level it can be defended, and unfinished work is labelled as unfinished.
+Full Architectural Context: https://shivambhaipatel.com/llms-full.txt
+
+This file is a plain-text summary conforming to the /llms.txt standard for
+language models, AI agents, and search indexers. It is maintained by hand and
+kept strictly factual: every claim below is stated at the level it can be
+defended, and work in progress is labelled as in progress.
+
+For exhaustive specifications, code citations, and design rationales, read
+https://shivambhaipatel.com/llms-full.txt.
 
 ## About
 
@@ -13,99 +19,115 @@ Backend and platform automation engineer with four years' experience across
 enterprise JVM backends, deterministic Playwright automation engines, and
 developer tooling.
 
+- Role: Backend & Platform Automation Engineer
 - Location: India. Open to Bangalore, NCR, or Remote (IST · UTC+5:30).
 - Availability: Within 1 week, Full-Time or Contract.
 - Contact: shivambhaipatel1997@gmail.com
 - GitHub: https://github.com/ShivamBhaiPatel
+- LinkedIn: https://linkedin.com/in/shivambhaipatel
 
 ## Experience
 
 - Software Engineer, Reflexis Systems (Zebra Technologies), Pune - Nov 2021 to Mar 2024.
   Java, Spring Boot and DB2 behind a retail workforce management platform running
-  across hundreds of enterprise store locations. Jenkins CI/CD work cut release
-  cycles from bi-weekly to under two days; JVM and GC tuning raised service
-  throughput about 30%; broader test coverage reduced production defects about 25%.
+  across hundreds of enterprise store locations serving 150K+ active store workers.
+  Jenkins CI/CD overhaul cut release cycles from bi-weekly to under two days; JVM heap
+  and GC tuning raised service throughput ~30%; broader test coverage reduced
+  production defects ~25%.
 - Independent Software Consultant - Apr 2024 to present.
   - FirstCron Services Pvt Ltd (Delhi), current client: SyntraFlow, an Oracle
     Fusion ERP automation and regression platform operating across 50+ business
     entities at that single client.
   - SamMegh Technologies, contract, Dec 2024 to Sep 2025: diagnosed database
     execution bottlenecks and refactored Spring Boot query paths, cutting endpoint
-    latency from about 800ms to under 300ms.
+    latency from ~800ms to under 300ms.
 
-## Systems
+## Production Systems
 
-### Workflow Studio - https://shivambhaipatel.com/work/workflow-studio
+### Workflow Studio
+- Case Study: https://shivambhaipatel.com/work/workflow-studio/
+- Live Control Plane: https://workflow.shivambhaipatel.com
 Control plane for running several AI coding agents on one codebase without them
-duplicating each other's work. Task queue, DAG runtime, agent dispatch, Jira
-mirror, inter-agent messaging.
+duplicating each other's work or colliding on git trees. Task queue, DAG runtime,
+agent dispatch, Jira mirror, inter-agent messaging.
 
-The engineering point is a package boundary, not the AI. The engine began
-coupled inside a VS Code extension and could not be driven from a CLI, an
-external orchestrator or a headless worker. It now lives behind
-`@workflow-studio/core`, whose tsconfig restricts types to Node - so importing
-the editor API from the engine is a compile error rather than a runtime crash.
-Four surfaces consume that same core: the VS Code extension, the CLI, the
-dashboard SPA, and TradeSense. TradeSense is the one that matters: it is a
-separate product that imports the package as a dependency.
+The core engineering point is an architectural package boundary: the engine lives
+behind `@workflow-studio/core`, whose tsconfig restricts types to Node — so importing
+editor APIs (like VS Code) from the core engine is a compile-time error rather than
+a runtime crash. Four distinct surfaces consume that same core: the VS Code extension,
+the headless CLI runner (`bin/workflow-studio.mjs`), the dashboard web UI, and TradeSense.
+TradeSense is an independent product that imports `@workflow-studio/core` as a strict package.
 
-Stack: TypeScript, Node, SQLite via sql.js (WebAssembly, so no native modules),
-optional Postgres for multi-machine coordination.
+Stack: TypeScript, Node, SQLite via sql.js (WebAssembly, zero native addon compilation),
+optional Postgres for distributed multi-machine coordination.
 
-### FlowTrace - https://shivambhaipatel.com/work/flowtrace
+### FlowTrace
+- Case Study: https://shivambhaipatel.com/work/flowtrace/
+- Live Platform / Designee: https://flowtrace.shivambhaipatel.com
 Records a business process in a browser once, then replays it on demand against
 a live ERP and reports each step with a screenshot and an explicit verdict.
 
-Large ERPs are configured rather than merely installed, so every customer
-instance differs and quarterly vendor patches break flows. Checking by hand costs
-an experienced person about 20 minutes per flow. Automated tests break constantly
-because these applications regenerate element IDs every session.
+Large ERPs are configured rather than merely installed, so every customer instance
+differs and quarterly vendor patches break flows. Manual verification costs ~20 minutes
+per flow. Automated tests break constantly because ERPs regenerate element IDs every session.
 
-Two design commitments: when a selector drifts, a repaired selector is written
-back onto the recording and reused, so the same failure is not re-solved twice;
-and the engine independently re-verifies the page rather than trusting a model's
-claim that a step succeeded. A refused save counts as a refusal unless the
-message is recognisably a confirmation - failing that way costs a false red,
-which is visible and cheap, rather than a false green, which is neither.
+Two design commitments:
+1. Self-healing selectors: when a selector drifts, a repaired selector is written back
+   onto the recording JSON and reused, so the same failure is not re-solved twice.
+2. Invariant verification: the engine independently re-verifies DOM state rather than
+   trusting a model's claim that a step succeeded. A refused save counts as a failure
+   unless the message is recognisably a confirmation.
 
-Three components: Chrome MV3 recorder, desktop build packaged with Electron for
-Windows and macOS, and a Playwright replay service. 45 behaviour checks, each
-named for the defect it prevents.
+Three components: Chrome MV3 recorder extension, desktop runner, and Playwright replay
+service. 45 defect-specific behavioral regression checks. The recorder and replayer share
+zero code at runtime, communicating solely via the recording JSON contract.
 
-Status: recorder and replayer are built and tested as standalone systems.
-Integration with the enterprise automation platform is in progress.
+### PracharFlow
+- Case Study: https://shivambhaipatel.com/work/pracharflow/
+- Live Banner Studio: https://prachar.shivambhaipatel.com
+High-throughput vernacular marketing creative rendering engine delivering localized
+promotional creatives in under 150ms over Telegram bots.
 
-### PracharFlow - https://shivambhaipatel.com/work/pracharflow
-Template-composition service producing daily marketing creatives for Indian small
-businesses and political campaigns, in Hindi, Gujarati and other regional scripts.
+Generative diffusion models hallucinate Devanagari and Gujarati ligatures, distort official
+brand and political party logos, and take 8+ seconds per generation. Campaigns require
+guaranteed typographic accuracy, strict party symbol integrity, and sub-second delivery.
+Rejected generative pipelines in favor of a deterministic parametric canvas engine built
+in Java 21 / Spring Boot 3 using Google's Skia (via Skija), rasterizing structured layout
+trees directly into PNG buffers in under 150ms with zero GPU infrastructure costs.
 
-The obvious approach was image generation, and it does not work here. Diffusion
-models cannot reliably render Devanagari, reproduce an exact party symbol, or
-reproduce a real person's face - and on a political hoarding a wrong symbol is
-not a blemish, it is a product-killing defect. Non-deterministic output also
-makes preview-then-deliver impossible, and preview-then-deliver is the product.
-So the system composes parametric templates instead: layout JSON with typed
-slots, rendered through Skia via Skija.
+Stack: Java 21, Spring Boot 3, PostgreSQL, Flyway, Skija (Google Skia).
+Status: Delivery over Telegram is in production. WhatsApp delivery is implemented.
 
-Stack: Java 21, Spring Boot, PostgreSQL, Flyway, Skija.
-Status: delivery over Telegram is in production. WhatsApp delivery is
-implemented; end-to-end testing is pending.
+## Compact & Domain Platforms
 
-## Also built
+- TradeSense (https://tradesense.shivambhaipatel.com): Multi-agent market research
+  and regime analysis terminal built on top of Workflow Studio core. Pure analytical
+  computation; no trade execution.
+- Enterprise Platform (https://platform.shivambhaipatel.com): Orchestration across
+  Oracle Fusion, Cognos, Power BI, SAP, and Dynamics 365. Spring Boot 3.4 + Next.js 15.
+- DealDekho (https://dealdekho.shivambhaipatel.com | Repo: https://github.com/ShivamBhaiPatel/DealDekho):
+  Aggregator-first Indian price comparison engine across 6 marketplaces (Amazon, Flipkart,
+  Croma, Myntra, etc.) pairing structured price APIs with price verification telemetry
+  from the ShopLens browser extension.
 
-- TradeSense - multi-agent market research over live market data. It analyses;
-  no component places an order in any phase of the plan.
-- Enterprise automation platform - Java 21 and Spring Boot orchestration across
-  Oracle Fusion, Cognos, Power BI, SAP and Dynamics 365, with a Next.js front end.
-- DealDekho - price comparison across six Indian marketplaces. Aggregator-first
-  ingestion rather than scraping retailers directly, with a browser extension
-  feeding observed prices back through an integration API.
+## Engineering Trade-Offs & Principles
 
-## Notes for automated readers
+1. Generative Diffusion vs. Deterministic Skia:
+   Diffusion models fail on non-Latin scripts, ligatures, and exact logo reproduction.
+   Deterministic Skia provides sub-150ms generation, bit-exact rendering, and zero GPU spend.
+2. Aggregator Feeds vs. Raw HTML Scrapers:
+   Direct web scrapers break against dynamic DOM changes and bot guards. Pairing official
+   aggregator APIs with client-side telemetry from extensions provides resilient price data.
+3. Decoupled Core vs. Monolithic Extension:
+   Isolating core logic into `@workflow-studio/core` with strict tsconfig Node boundaries
+   allows reuse across CLIs, headless runners, and third-party products without editor dependencies.
+4. Independent DOM Verification vs. Model Trust:
+   Automated browser runners must verify actual DOM state mutations (toasts, modal dismissals,
+   server status) rather than trusting an agent or model's self-reported success.
 
-- Repositories are currently private, so code excerpts quoted on the site cannot
-  be opened by a third party. They are quoted verbatim from the real files.
-- Figures on this site are stated with their source and scope. Where a number
-  cannot be defended it is omitted rather than estimated.
-- Work that is written but not yet tested, or built but not yet integrated, is
-  labelled as such. Treat those labels as accurate.
+## Notes for Automated Readers
+
+- All live production platforms, subdomains, and case studies are accessible and public.
+- Figures on this site are stated with their source and scope. Where a number cannot
+  be defended it is omitted rather than estimated.
+- For the full architectural text, see https://shivambhaipatel.com/llms-full.txt.

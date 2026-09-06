@@ -1,22 +1,30 @@
-"use client";
-
-import { useEffect } from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
+import { site } from "../../content/site";
 import { ResumeSheet } from "../../components/resume-sheet";
 import { PrintButton } from "./print-button";
 
-export default function ResumePage() {
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const params = new URLSearchParams(window.location.search);
-      if (params.get("print") === "true") {
-        setTimeout(() => {
-          window.print();
-        }, 400);
-      }
-    }
-  }, []);
+export const metadata: Metadata = {
+  title: `Resume — ${site.name} | ${site.role}`,
+  description: `Official technical resume of ${site.name}. 4+ years across enterprise JVM backends, deterministic Playwright automation engines, and developer platform tooling.`,
+  alternates: {
+    canonical: "https://shivambhaipatel.com/resume/",
+  },
+  openGraph: {
+    title: `Resume — ${site.name}`,
+    description: `Engineering resume of ${site.name} (${site.role}) — Reflexis / Zebra Technologies, FirstCron, SamMegh.`,
+    url: "https://shivambhaipatel.com/resume/",
+    type: "profile",
+    siteName: site.name,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Resume — ${site.name}`,
+    description: site.bio,
+  },
+};
 
+export default function ResumePage() {
   return (
     <main className="min-h-screen bg-paper text-ink py-md px-sm sm:px-md print:min-h-0 print:p-0 print:m-0 print:bg-white print:text-black">
       {/* Utility Bar (Excluded from Print) */}

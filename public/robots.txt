@@ -1,15 +1,17 @@
 # shivambhaipatel.com
 #
-# AI crawlers are allowed here deliberately. This is a portfolio: the intent is
-# to be read, cited and summarised, including by assistants answering questions
-# about the person who wrote it. Blocking them would be self-defeating.
+# AI crawlers and search indexers are welcome here deliberately.
+# This portfolio is engineered to be read, cited, and summarized accurately
+# by search engines and LLM reasoning models.
 #
-# A plain-text summary written for machine readers is at /llms.txt.
+# Machine-readable documentation:
+# - Summary Index: https://shivambhaipatel.com/llms.txt
+# - Full Architectural Context: https://shivambhaipatel.com/llms-full.txt
 
 User-agent: *
 Allow: /
 
-# Named explicitly so the permission reads as a decision rather than an oversight.
+# OpenAI Crawlers & Search
 User-agent: GPTBot
 Allow: /
 
@@ -19,6 +21,7 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
+# Anthropic Crawlers
 User-agent: ClaudeBot
 Allow: /
 
@@ -28,19 +31,45 @@ Allow: /
 User-agent: anthropic-ai
 Allow: /
 
+# Perplexity AI
 User-agent: PerplexityBot
+Allow: /
+
+# Google LLM & Search
+User-agent: Googlebot
 Allow: /
 
 User-agent: Google-Extended
 Allow: /
 
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+
 User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# Cohere, Amazon, Common Crawl & ByteDance
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Amazonbot
 Allow: /
 
 User-agent: CCBot
 Allow: /
 
 User-agent: Bytespider
+Allow: /
+
+User-agent: Diffbot
 Allow: /
 
 Sitemap: https://shivambhaipatel.com/sitemap.xml
