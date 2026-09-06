@@ -36,12 +36,12 @@ full-stack interfaces. Production experience spanning enterprise retail platform
   and GC tuning raised service throughput ~30%; broader test coverage reduced
   production defects ~25%.
 - Independent Software Consultant - Apr 2024 to present.
-  - FirstCron Services Pvt Ltd (Delhi), current client: SyntraFlow, an Oracle
-    Fusion ERP automation and regression platform operating across 50+ business
-    entities at that single client.
-  - SamMegh Technologies, contract, Dec 2024 to Sep 2025: diagnosed database
+  - SamMegh Technologies (Apr 2024 to Feb 2026, completed): Diagnosed database
     execution bottlenecks and refactored Spring Boot query paths, cutting endpoint
     latency from ~800ms to under 300ms.
+  - FirstCron Services Pvt Ltd (Delhi), current client (Mar 2026 to present): SyntraFlow, an Oracle
+    Fusion ERP automation and regression platform operating across 50+ business
+    entities at that single client.
 
 ## Production Systems
 

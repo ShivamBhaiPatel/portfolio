@@ -29,7 +29,7 @@ export const RESUME_DATA = {
         {
           client: "FirstCron Services Pvt Ltd",
           product: "SyntraFlow",
-          period: "Apr 2024 – Present (Ongoing)",
+          period: "Mar 2026 – Present (Ongoing)",
           points: [
             "Architected and deployed end-to-end regression automation infrastructure for Oracle Fusion ERP across 50+ business entities, building a three-tier execution engine (MV3 + Node runner + Playwright) cutting regression cycles by 40%.",
             "Built a high-throughput Playwright execution engine with deterministic DOM state assertion, self-healing selectors, and automated SOC2 compliance audit trails.",
@@ -38,7 +38,7 @@ export const RESUME_DATA = {
         },
         {
           client: "SamMegh Technologies",
-          period: "Dec 2024 – Sep 2025 (Completed)",
+          period: "Apr 2024 – Feb 2026 (Completed)",
           points: [
             "Diagnosed database execution bottlenecks and refactored Spring Boot query paths, reducing end-to-end API response latency from ~800ms to under 300ms.",
             "Implemented database query plan indexing, statement caching, and refactored entity fetching to eliminate N+1 queries across core microservices.",
@@ -120,9 +120,9 @@ TECHNICAL SKILLS
 WORK EXPERIENCE
 Independent Software Consultant — Full-Stack & Systems Automation | Apr 2024 – Present
 Client Advisory & Independent Engineering · Remote (Prayagraj, India)
-- Architected SyntraFlow, an enterprise regression automation infrastructure for Oracle Fusion ERP deployed across 50+ business entities at FirstCron Services Pvt Ltd.
+- FirstCron Services Pvt Ltd (Mar 2026 – Present): Architected SyntraFlow, an enterprise regression automation infrastructure for Oracle Fusion ERP deployed across 50+ business entities.
 - Built a three-tier execution engine (MV3 Chrome extension + desktop daemon + Playwright replay engine) with self-healing DOM selector heuristics, cutting regression cycles by 40%.
-- Diagnosed database execution bottlenecks and refactored Spring Boot query paths for SamMegh Technologies, reducing end-to-end API response latency from ~800ms to under 300ms.
+- SamMegh Technologies (Apr 2024 – Feb 2026): Diagnosed database execution bottlenecks and refactored Spring Boot query paths, reducing end-to-end API response latency from ~800ms to under 300ms.
 - Implemented database query plan indexing, connection pool tuning, and strict DTO validation with idempotency keys.
 
 Software Engineer | Nov 2021 – Mar 2024

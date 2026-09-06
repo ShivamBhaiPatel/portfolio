@@ -36,7 +36,7 @@ export const experience: ExperienceItem[] = [
         shortName: "FirstCron",
         product: "SyntraFlow",
         location: "Delhi, India",
-        period: "Apr 2024 – Present",
+        period: "Mar 2026 – Present",
         status: "ongoing",
         statusLabel: "Current client · Ongoing",
         summary:
@@ -52,7 +52,7 @@ export const experience: ExperienceItem[] = [
         name: "SamMegh Technologies",
         shortName: "SamMegh",
         location: "India",
-        period: "Dec 2024 – Sep 2025",
+        period: "Apr 2024 – Feb 2026",
         status: "contract",
         statusLabel: "Contract engagement · Completed",
         summary:

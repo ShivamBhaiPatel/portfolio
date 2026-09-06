@@ -111,10 +111,10 @@ export const RESUME_LATEX_CODE = `%-------------------------
       {Independent Software Consultant --- Full-Stack \\& Systems Automation}{Apr 2024 -- Present}
       {Client Advisory \\& Independent Engineering}{Remote (Prayagraj, India)}
       \\resumeItemListStart
-        \\resumeItem{Architected \\textbf{SyntraFlow}, an enterprise browser automation and regression execution engine deployed across 50+ business entities at a single client for FirstCron Services Pvt Ltd.}
+        \\resumeItem{\\textbf{FirstCron Services Pvt Ltd} (Mar 2026 -- Present): Architected \\textbf{SyntraFlow}, an enterprise browser automation and regression execution engine deployed across 50+ business entities.}
         \\resumeItem{Engineered a three-tier execution system (Chrome MV3 extension + desktop daemon + Playwright replay engine) with self-healing DOM selector heuristics, reducing test maintenance overhead by 40\\%.}
-        \\resumeItem{Diagnosed database execution bottlenecks and refactored Spring Boot query paths for SamMegh Technologies, cutting endpoint latency from $\\sim$800ms to $<$300ms.}
-        \\resumeItem{Integrated role-based access control (RBAC), deterministic DOM state capture, and automated PDF audit report generation for enterprise compliance.}
+        \\resumeItem{\\textbf{SamMegh Technologies} (Apr 2024 -- Feb 2026): Diagnosed database execution bottlenecks and refactored Spring Boot query paths, cutting endpoint latency from $\\sim$800ms to $<$300ms.}
+        \\resumeItem{Implemented database query plan indexing, connection pool tuning, and strict DTO validation with idempotency keys.}
       \\resumeItemListEnd
 
     \\resumeSubheading

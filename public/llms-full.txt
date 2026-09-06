@@ -35,23 +35,23 @@ Shivam Bhai Patel is a Full-Stack & Backend Systems Engineer with 4+ years of pr
 ### Independent Software Consultant | Apr 2024 – Present
 *Specializing in enterprise automation engines, multi-agent SDLC systems, and JVM performance tuning.*
 
-#### Client 1: FirstCron Services Pvt Ltd (Delhi, India) | Apr 2024 – Present
-- **Product**: SyntraFlow (Oracle Fusion ERP Automation & Regression Platform)
-- **Role**: Principal Automation Architect / Systems Engineer
-- **Environment**: Oracle Fusion Cloud, Playwright, Chrome MV3 Extension, TypeScript, Java / Spring Boot, MySQL, AWS.
-- **Achievements**:
-  - Engineered SyntraFlow, an Oracle Fusion ERP regression and compliance automation platform operating across 50+ business entities at a single enterprise client.
-  - Architected a 3-tier execution model decoupling the Chrome MV3 user-recording extension from the local runner daemon and headless Playwright execution engine, reducing regression cycle execution time by 40%.
-  - Implemented self-healing selector heuristics with deterministic DOM state assertion, eliminating flaky test runs caused by dynamic Oracle Fusion DOM ID regeneration.
-  - Designed role-based access control (RBAC) and SOC2 audit-compliant execution reporting dashboards.
-
-#### Client 2: SamMegh Technologies | Dec 2024 – Sep 2025
+#### Client 1: SamMegh Technologies | Apr 2024 – Feb 2026
 - **Role**: Systems & Backend Consulting Engineer (Contract · Completed)
 - **Environment**: Java, Spring Boot, Microservices, PostgreSQL, Redis, REST APIs.
 - **Achievements**:
   - Diagnosed database query bottlenecks and connection pool starvation across production Spring Boot services.
   - Refactored query execution paths, introduced partial indexes, and optimized entity fetching strategies, cutting end-to-end P95 API response latencies from ~800ms to under 300ms.
   - Hardened microservice boundaries with strict REST contract definitions and DTO validation layers.
+
+#### Client 2: FirstCron Services Pvt Ltd (Delhi, India) | Mar 2026 – Present
+- **Product**: SyntraFlow (Oracle Fusion ERP Automation & Regression Platform)
+- **Role**: Principal Automation Architect / Systems Engineer (Current Client)
+- **Environment**: Oracle Fusion Cloud, Playwright, Chrome MV3 Extension, TypeScript, Java / Spring Boot, MySQL, AWS.
+- **Achievements**:
+  - Engineered SyntraFlow, an Oracle Fusion ERP regression and compliance automation platform operating across 50+ business entities at a single enterprise client.
+  - Architected a 3-tier execution model decoupling the Chrome MV3 user-recording extension from the local runner daemon and headless Playwright execution engine, reducing regression cycle execution time by 40%.
+  - Implemented self-healing selector heuristics with deterministic DOM state assertion, eliminating flaky test runs caused by dynamic Oracle Fusion DOM ID regeneration.
+  - Designed role-based access control (RBAC) and SOC2 audit-compliant execution reporting dashboards.
 
 ### Reflexis Systems (Zebra Technologies) | Nov 2021 – Mar 2024
 - **Title**: Software Engineer — Platform & Enterprise Retail

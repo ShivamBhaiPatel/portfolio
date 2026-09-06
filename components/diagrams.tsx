@@ -8,19 +8,12 @@ export function WorkflowStudioDiagram() {
   return (
     <div className="my-md w-full rounded-sm border border-rule bg-wash/40 p-sm sm:p-md font-mono text-xs">
       {/* Header bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-2 border-b border-rule mb-sm font-mono text-meta min-h-[2rem]">
+      <div className="flex items-center justify-between gap-2 pb-2 border-b border-rule mb-sm font-mono text-meta">
         <span className="text-accent font-semibold tracking-meta uppercase shrink-0">
           Architecture &amp; Multi-Agent DAG Topology
         </span>
-        <span className="text-muted text-xs sm:text-right">
-          {activeNode ? (
-            <span className="text-accent font-medium">Inspecting: {activeNode}</span>
-          ) : (
-            <span className="inline-flex items-center gap-1.5 opacity-80">
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent/60 animate-pulse" />
-              Hover node to inspect contract
-            </span>
-          )}
+        <span className="text-muted text-[11px] tracking-meta uppercase font-mono shrink-0">
+          DAG Kernel
         </span>
       </div>
 
@@ -328,6 +321,21 @@ export function WorkflowStudioDiagram() {
           </g>
         </svg>
       </div>
+      {/* Fixed-height telemetry inspector — eliminates layout shift */}
+      <div className="mt-xs pt-2 border-t border-rule font-mono text-xs h-9 flex items-center px-1 overflow-hidden">
+        {activeNode ? (
+          <div className="flex items-center gap-2 text-ink min-w-0">
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+            <span className="text-accent font-semibold shrink-0">Contract:</span>
+            <span className="text-ink font-medium truncate">{activeNode}</span>
+          </div>
+        ) : (
+          <div className="flex items-center gap-2 text-muted min-w-0">
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent/60 animate-pulse shrink-0" />
+            <span className="text-muted text-[11px]">Hover nodes to inspect contract isolation</span>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -337,19 +345,12 @@ export function FlowTraceDiagram() {
 
   return (
     <div className="my-md w-full rounded-sm border border-rule bg-wash/40 p-sm sm:p-md font-mono text-xs">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-2 border-b border-rule mb-sm font-mono text-meta min-h-[2rem]">
+      <div className="flex items-center justify-between gap-2 pb-2 border-b border-rule mb-sm font-mono text-meta">
         <span className="text-accent font-semibold tracking-meta uppercase shrink-0">
           FlowTrace Architecture Pipeline
         </span>
-        <span className="text-muted text-xs sm:text-right">
-          {activeStep ? (
-            <span className="text-accent font-medium">Boundary: {activeStep}</span>
-          ) : (
-            <span className="inline-flex items-center gap-1.5 opacity-80">
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent/60 animate-pulse" />
-              Hover steps to inspect boundary
-            </span>
-          )}
+        <span className="text-muted text-[11px] tracking-meta uppercase font-mono shrink-0">
+          Two-Tier Engine
         </span>
       </div>
 
@@ -481,6 +482,21 @@ export function FlowTraceDiagram() {
           </g>
         </svg>
       </div>
+      {/* Fixed-height telemetry inspector — eliminates layout shift */}
+      <div className="mt-xs pt-2 border-t border-rule font-mono text-xs h-9 flex items-center px-1 overflow-hidden">
+        {activeStep ? (
+          <div className="flex items-center gap-2 text-ink min-w-0">
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+            <span className="text-accent font-semibold shrink-0">Boundary:</span>
+            <span className="text-ink font-medium truncate">{activeStep}</span>
+          </div>
+        ) : (
+          <div className="flex items-center gap-2 text-muted min-w-0">
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent/60 animate-pulse shrink-0" />
+            <span className="text-muted text-[11px]">Hover steps to inspect boundary contracts</span>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -490,19 +506,12 @@ export function PracharFlowDiagram() {
 
   return (
     <div className="my-md w-full rounded-sm border border-rule bg-wash/40 p-sm sm:p-md font-mono text-xs">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-2 border-b border-rule mb-sm font-mono text-meta min-h-[2rem]">
+      <div className="flex items-center justify-between gap-2 pb-2 border-b border-rule mb-sm font-mono text-meta">
         <span className="text-accent font-semibold tracking-meta uppercase shrink-0">
           PracharFlow Rendering Pipeline
         </span>
-        <span className="text-muted text-xs sm:text-right">
-          {activeStep ? (
-            <span className="text-accent font-medium">Stage: {activeStep}</span>
-          ) : (
-            <span className="inline-flex items-center gap-1.5 opacity-80">
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent/60 animate-pulse" />
-              Hover stages to trace
-            </span>
-          )}
+        <span className="text-muted text-[11px] tracking-meta uppercase font-mono shrink-0">
+          Vector Core
         </span>
       </div>
 
@@ -638,6 +647,21 @@ export function PracharFlowDiagram() {
             </text>
           </g>
         </svg>
+      </div>
+      {/* Fixed-height telemetry inspector — eliminates layout shift */}
+      <div className="mt-xs pt-2 border-t border-rule font-mono text-xs h-9 flex items-center px-1 overflow-hidden">
+        {activeStep ? (
+          <div className="flex items-center gap-2 text-ink min-w-0">
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+            <span className="text-accent font-semibold shrink-0">Stage:</span>
+            <span className="text-ink font-medium truncate">{activeStep}</span>
+          </div>
+        ) : (
+          <div className="flex items-center gap-2 text-muted min-w-0">
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent/60 animate-pulse shrink-0" />
+            <span className="text-muted text-[11px]">Hover stages to trace pipeline execution</span>
+          </div>
+        )}
       </div>
     </div>
   );
