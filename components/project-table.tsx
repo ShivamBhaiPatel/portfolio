@@ -54,7 +54,7 @@ export function ProjectTable({ projects }: { projects: Project[] }) {
                 </td>
                 <td className="py-md px-md font-mono text-meta text-muted align-top">
                   <div className="flex flex-wrap gap-1">
-                    {p.stack.slice(0, 3).map((s) => (
+                    {p.stack.map((s) => (
                       <span
                         key={s}
                         className="bg-wash/90 text-ink px-1.5 py-0.5 rounded-sm border border-rule-strong font-mono text-meta"

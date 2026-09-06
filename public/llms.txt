@@ -1,6 +1,6 @@
-# Shivam Bhai Patel — Senior Full-Stack & Backend Engineer
+# Shivam Bhai Patel — Full-Stack & Backend Systems Engineer
 
-> Java & Spring Boot Core · React / Next.js · Distributed Systems
+> JVM Core · Platform Automation · Next.js
 
 Portfolio: https://shivambhaipatel.com
 Full Architectural Context: https://shivambhaipatel.com/llms-full.txt
@@ -15,16 +15,14 @@ https://shivambhaipatel.com/llms-full.txt.
 
 ## About
 
-Senior Full-Stack & Backend Engineer with 4+ years of experience engineering
-high-throughput Spring Boot backends, distributed systems, and production React/Next.js
-interfaces. 2.5 years scaling enterprise retail workforce platforms at Zebra Technologies
-(150K+ daily active store associates under sub-100ms SLAs); expanded through independent
-engineering contracts building headless workflow engines, deterministic graphics microservices,
-and resilient automation pipelines.
+Full-Stack & Backend Systems Engineer with 4+ years architecting high-throughput
+JVM backends, deterministic Playwright automation engines, and modern Next.js/React
+full-stack interfaces. Production experience spanning enterprise retail platforms
+(Reflexis / Zebra) to distributed ERP automation.
 
-- Role: Senior Full-Stack & Backend Engineer (Java & Spring Boot Core · React / Next.js)
-- Location: India. Open to Bangalore, NCR, or Remote (IST · UTC+5:30).
-- Availability: Within 1 week, Full-Time or Contract.
+- Role: Full-Stack & Backend Systems Engineer (JVM Core · Platform Automation · Next.js)
+- Location: Prayagraj / Remote (Open to Bangalore, NCR).
+- Availability: Available for Senior Full-Stack, Backend, or Automation Platform roles.
 - Contact: shivambhaipatel1997@gmail.com
 - GitHub: https://github.com/ShivamBhaiPatel
 - LinkedIn: https://linkedin.com/in/shivambhaipatel

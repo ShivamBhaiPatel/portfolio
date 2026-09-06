@@ -182,15 +182,15 @@ export default function Home() {
       {/* 3. Also Running */}
       <Section
         id="secondary"
-        kicker="02 / Secondary Inventory"
-        subkicker="Compact Services & Utility Workers"
+        kicker="02 / Applications &amp; Gateways"
+        subkicker="Full-Stack Applications, Unified Gateways &amp; Analysis Terminals"
         title="Also Running"
         rule={false}
         width="wide"
         className="bg-wash/60 border-y border-rule py-16 sm:py-20"
       >
         <p className="text-body text-muted leading-relaxed max-w-[var(--measure-prose)] mb-md">
-          Compact services, domain platforms, and price aggregators.
+          Full-stack web applications, unified enterprise API gateways, and market intelligence terminals.
         </p>
         <ProjectTable projects={compact} />
       </Section>

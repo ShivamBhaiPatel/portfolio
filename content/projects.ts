@@ -34,7 +34,7 @@ export const projects: Project[] = [
     slug: "pracharflow",
     name: "PracharFlow",
     summary:
-      "High-throughput vernacular banner rendering engine delivering localized Hindi and Gujarati promotional creatives in under 150ms over Telegram bots.",
+      "Low-latency localized rendering engine serving automated bots. Replaced unpredictable image models with a deterministic parametric canvas engine built in Java 21 and Spring Boot 3 using Skia (Skija). Achieved <150 ms layout compilation for complex Devanagari and Gujarati scripts with zero GPU overhead.",
     situation:
       "Campaigns and businesses require hundreds of localized banner creatives daily with accurate regional typography, official emblems, and portraits delivered instantly via messaging bots.",
     tension:
@@ -51,7 +51,7 @@ export const projects: Project[] = [
         lang: "java",
       },
     ],
-    stack: ["Java 21", "Spring Boot 3", "Skija / Skia", "PostgreSQL", "Flyway", "Telegram Bot API"],
+    stack: ["Java 21", "Spring Boot 3", "Skija / Skia", "PostgreSQL", "Redis"],
     live: {
       url: "https://prachar.shivambhaipatel.com",
       status: "up",
@@ -69,13 +69,13 @@ export const projects: Project[] = [
     slug: "workflow-studio",
     name: "Workflow Studio",
     summary:
-      "Full-Stack Multi-Agent Orchestrator (Next.js + Node Engine). Coordinates autonomous AI coding agents on shared codebases without task collision or state corruption. Built on an isolated task-dispatch engine backed by a local SQLite DAG.",
+      "Orchestration engine for autonomous developer tasks and code execution across shared codebases without state collision or branch drift. Built on an isolated task-dispatch engine backed by a local SQLite DAG.",
     situation:
       "Running multiple coding agents (Claude, Codex, Antigravity) across active worktrees creates constant branch drift, overlapping file edits, and untracked task states.",
     tension:
       "The engine originally lived coupled inside a VS Code extension, making it impossible to drive from CLI scripts, CI test suites, or headless worker sessions without booting a full editor instance.",
     decision:
-      "Decoupled the task-dispatch engine into a standalone Node package (`@workflow-studio/core`) backed by a SQLite task DAG. Implemented Kahn's algorithm for topological task ordering with strict cycle detection, and distributed task leases with monotonic fencing tokens to reject stale writes.",
+      "Decoupled runtime logic into an isolated headless Node.js core engine (@workflow-studio/core) backed by an explicit SQLite task DAG using strict compile-time tsconfig boundaries. Implemented Kahn's algorithm for topological task ordering with strict cycle detection, and distributed task leases with monotonic fencing tokens to reject stale writes.",
     consequence:
       "Four separate surfaces consume the exact same core engine: the VS Code extension, the CLI, the dashboard SPA, and TradeSense. Headless CI runs the full task loop without mocking the VS Code host.",
     evidence: [
@@ -99,12 +99,12 @@ export const projects: Project[] = [
       },
     ],
     stack: [
+      "Node.js",
+      "TypeScript",
       "React",
       "Next.js",
-      "TypeScript",
-      "Node.js",
-      "SQLite / PostgreSQL",
-      "VS Code API",
+      "SQLite",
+      "Task DAG",
     ],
     live: {
       url: "https://workflow.shivambhaipatel.com",
@@ -130,7 +130,7 @@ export const projects: Project[] = [
     tension:
       "Enterprise ERP systems regenerate DOM element IDs across sessions and quarterly patches (`#btn-submit-8942` → `#btn-submit-3180`). Standard test runners break immediately or report false greens without validating that the business operation succeeded.",
     decision:
-      "Built a two-tier architecture: a Chrome MV3 recorder and a standalone Node.js Playwright daemon. When selectors drift, the engine falls back through a 4-step hierarchy (accessibility tree → parent contextual attributes → action text) before asserting verified DOM mutation.",
+      "Built a two-tier verification engine combining Chrome MV3 telemetry with a headless Node.js Playwright daemon. Designed a 4-step self-healing fallback (ARIA accessibility tree → contextual parent attributes → action text) with state mutation assertions (verifying modal dismissals and network responses before confirming step execution).",
     consequence:
       "45 defect-specific behavioral checks. Verified capture of confirmation dialogs before dismissal. The recorder and replayer share zero code at runtime, communicating solely via the recording JSON contract.",
     evidence: [
@@ -147,7 +147,7 @@ export const projects: Project[] = [
         lang: "js",
       },
     ],
-    stack: ["TypeScript", "Playwright", "Chrome MV3 Extension", "Node.js Desktop Daemon", "Fastify"],
+    stack: ["Playwright", "TypeScript", "Node.js", "Chrome MV3", "Enterprise ERP"],
     live: {
       url: "https://flowtrace.shivambhaipatel.com",
       status: "up",
@@ -191,11 +191,11 @@ export const projects: Project[] = [
     slug: "enterprise-platform",
     name: "Enterprise ERP Connector",
     summary:
-      "Reference architecture and API gateway prototype modeling unified query paths across Oracle Fusion, SAP Cognos, and Power BI.",
+      "Unified API gateway interface and reference architecture modeling unified query paths across heterogeneous enterprise systems (Oracle Fusion, SAP, Cognos, Power BI).",
     tension:
       "Connecting legacy enterprise systems creates massive latency and brittle point-to-point integrations.",
     decision:
-      "High-throughput Java 21 / Spring Boot 3 gateway with unified REST interfaces and WorkOS SSO authentication.",
+      "High-concurrency Java 21 / Spring Boot 3 gateway normalizing downstream queries across heterogeneous ERP systems with unified REST interfaces and WorkOS SSO.",
     consequence:
       "Sub-300ms response times for ERP queries across 50+ business entities at a single client.",
     evidence: [
@@ -205,7 +205,7 @@ export const projects: Project[] = [
         lang: "java",
       },
     ],
-    stack: ["Java 21", "Spring Boot 3", "Next.js 15"],
+    stack: ["Java 21", "Spring Boot 3", "REST APIs", "Microservices"],
     live: {
       url: "https://platform.shivambhaipatel.com",
       status: "up",
@@ -217,11 +217,11 @@ export const projects: Project[] = [
     slug: "dealdekho",
     name: "DealDekho",
     summary:
-      "Aggregator-first Indian price comparison engine across Amazon, Flipkart, and Croma with resilient price normalization.",
+      "Multi-marketplace price intelligence platform across Amazon, Flipkart, and Croma with resilient price normalization pipelines.",
     tension:
       "Direct scraping of dynamic marketplace frontends leads to immediate IP bans, aggressive captchas, and brittle scrapers.",
     decision:
-      "Aggregator-first ingestion pipeline pairing structured price APIs with client-side telemetry from the ShopLens browser extension, normalizing price variance across marketplaces.",
+      "Next.js full-stack architecture pairing structured aggregator APIs with client-side telemetry from the ShopLens browser extension, normalizing price variance across marketplaces.",
     consequence:
       "62 passing test cases across 12 suites validating price normalizers and catalog matching logic.",
     evidence: [
@@ -231,7 +231,7 @@ export const projects: Project[] = [
         lang: "ts",
       },
     ],
-    stack: ["Next.js 15", "TypeScript", "PostgreSQL"],
+    stack: ["Next.js", "React", "Node.js", "PostgreSQL", "Distributed Scraping"],
     repo: "https://github.com/ShivamBhaiPatel/DealDekho",
     live: {
       url: "https://dealdekho.shivambhaipatel.com",
