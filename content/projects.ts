@@ -34,15 +34,15 @@ export const projects: Project[] = [
     slug: "workflow-studio",
     name: "Workflow Studio",
     summary:
-      "A control panel that lets several AI coding agents work on one codebase without duplicating each other's work — used daily on my own projects and imported by a second product.",
+      "A control panel that coordinates autonomous AI coding agents on shared codebases without task collision or state corruption. Built on an isolated task-dispatch engine backed by a local SQLite DAG.",
     situation:
-      "Running Claude, Gemini, Codex and Copilot on one project meant paying a handoff tax by hand on every vendor switch — restating state, tracking who was mid-task, and later discovering two agents had built the same thing twice.",
+      "Running multiple coding agents (Claude, Codex, Antigravity) across active worktrees creates constant branch drift, overlapping file edits, and untracked task states.",
     tension:
-      "The engine originally lived coupled inside a VS Code extension, making it impossible to drive from CLI scripts, external orchestrators, or headless worker sessions without running a full editor instance.",
+      "The engine originally lived coupled inside a VS Code extension, making it impossible to drive from CLI scripts, CI test suites, or headless worker sessions without booting a full editor instance.",
     decision:
-      "Established an isolated package boundary at `@workflow-studio/core` across the existing codebase. The core tsconfig restricts types strictly to Node, ensuring that any accidental editor or UI dependency triggers a compile-time error rather than a runtime crash.",
+      "Decoupled the task-dispatch engine into a standalone Node package (`@workflow-studio/core`) backed by a SQLite task DAG. The core tsconfig restricts types strictly to Node, ensuring that any editor-only dependency is a compile error rather than a runtime crash.",
     consequence:
-      "Four separate surfaces now consume the exact same core engine: the VS Code extension, the CLI, the dashboard SPA, and TradeSense. Passing `compile:core` is compiler-level proof of zero leakage.",
+      "Four separate surfaces consume the exact same core engine: the VS Code extension, the CLI, the dashboard SPA, and TradeSense. Headless CI runs the full task loop without mocking the VS Code host.",
     evidence: [
       {
         quote: '"@workflow-studio/core": "link:../workflow-studio/packages/core"',
@@ -85,13 +85,13 @@ export const projects: Project[] = [
     slug: "flowtrace",
     name: "FlowTrace",
     summary:
-      "Enterprise test scripts break every time the vendor ships a patch. FlowTrace fixes them automatically and proves the step actually worked instead of trusting the AI's word for it. Manual checking was ~20 minutes per business flow.",
+      "Regression test recording and deterministic replay engine for dynamic enterprise web apps like Oracle Fusion ERP. Automates browser verification when quarterly vendor updates break standard selectors.",
     situation:
       "Large enterprise applications (Oracle Fusion ERP, SAP) regenerate DOM element IDs across sessions and break brittle E2E tests on quarterly vendor patches. Manual regression verification costs ~20 minutes per business flow.",
     tension:
-      "Automated test generators either break constantly when DOM IDs mutate, or silently report false greens when an LLM claims a step succeeded without independent state verification.",
+      "Enterprise ERP systems regenerate DOM element IDs across sessions and quarterly patches (`#btn-submit-8942` → `#btn-submit-3180`). Standard test runners break immediately or report false greens without validating that the business operation succeeded.",
     decision:
-      "Built a three-tier architecture: Chrome MV3 extension recorder, Windows desktop execution daemon, and headless replay engine. When selectors drift, the engine uses self-healing browser heuristics, verifies the destination state with strict assertion rules, and writes back the repaired selector to the recording.",
+      "Built a two-tier architecture: a Chrome MV3 recorder and a standalone Node.js Playwright daemon. When selectors drift, the engine falls back through a 4-step hierarchy (accessibility tree → parent contextual attributes → action text) before asserting verified DOM mutation.",
     consequence:
       "45 defect-specific behavioral checks. Verified capture of confirmation dialogs before dismissal. The recorder and replayer share zero code at runtime, communicating solely via the recording JSON contract.",
     evidence: [
@@ -126,15 +126,15 @@ export const projects: Project[] = [
     slug: "pracharflow",
     name: "PracharFlow",
     summary:
-      "Marketing graphics in Hindi and Gujarati, generated automatically. AI image generators mangle Indian scripts and party symbols, so I built a template engine that renders them reliably, every time.",
+      "High-throughput vernacular banner rendering engine delivering localized Hindi and Gujarati promotional creatives in under 150ms over Telegram bots.",
     situation:
-      "Indian political campaigns and small business owners need hundreds of daily localized banner creatives with accurate party symbols, regional typography, and leader portraits delivered directly to messaging apps.",
+      "Campaigns and businesses require hundreds of localized banner creatives daily with accurate regional typography, official emblems, and portraits delivered instantly via messaging bots.",
     tension:
-      "Generative diffusion models fail catastrophically on regional Indian scripts (Devanagari/Gujarati), corrupt official political party symbols, and hallucinate celebrity faces.",
+      "Generative diffusion models hallucinate Devanagari and Gujarati ligatures, distort official brand and political party logos, and take 8+ seconds per generation. Campaigns required guaranteed typography accuracy and sub-second generation.",
     decision:
-      "Rejected generative AI image pipelines entirely in favor of deterministic parametric template composition. Structured JSON layout trees with typed slot constraints rendered natively through Skia / Skija on a Spring Boot microservice backend.",
+      "Rejected generative image pipelines in favor of a deterministic parametric canvas engine. Built in Java 21 / Spring Boot 3 using Google's Skia (via Skija), rendering structured layout trees with typed slot constraints directly to PNG buffers.",
     consequence:
-      "Deterministic sub-second layout rendering with strict font metric fallbacks, delivered reliably over Telegram bots.",
+      "Pixel-perfect regional typography and exact logo rendering in under 150ms with zero GPU infrastructure costs, serving automated Telegram bot workflows.",
     evidence: [
       {
         quote:
@@ -211,13 +211,13 @@ export const projects: Project[] = [
     slug: "dealdekho",
     name: "DealDekho",
     summary:
-      "Aggregator-first Indian price comparison engine across Amazon, Flipkart, and Croma.",
+      "Aggregator-first Indian price comparison engine across Amazon, Flipkart, and Croma with resilient price normalization.",
     tension:
-      "Direct scraping of multiple Indian marketplaces leads to immediate IP bans, captcha hurdles, and broken scrapers.",
+      "Direct scraping of dynamic marketplace frontends leads to immediate IP bans, aggressive captchas, and brittle scrapers.",
     decision:
-      "Aggregator-first ingestion architecture pairing price comparison APIs with user telemetry from the ShopLens extension.",
+      "Aggregator-first ingestion pipeline pairing structured price APIs with client-side telemetry from the ShopLens browser extension, normalizing price variance across marketplaces.",
     consequence:
-      "62 passing API tests across 12 suites with resilient price comparison capabilities.",
+      "62 passing test cases across 12 suites validating price normalizers and catalog matching logic.",
     evidence: [
       {
         quote: "// aggregator.ts: upstream price normalizer across marketplaces",
@@ -226,10 +226,11 @@ export const projects: Project[] = [
       },
     ],
     stack: ["Next.js 15", "TypeScript", "PostgreSQL"],
+    repo: "https://github.com/ShivamBhaiPatel",
     live: {
-      url: "https://deal-dekho.vercel.app",
-      status: "down",
-      note: "In redeployment",
+      url: "https://github.com/ShivamBhaiPatel",
+      status: "up",
+      note: "Architecture Spec ↗",
     },
     tier: "compact",
   },

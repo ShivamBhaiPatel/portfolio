@@ -44,14 +44,6 @@ export function ProjectFeatured({ project }: { project: Project }) {
         </div>
       </div>
 
-      {project.evidence[0] ? (
-        <div className="my-md bg-wash rounded-sm p-sm border border-rule font-mono text-xs text-ink overflow-x-auto">
-          <p className="text-muted text-meta tracking-meta uppercase mb-2xs">
-            Verbatim artifact excerpt ({project.evidence[0].source}):
-          </p>
-          <pre className="whitespace-pre-wrap">{project.evidence[0].quote}</pre>
-        </div>
-      ) : null}
 
       <div className="mt-md pt-sm border-t border-rule flex flex-wrap items-center justify-between gap-sm">
         <div className="flex flex-wrap gap-xs font-mono text-meta text-muted">

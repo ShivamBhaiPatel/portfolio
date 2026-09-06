@@ -10,6 +10,7 @@ import { PrinciplesSection } from "../components/principles-section";
 import { ContactSection } from "../components/contact-section";
 import { FlowTraceDiagram, PracharFlowDiagram } from "../components/diagrams";
 import { FlowTraceInteractive } from "../components/flowtrace-interactive";
+import { PracharFlowComparison } from "../components/pracharflow-comparison";
 import { TiltCard } from "../components/tilt-card";
 
 export default function Home() {
@@ -27,24 +28,21 @@ export default function Home() {
       <Section
         id="work"
         kicker="01 / Production Systems"
-        subkicker="Architectural Constraints & Verifiable Outcomes"
+        subkicker="High-Throughput JVM Backends, Playwright Automation & Developer Tooling"
         title="Selected Work"
         rule={true}
         width="wide"
       >
-        <p className="text-body text-muted leading-relaxed max-w-[var(--measure-prose)] mb-lg">
-          Three systems across multi-agent orchestration, browser-engine automation,
-          and vernacular template composition. Each built around an architectural
-          constraint and verifiable trade-off.
+        <p className="text-body text-muted leading-relaxed max-w-[var(--measure-prose)] mb-md">
+          Production software built under real performance, concurrency, and reliability constraints.
         </p>
 
-        {/* Treatment 1: Flagship Full-Bleed Band with Terminal Simulator */}
+        {/* Treatment 1: Flagship (Workflow Studio) */}
         {flagship ? <ProjectFlagship project={flagship} /> : null}
 
-        {/* Treatment 2: FlowTrace — Two-Column Split + Heuristic Simulator */}
+        {/* Treatment 2: FlowTrace — Two-Column Card with Simulator */}
         {flowtrace ? (
-          <TiltCard maxTilt={2} className="relative my-2xl rounded-sm border border-rule border-t-2 border-t-ink bg-raised p-md md:p-xl hover:border-rule-strong transition-colors">
-            {/* Corner Crosshairs */}
+          <TiltCard className="my-2xl rounded-sm border border-rule bg-raised p-md md:p-lg relative">
             <span className="absolute -top-1.5 -left-1.5 font-mono text-[10px] text-muted/50 select-none">+</span>
             <span className="absolute -top-1.5 -right-1.5 font-mono text-[10px] text-muted/50 select-none">+</span>
             <span className="absolute -bottom-1.5 -left-1.5 font-mono text-[10px] text-muted/50 select-none">+</span>
@@ -98,18 +96,10 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Right Column: Inline SVG Diagram + Code Evidence + Heuristic Simulator */}
+              {/* Right Column: Inline SVG Diagram + Selector Fallback Tree */}
               <div className="lg:col-span-6 space-y-md">
                 <FlowTraceDiagram />
                 <FlowTraceInteractive />
-                {flowtrace.evidence[0] ? (
-                  <div className="bg-wash rounded-sm p-sm border border-rule font-mono text-xs text-ink overflow-x-auto max-w-full">
-                    <p className="text-muted text-meta tracking-meta uppercase mb-2xs">
-                      Verbatim artifact excerpt ({flowtrace.evidence[0].source}):
-                    </p>
-                    <pre className="max-w-full overflow-x-auto whitespace-pre-wrap break-words">{flowtrace.evidence[0].quote}</pre>
-                  </div>
-                ) : null}
               </div>
             </div>
           </TiltCard>
@@ -176,17 +166,10 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Right 5 Columns: Diagram + Verified Java Skia Code */}
+              {/* Right 5 Columns: Diagram + Trade-off Analysis */}
               <div className="lg:col-span-5 space-y-md">
                 <PracharFlowDiagram />
-                {pracharflow.evidence[0] ? (
-                  <div className="bg-wash rounded-sm p-sm border border-rule font-mono text-xs text-ink overflow-x-auto max-w-full">
-                    <p className="text-muted text-meta tracking-meta uppercase mb-2xs">
-                      Verbatim artifact excerpt ({pracharflow.evidence[0].source}):
-                    </p>
-                    <pre className="max-w-full overflow-x-auto whitespace-pre-wrap break-words">{pracharflow.evidence[0].quote}</pre>
-                  </div>
-                ) : null}
+                <PracharFlowComparison />
               </div>
             </div>
           </article>
@@ -224,15 +207,14 @@ export default function Home() {
       {/* 5. How I Work */}
       <Section
         id="principles"
-        kicker="04 / Engineering Values"
-        subkicker="Operating Principles & Decision Models"
-        title="How I Work"
+        kicker="04 / Architectural Decisions"
+        subkicker="Trade-Offs & Rules of Thumb"
+        title="Engineering Trade-Offs"
         rule={true}
         width="wide"
       >
         <p className="text-body text-muted leading-relaxed max-w-[var(--measure-prose)] mb-md">
-          Falsifiable principles proven by decisions in the systems above, replacing
-          generic skill keyword clouds.
+          Practical architectural heuristics and trade-offs drawn from building high-throughput JVM backends, browser automation suites, and developer platform tooling.
         </p>
         <PrinciplesSection />
       </Section>

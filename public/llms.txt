@@ -1,6 +1,6 @@
-# Shivam Bhai Patel - Systems Engineer
+# Shivam Bhai Patel — Backend & Platform Automation Engineer
 
-> I build the machinery other software runs on.
+> High-throughput JVM backends, browser-automation engines, and developer platform tooling.
 
 Portfolio: https://shivambhaipatel.com
 This file is a plain-text summary for language models and other automated
@@ -9,11 +9,12 @@ at the level it can be defended, and unfinished work is labelled as unfinished.
 
 ## About
 
-Systems and backend engineer, four years' experience. Enterprise JVM backends,
-browser-automation engines, and multi-agent developer tooling.
+Backend and platform automation engineer with four years' experience across
+enterprise JVM backends, deterministic Playwright automation engines, and
+developer tooling.
 
-- Location: India. Open to relocation anywhere in India, or remote.
-- Availability: within 1 week, full-time or contract.
+- Location: India. Open to Bangalore, NCR, or Remote (IST · UTC+5:30).
+- Availability: Within 1 week, Full-Time or Contract.
 - Contact: shivambhaipatel1997@gmail.com
 - GitHub: https://github.com/ShivamBhaiPatel
 

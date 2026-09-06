@@ -130,7 +130,7 @@ export function WorkflowTopologyDiagram() {
           }`}
         >
           <div className="inline-block px-2 py-0.5 mb-2 rounded-sm bg-wash text-accent text-meta font-bold tracking-meta uppercase border border-rule">
-            Isolated Kernel
+            Decoupled Engine
           </div>
           <div className="text-base font-bold text-ink tracking-tight mb-1">
             {coreNode.name}
@@ -139,7 +139,7 @@ export function WorkflowTopologyDiagram() {
             Task DAG · SQLite Engine · IPC Dispatcher
           </div>
           <div className="text-meta text-accent bg-raised py-1 px-2 rounded-sm border border-rule inline-block max-w-full truncate font-medium">
-            types: [&quot;node&quot;] (zero UI symbol leakage)
+            types: [&quot;node&quot;] (headless Node runtime)
           </div>
         </div>
 
