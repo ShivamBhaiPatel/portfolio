@@ -34,8 +34,9 @@ export function ExperienceSection() {
           {/* Nested Clients for Consulting */}
           {exp.clients && exp.clients.length > 0 ? (
             <div className="mt-md pl-4 sm:pl-6 ml-1 border-l-2 border-accent/60 space-y-lg">
-              <div className="text-meta font-mono text-accent uppercase tracking-meta font-semibold">
-                ↳ Retained &amp; Contract Engagements:
+              <div className="text-meta font-mono text-ink/85 uppercase tracking-meta font-semibold flex items-center gap-1.5">
+                <span className="text-accent font-bold">↳</span>
+                <span>Retained &amp; Contract Engagements:</span>
               </div>
               {exp.clients.map((client) => (
                 <div key={client.name} className="space-y-xs">
@@ -112,8 +113,9 @@ export function ExperienceSection() {
 
       {/* Academic Background & Credentials Subsection */}
       <div className="pt-8 mt-10 border-t border-dashed border-rule space-y-lg">
-        <div className="text-meta font-mono text-accent uppercase tracking-meta font-semibold">
-          ↳ Academic Background &amp; Credentials
+        <div className="text-meta font-mono text-ink/85 uppercase tracking-meta font-semibold flex items-center gap-1.5">
+          <span className="text-accent font-bold">↳</span>
+          <span>Academic Background &amp; Credentials</span>
         </div>
 
         <div className="space-y-md">

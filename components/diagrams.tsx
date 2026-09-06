@@ -7,13 +7,20 @@ export function WorkflowStudioDiagram() {
 
   return (
     <div className="my-md w-full rounded-sm border border-rule bg-wash/40 p-sm sm:p-md font-mono text-xs">
-      {/* Fixed height header bar to prevent layout shifts */}
-      <div className="flex flex-wrap items-center justify-between gap-xs pb-2 border-b border-rule mb-sm font-mono text-meta min-h-[2rem]">
-        <span className="text-accent font-semibold tracking-meta uppercase">
+      {/* Header bar */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-2 border-b border-rule mb-sm font-mono text-meta min-h-[2rem]">
+        <span className="text-accent font-semibold tracking-meta uppercase shrink-0">
           Architecture &amp; Multi-Agent DAG Topology
         </span>
-        <span className="text-muted truncate max-w-full sm:max-w-md text-right">
-          {activeNode ? `Inspecting: ${activeNode}` : "Hover any node to inspect data contract"}
+        <span className="text-muted text-xs sm:text-right">
+          {activeNode ? (
+            <span className="text-accent font-medium">Inspecting: {activeNode}</span>
+          ) : (
+            <span className="inline-flex items-center gap-1.5 opacity-80">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent/60 animate-pulse" />
+              Hover node to inspect contract
+            </span>
+          )}
         </span>
       </div>
 
@@ -330,12 +337,19 @@ export function FlowTraceDiagram() {
 
   return (
     <div className="my-md w-full rounded-sm border border-rule bg-wash/40 p-sm sm:p-md font-mono text-xs">
-      <div className="flex flex-wrap items-center justify-between gap-xs pb-2 border-b border-rule mb-sm font-mono text-meta min-h-[2rem]">
-        <span className="text-accent font-semibold tracking-meta uppercase">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-2 border-b border-rule mb-sm font-mono text-meta min-h-[2rem]">
+        <span className="text-accent font-semibold tracking-meta uppercase shrink-0">
           FlowTrace Architecture Pipeline
         </span>
-        <span className="text-muted truncate max-w-full sm:max-w-md text-right">
-          {activeStep ? `Inspecting: ${activeStep}` : "Hover steps to inspect boundary"}
+        <span className="text-muted text-xs sm:text-right">
+          {activeStep ? (
+            <span className="text-accent font-medium">Boundary: {activeStep}</span>
+          ) : (
+            <span className="inline-flex items-center gap-1.5 opacity-80">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent/60 animate-pulse" />
+              Hover steps to inspect boundary
+            </span>
+          )}
         </span>
       </div>
 
@@ -476,12 +490,19 @@ export function PracharFlowDiagram() {
 
   return (
     <div className="my-md w-full rounded-sm border border-rule bg-wash/40 p-sm sm:p-md font-mono text-xs">
-      <div className="flex flex-wrap items-center justify-between gap-xs pb-2 border-b border-rule mb-sm font-mono text-meta min-h-[2rem]">
-        <span className="text-accent font-semibold tracking-meta uppercase">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-2 border-b border-rule mb-sm font-mono text-meta min-h-[2rem]">
+        <span className="text-accent font-semibold tracking-meta uppercase shrink-0">
           PracharFlow Rendering Pipeline
         </span>
-        <span className="text-muted truncate max-w-full sm:max-w-md text-right">
-          {activeStep ? `Inspecting: ${activeStep}` : "Hover stages to inspect throughput"}
+        <span className="text-muted text-xs sm:text-right">
+          {activeStep ? (
+            <span className="text-accent font-medium">Stage: {activeStep}</span>
+          ) : (
+            <span className="inline-flex items-center gap-1.5 opacity-80">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent/60 animate-pulse" />
+              Hover stages to trace
+            </span>
+          )}
         </span>
       </div>
 

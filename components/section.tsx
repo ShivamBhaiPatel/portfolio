@@ -53,7 +53,7 @@ export function Section({
                 {badge}
               </span>
             ) : null}
-            <span className="font-mono text-[11px] tracking-widest uppercase text-muted font-semibold">
+            <span className="font-mono text-[11px] tracking-widest uppercase text-ink/80 dark:text-ink/85 font-semibold">
               {tag}
             </span>
             <div className="h-px flex-1 bg-rule" />

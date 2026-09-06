@@ -30,7 +30,7 @@
   --paper: #f7f5f0; /* (§5) page ground */
   --raised: #ffffff; /* (§5) cards, rare */
   --ink: #16150f; /* (§5) body text, headings */
-  --muted: #6b675c; /* (§5) captions, metadata */
+  --muted: #5e5a50; /* (§5) captions, metadata (6.3:1 contrast on light ground) */
   --rule: #e0dcd2; /* (§5) 1px separators */
   --accent: #8a3b12; /* (§5) links, one live-status dot. Burnt sienna, sparingly */
 
@@ -59,7 +59,7 @@
     --paper: #14130f; /* (§5) */
     --raised: #1c1b16; /* (§5) */
     --ink: #edeae1; /* (§5) */
-    --muted: #918c7e; /* (§5) */
+    --muted: #9e988a; /* (§5) */
     --rule: #2e2c25; /* (§5) */
     --accent: #d98b5f; /* (§5) */
     --paper-sunk: color-mix(in oklab, var(--paper) 90%, #000000);
@@ -71,7 +71,7 @@
   --paper: #14130f;
   --raised: #1c1b16;
   --ink: #edeae1;
-  --muted: #918c7e;
+  --muted: #9e988a;
   --rule: #2e2c25;
   --accent: #d98b5f;
   --paper-sunk: color-mix(in oklab, var(--paper) 90%, #000000);
@@ -81,7 +81,7 @@
    (WCAG 2.1 relative luminance; see the numbers in the styleguide's
    contrast table, which computes them live rather than trusting this comment):
      ink    16.79:1 light / 15.45:1 dark   — AA body, comfortably
-     muted   5.18:1 light /  5.54:1 dark   — AA body
+     muted   6.31:1 light /  6.21:1 dark   — AA body, crystal-clear daylight legibility
      accent  7.10:1 light /  6.91:1 dark   — AA body, and AA for the focus ring
    --rule is ~1.3:1 by design. It is a decorative separator, not a UI control
    or meaningful graphic, so 1.4.11 does not apply to it. Nothing is ever

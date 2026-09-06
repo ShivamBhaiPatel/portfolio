@@ -2,11 +2,9 @@
 
 import { useState } from "react";
 import { site } from "../content/site";
-import { ResumeModal } from "./resume-modal";
 
 export function ContactSection() {
   const [copied, setCopied] = useState(false);
-  const [resumeOpen, setResumeOpen] = useState(false);
 
   function copyEmail() {
     navigator.clipboard.writeText(site.email);
@@ -90,9 +88,9 @@ export function ContactSection() {
         </div>
       </div>
 
-      {/* Profile Channels & In-Page Resume Access */}
+      {/* Profile Channels & Resume */}
       <div className="pt-sm border-t border-rule flex flex-wrap items-center justify-between gap-sm font-mono text-xs text-muted">
-        <div className="flex flex-wrap items-center gap-md">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-meta font-mono">
           <a
             href={site.links.linkedin}
             target="_blank"
@@ -117,26 +115,11 @@ export function ContactSection() {
             href="/resume/"
             className="hover:text-ink text-ink/80 transition-colors flex items-center gap-1"
           >
-            <span>Dedicated /resume</span>
+            <span>Resume</span>
             <span className="text-accent">↗</span>
           </a>
         </div>
-
-        <button
-          type="button"
-          onClick={() => setResumeOpen(true)}
-          className="w-full sm:w-auto justify-center px-3 py-1.5 rounded-sm bg-wash border border-rule hover:border-rule-strong text-ink font-mono text-xs transition-colors cursor-pointer flex items-center gap-1.5 shadow-2xs"
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-accent inline-block" />
-          <span className="font-semibold">ATS Resume Preview ↗</span>
-        </button>
       </div>
-
-      {/* In-page ATS Resume Modal */}
-      <ResumeModal
-        isOpen={resumeOpen}
-        onClose={() => setResumeOpen(false)}
-      />
     </div>
   );
 }

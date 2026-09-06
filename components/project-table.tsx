@@ -67,28 +67,37 @@ export function ProjectTable({ projects }: { projects: Project[] }) {
                 <td className="py-md px-md font-mono text-meta text-right align-top whitespace-nowrap">
                   {current.status === "down" ? (
                     <span className="text-muted">{current.note || "In redeployment"}</span>
-                  ) : p.live?.url ? (
-                    <a
-                      href={p.live.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-accent underline underline-offset-2 hover:opacity-80"
-                    >
-                      {current.note ? `${current.note.replace(/\s*↗$/, "")} ↗` : "Live ↗"}
-                    </a>
-                  ) : p.repo ? (
-                    <a
-                      href={p.repo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted hover:text-ink underline underline-offset-2"
-                    >
-                      GitHub ↗
-                    </a>
                   ) : (
-                    <span className="text-muted">
-                      {current.note || "Spec"}
-                    </span>
+                    <div className="flex items-center justify-end gap-1.5">
+                      {p.live?.url && (
+                        <a
+                          href={p.live.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-accent underline underline-offset-2 hover:opacity-80"
+                        >
+                          {current.note ? `${current.note.replace(/\s*↗$/, "")} ↗` : "Live ↗"}
+                        </a>
+                      )}
+                      {p.live?.url && p.repo && (
+                        <span className="text-rule-strong">/</span>
+                      )}
+                      {p.repo && (
+                        <a
+                          href={p.repo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted hover:text-ink underline underline-offset-2"
+                        >
+                          GitHub ↗
+                        </a>
+                      )}
+                      {!p.live?.url && !p.repo && (
+                        <span className="text-muted">
+                          {current.note || "Spec"}
+                        </span>
+                      )}
+                    </div>
                   )}
                 </td>
               </tr>
