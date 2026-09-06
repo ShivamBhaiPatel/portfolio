@@ -1,0 +1,8 @@
+[build]
+  command = "pnpm build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "22.14.0"
+  PNPM_VERSION = "11.22.0"
+

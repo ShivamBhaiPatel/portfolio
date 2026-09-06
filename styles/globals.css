@@ -39,6 +39,7 @@
      marginalia gutter. There is no card colour beyond --raised, on purpose. */
   --wash: color-mix(in oklab, var(--accent) 9%, var(--paper));
   --wash-strong: color-mix(in oklab, var(--accent) 16%, var(--paper));
+  --paper-sunk: color-mix(in oklab, var(--paper) 93%, var(--ink));
   --rule-strong: color-mix(in oklab, var(--rule) 55%, var(--ink));
 
   /* Measures for Container maxWidth */
@@ -61,6 +62,7 @@
     --muted: #918c7e; /* (§5) */
     --rule: #2e2c25; /* (§5) */
     --accent: #d98b5f; /* (§5) */
+    --paper-sunk: color-mix(in oklab, var(--paper) 90%, #000000);
   }
 }
 
@@ -72,6 +74,7 @@
   --muted: #918c7e;
   --rule: #2e2c25;
   --accent: #d98b5f;
+  --paper-sunk: color-mix(in oklab, var(--paper) 90%, #000000);
 }
 
 /* Measured contrast, both themes, against --paper and --raised
@@ -198,6 +201,7 @@
   --color-accent: var(--accent);
   --color-wash: var(--wash);
   --color-wash-strong: var(--wash-strong);
+  --color-paper-sunk: var(--paper-sunk);
 }
 
 /* -----------------------------------------------------------------------------

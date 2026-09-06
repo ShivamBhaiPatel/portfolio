@@ -133,7 +133,7 @@ export function ATSAuditDrawer({ isOpen, onClose }: ATSAuditDrawerProps) {
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5 font-bold text-ink text-sm">
-                    <span className={check.passed ? "text-[#4ade80]" : "text-amber-400"}>
+                    <span className={check.passed ? "text-accent font-bold" : "text-muted"}>
                       {check.passed ? "✓" : "⚠"}
                     </span>
                     <span>{check.name}</span>

@@ -24,8 +24,8 @@ export function Hero() {
             {/* Metadata line with animated beacon */}
             <div className="flex items-center gap-2 font-mono text-meta tracking-meta text-muted uppercase">
               <span className="relative flex h-2 w-2 shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
               </span>
               <span>Available for full-time &amp; contract roles</span>
             </div>
@@ -111,8 +111,8 @@ export function Hero() {
               <div className="flex items-center justify-between px-4 py-3 border-b border-rule bg-wash/80 dark:bg-raised/70 font-mono text-[11px]">
                 <div className="flex items-center gap-2">
                   <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
                   </span>
                   <span className="font-bold text-ink uppercase tracking-wider">
                     Recruiter Fast-Track
