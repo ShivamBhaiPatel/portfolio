@@ -46,21 +46,21 @@ export function Footer() {
             </p>
             <ul className="space-y-2 text-xs">
               {footerProjects.map((p) => (
-                <li key={p.name} className="flex items-baseline justify-between gap-2">
+                <li key={p.name} className="flex items-center justify-between gap-3">
                   {p.href ? (
                     p.isExternal ? (
                       <a
                         href={p.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-muted hover:text-ink transition-colors hover:underline underline-offset-4 font-medium"
+                        className="text-ink hover:text-accent transition-colors hover:underline underline-offset-4 font-medium"
                       >
-                        {p.name} ↗
+                        {p.name} <span className="text-muted text-[10px]">↗</span>
                       </a>
                     ) : (
                       <Link
                         href={p.href}
-                        className="text-muted hover:text-ink transition-colors hover:underline underline-offset-4 font-medium"
+                        className="text-ink hover:text-accent transition-colors hover:underline underline-offset-4 font-medium"
                       >
                         {p.name}
                       </Link>
@@ -69,10 +69,10 @@ export function Footer() {
                     <span className="text-muted/80">{p.name}</span>
                   )}
                   <span
-                    className={`text-[10px] tracking-tight uppercase ${
+                    className={`text-[10px] tracking-wider uppercase font-semibold px-1.5 py-0.5 rounded-xs border shrink-0 ${
                       p.status === "up"
-                        ? "text-accent font-semibold"
-                        : "text-muted/60"
+                        ? "text-accent bg-wash border-rule"
+                        : "text-muted bg-wash/50 border-rule"
                     }`}
                   >
                     {p.statusLabel}
@@ -160,9 +160,9 @@ export function Footer() {
         </div>
 
         {/* Bottom Hairline Metadata */}
-        <div className="pt-lg border-t border-rule flex flex-col sm:flex-row items-baseline justify-between gap-sm font-mono text-meta text-muted">
+        <div className="pt-lg border-t border-rule-strong flex flex-col sm:flex-row items-baseline justify-between gap-sm font-mono text-meta text-muted">
           <p>
-            © {currentYear} {site.name} · {site.role}.
+            © {currentYear} {site.name} · {site.role}
           </p>
           <p>
             Built with Next.js 16.
