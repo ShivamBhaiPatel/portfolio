@@ -10,10 +10,10 @@
 
 ## 1. Executive Engineering Summary
 
-Shivam Bhai Patel is a Backend & Platform Automation Engineer with 4+ years of professional engineering experience spanning enterprise JVM backends (Java 21, Spring Boot 3), deterministic browser automation execution engines (Playwright, Chrome MV3), and multi-agent developer tooling (Workflow Studio).
+Shivam Bhai Patel is a Senior Full-Stack & Backend Engineer with 4+ years of professional engineering experience spanning enterprise JVM backends (Java 21, Spring Boot 3), production React/Next.js interfaces, deterministic browser automation engines (Playwright, Chrome MV3), and multi-agent developer tooling (Workflow Studio).
 
 ### Core Contact & Availability Telemetry
-- **Current Role**: Backend & Platform Automation Engineer / Independent Consultant
+- **Current Role**: Senior Full-Stack & Backend Engineer (Java & Spring Boot Core · React / Next.js)
 - **Location**: India (Open to Bangalore, NCR, or Remote — IST · UTC+5:30)
 - **Mobility**: Immediate availability within 1 week for Full-Time or Contract roles
 - **Direct Email**: shivambhaipatel1997@gmail.com
@@ -23,8 +23,9 @@ Shivam Bhai Patel is a Backend & Platform Automation Engineer with 4+ years of p
 
 ### Primary Technical Competencies
 - **Enterprise JVM & Microservices**: Java 21, Spring Boot 3.4, Modulith architecture, Hibernate / JPA, Flyway migrations, DB2, MariaDB, PostgreSQL (RLS / multi-tenant isolation), Redis 7, connection pooling (HikariCP), JVM heap profiling, GC tuning.
-- **Browser Automation & Reverse Engineering**: Playwright, Chrome DevTools Protocol (CDP), Chrome Manifest V3 (MV3) extensions, deterministic DOM state verification, self-healing selector engines, network request interception, WebSocket emulation.
-- **Multi-Agent Systems & Developer Tooling**: TypeScript, Node.js, SQLite (via sql.js WebAssembly), DAG workflow execution engines, AST verification, strict tsconfig architectural boundaries, headless runner orchestration, VS Code API.
+- **Frontend & Web Applications**: React, Next.js 15 (App Router, Server Components / SSR), TypeScript, Tailwind CSS, State Architecture, REST & WebSocket integration.
+- **Browser Automation & Reverse Engineering**: Playwright, Chrome DevTools Protocol (CDP), Chrome Manifest V3 (MV3) extensions, deterministic DOM state verification, self-healing selector engines, network request interception.
+- **Multi-Agent Systems & Developer Tooling**: TypeScript, Node.js, SQLite (via sql.js WebAssembly), DAG workflow execution engines (Kahn's topological sort, monotonic lease fencing), AST verification, strict tsconfig architectural boundaries.
 - **High-Performance Composition & Media**: Google Skia (via Skija), HarfBuzz font shaping, multi-lingual Devanagari & Gujarati typography rasterization, FFmpeg rendering pipelines.
 
 ---
@@ -58,10 +59,8 @@ Shivam Bhai Patel is a Backend & Platform Automation Engineer with 4+ years of p
 - **Environment**: Java 8/11/17, Spring Boot, IBM DB2, Jenkins CI/CD, Microservices, Docker.
 - **Impact & Scale**:
   - Core engineering on enterprise retail workforce management platforms serving 150,000+ daily active store workers across 400+ enterprise retail store locations (Fortune 500 retail chains).
-  - Maintained high-availability shift scheduling, time tracking, and labor compliance engines under strict enterprise SLAs.
-  - Overhauled automated Jenkins CI/CD deployment pipelines, cutting production release cycles from bi-weekly to under 2 days.
-  - Conducted JVM profiling, memory leak investigation, and garbage collection (G1GC) tuning, increasing peak transactional throughput by ~30%.
-  - Expanded automated test coverage across core scheduling services, reducing post-release defect tickets by ~25%.
+  - Maintained sub-100ms API SLAs during retail peak surges through JVM heap profiling (Eclipse MAT) and G1GC garbage collection tuning, boosting peak transaction throughput by 30%.
+  - Overhauled automated Jenkins CI/CD deployment pipelines, reducing deployment cycle times from bi-weekly to under two days.
   - Refactored legacy monolithic services into domain-aligned microservices with isolated persistence boundaries.
 
 ### Academic Background & Credentials
@@ -73,37 +72,7 @@ Shivam Bhai Patel is a Backend & Platform Automation Engineer with 4+ years of p
 
 ## 3. Flagship Architectural Systems (Deep Dive)
 
-### 1. Workflow Studio — Multi-Agent SDLC Orchestrator
-- **Website Case Study**: https://shivambhaipatel.com/work/workflow-studio/
-- **Live Production Control Plane**: https://workflow.shivambhaipatel.com
-- **Repository Anchor**: `tradesense/package.json:21`, `packages/core/tsconfig.json:19`, `packages/core/src/index.ts:7-10`
-- **Core Problem**:
-  Coordinating multiple autonomous AI coding agents on a single enterprise repository inevitably leads to task collisions, redundant git branch commits, and state corruption.
-- **Architectural Solution**:
-  An isolated task DAG runtime and control plane that enforces workspace isolation, AST syntax validation gates, and inter-agent message passing.
-- **The Decoupled Engine Boundary**:
-  The system's key architectural commitment is the package boundary. The core runtime lives in `@workflow-studio/core`. Its `tsconfig.json` restricts compiler types to `["node"]` exclusively. Importing the VS Code extension API or DOM APIs inside the core engine produces a compilation error rather than a runtime crash.
-  Four distinct clients consume that exact same package:
-  1. **VS Code Extension**: Visual tree views and interactive task dispatching inside the IDE.
-  2. **Headless CLI Runner** (`bin/workflow-studio.mjs`): Autonomous agent execution for headless CI/CD and server environments.
-  3. **Dashboard Web UI** (`workflow.shivambhaipatel.com`): React / Vite state client communicating over HTTP/SSE.
-  4. **TradeSense Desk** (`tradesense.shivambhaipatel.com`): An independent downstream financial research terminal that imports `@workflow-studio/core` as an npm dependency.
-- **Storage Strategy**: SQLite compiled via `sql.js` WebAssembly. This eliminates native Node C++ addon compilation hurdles while retaining complete relational transactional guarantees. Postgres is optionally supported for multi-host deployments.
-
-### 2. FlowTrace — Deterministic ERP Browser Automation Engine
-- **Website Case Study**: https://shivambhaipatel.com/work/flowtrace/
-- **Designated Subdomain**: https://flowtrace.shivambhaipatel.com
-- **Repository Anchor**: `flowtrace/README.md:84-85`, `flowtrace/recorder/scripts/vendor-injected.mjs:2-3`
-- **Core Problem**:
-  Enterprise applications (such as Oracle Fusion ERP) regenerate dynamic DOM IDs on every user session. Recording a business process once and attempting to replay it normally fails immediately because CSS IDs change. Furthermore, manual regression testing costs ~20 minutes per business flow.
-- **Architectural Solution**:
-  A deterministic two-tier recording and playback architecture.
-  1. **Chrome MV3 Injected Recorder**: Captures semantic user intent (DOM events, parent container hierarchies, accessibility labels, user action text) and writes a strictly validated recording JSON schema.
-  2. **Playwright Replay Service**: Executes headlessly on the server. When dynamic DOM drift occurs, the replay engine invokes multi-path heuristic selectors (text anchors, ARIA roles, relative DOM trees). Once resolved, it writes the repaired selector back into the recording file to prevent re-solving the same failure.
-  3. **Runtime Invariant Verification**: Never trusts self-reported agent success. Replay verifies physical DOM state transitions (modal dismissals, toast notifications, HTTP 200 responses) before marking an action passed.
-- **Verification Benchmark**: 45 defect-specific behavioral regression checks. The recorder and replayer share zero runtime dependencies.
-
-### 3. PracharFlow — Deterministic Vernacular Media Rendering Engine
+### 1. PracharFlow — Deterministic Vernacular Media Rendering Engine
 - **Website Case Study**: https://shivambhaipatel.com/work/pracharflow/
 - **Live Banner Studio**: https://prachar.shivambhaipatel.com
 - **Repository Anchor**: `pracharflow/render/.../CompositorService.java:214-216`
@@ -115,6 +84,38 @@ Shivam Bhai Patel is a Backend & Platform Automation Engineer with 4+ years of p
   - **Structured Layout Trees**: Expressed in parametric JSON with typed text slots, strict boundary constraints, and rasterized vector assets.
   - **Performance Outcome**: Renders full-resolution creatives directly into PNG buffers in under 150ms on standard x86 CPU servers, with zero GPU spend.
   - **Distribution Channels**: Production bot delivery over Telegram (operational); WhatsApp business delivery pipeline implemented.
+
+### 2. Workflow Studio — Full-Stack Multi-Agent Orchestrator
+- **Website Case Study**: https://shivambhaipatel.com/work/workflow-studio/
+- **Live Interactive Sandbox**: https://workflow.shivambhaipatel.com
+- **Repository Anchors**: `workflow-studio/src/workflows/executor.ts:41-44`, `workflow-studio/src/workflows/executor.ts:79-81`, `workflow-studio/src/taskLeases.ts:79-83`
+- **Core Problem**:
+  Coordinating multiple autonomous AI coding agents on a single enterprise repository inevitably leads to task collisions, redundant git branch commits, and state corruption.
+- **Architectural Solution**:
+  An isolated task DAG runtime and control plane that enforces workspace isolation, AST syntax validation gates, and inter-agent message passing.
+  - **Topological Sorting**: Implemented Kahn's algorithm (`topologicalSort`) to determine valid execution sequences and proactively detect circular dependency cycles before task dispatch.
+  - **Monotonic Fencing Tokens**: Enforced lease epochs (`isFenceCurrent`) on task locks so that delayed writes from stalled workers (due to GC pauses or network delays) are immediately rejected by the storage layer.
+- **The Decoupled Engine Boundary**:
+  The system's key architectural commitment is the package boundary. The core runtime lives in `@workflow-studio/core`. Its `tsconfig.json` restricts compiler types to Node exclusively. Importing editor APIs (like VS Code) from the core engine produces a compilation error rather than a runtime crash.
+  Four distinct clients consume that exact same package:
+  1. **VS Code Extension**: Visual tree views and interactive task dispatching inside the IDE.
+  2. **Headless CLI Runner** (`bin/workflow-studio.mjs`): Autonomous agent execution for headless CI/CD and server environments.
+  3. **Dashboard Web UI** (`workflow.shivambhaipatel.com`): React / Vite state client communicating over HTTP/SSE.
+  4. **TradeSense Desk** (`tradesense.shivambhaipatel.com`): An independent downstream financial research terminal that imports `@workflow-studio/core` as an npm dependency.
+- **Storage Strategy**: SQLite compiled via `sql.js` WebAssembly. This eliminates native Node C++ addon compilation hurdles while retaining complete relational transactional guarantees. Postgres is optionally supported for multi-host deployments.
+
+### 3. FlowTrace — Deterministic ERP Browser Automation Engine
+- **Website Case Study**: https://shivambhaipatel.com/work/flowtrace/
+- **Designated Subdomain**: https://flowtrace.shivambhaipatel.com
+- **Repository Anchor**: `flowtrace/README.md:84-85`, `flowtrace/recorder/scripts/vendor-injected.mjs:2-3`
+- **Core Problem**:
+  Enterprise applications (such as Oracle Fusion ERP) regenerate dynamic DOM IDs on every user session. Recording a business process once and attempting to replay it normally fails immediately because CSS IDs change. Furthermore, manual regression testing costs ~20 minutes per business flow.
+- **Architectural Solution**:
+  A deterministic two-tier recording and playback architecture.
+  1. **Chrome MV3 Injected Recorder**: Captures semantic user intent (DOM events, parent container hierarchies, accessibility labels, user action text) and writes a strictly validated recording JSON schema.
+  2. **Playwright Replay Service**: Executes headlessly on the server. When dynamic DOM drift occurs, the replay engine invokes multi-path heuristic selectors (text anchors, ARIA roles, relative DOM trees). Once resolved, it writes the repaired selector back into the recording file to prevent re-solving the same failure.
+  3. **Runtime Invariant Verification**: Never trusts self-reported agent success. Replay verifies physical DOM state transitions (modal dismissals, toast notifications, HTTP 200 responses) before marking an action passed.
+- **Verification Benchmark**: 45 defect-specific behavioral regression checks. The recorder and replayer share zero runtime dependencies.
 
 ---
 

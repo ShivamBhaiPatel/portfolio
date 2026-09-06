@@ -1,7 +1,7 @@
 export const RESUME_DATA = {
   name: "Shivam Bhai Patel",
-  title: "Systems & Backend Engineer",
-  location: "Prayagraj, India",
+  title: "Full-Stack & Backend Systems Engineer",
+  location: "Prayagraj / Remote (India)",
   contact: {
     email: "shivambhaipatel1997@gmail.com",
     github: "github.com/ShivamBhaiPatel",
@@ -9,84 +9,84 @@ export const RESUME_DATA = {
     website: "shivambhaipatel.com",
   },
   summary:
-    "Systems and Backend Engineer with 4+ years of experience engineering autonomous developer tooling, distributed data ingestion pipelines, and enterprise JVM backends. Proven track record refactoring enterprise retail workforce systems at Zebra Technologies, building self-healing browser automation engines across 50+ business entities at a single client, and architecting multi-agent SDLC orchestration platforms.",
+    "Full-Stack & Backend Systems Engineer with 4+ years of experience architecting robust Spring Boot APIs, deterministic Playwright automation engines, and modern Next.js/React full-stack applications. Proven track record scaling enterprise retail workforce platforms at Zebra Technologies (servicing 150K+ daily active store associates under sub-100ms SLAs), optimizing high-concurrency database access, and engineering autonomous task orchestration platforms.",
   skills: {
     backend:
-      "Java (8/11/17/21), Spring Boot 3, Spring Security, Microservices, JVM Tuning & Profiling, REST APIs, WebSockets, Node.js.",
+      "Java (8/11/17/21), Spring Boot 3, Spring Security, REST APIs, Microservices, PostgreSQL, MySQL, IBM DB2, Redis, Kafka, Node.js.",
     frontend:
-      "Next.js 15/16, React, TypeScript, JavaScript, Playwright, Chrome Extensions (Manifest V3), Electron, Tailwind CSS.",
+      "Next.js 15 (App Router/SSR), React, TypeScript, JavaScript, Tailwind CSS, Playwright, Chrome Extensions (Manifest V3).",
     infra:
-      "PostgreSQL, MySQL, SQLite (WAL mode), Redis, BullMQ, Docker, Jenkins CI/CD, AWS (S3, EC2), Flyway, Linux/Bash.",
+      "Docker, Jenkins CI/CD, AWS (S3, EC2), Flyway, SQLite (WAL mode), Linux/Bash, JVM Profiling (Eclipse MAT).",
     architecture:
-      "Multi-Agent Orchestration, Event-Driven Architecture, Task DAGs, Self-Healing Automation, Monolithic vs Distributed Design.",
+      "Microservice Isolation, Task DAGs, Event-Driven Architecture, Self-Healing Locators, High-Concurrency Transaction Locking.",
   },
   experience: [
     {
-      role: "Independent Systems & Software Consultant",
+      role: "Independent Software Consultant — Full-Stack & Systems Automation",
       period: "Apr 2024 – Present",
-      org: "Self-Employed · Remote (Prayagraj, India)",
+      org: "Client Advisory & Independent Engineering · Remote (Prayagraj, India)",
       clientEngagements: [
         {
           client: "FirstCron Services Pvt Ltd",
           product: "SyntraFlow",
           period: "Apr 2024 – Present (Ongoing)",
           points: [
-            "Architected SyntraFlow, an enterprise browser automation and regression execution engine deployed across 50+ business entities at a single client.",
-            "Engineered a three-tier execution system (Chrome MV3 extension + desktop daemon + Playwright replay engine) with self-healing DOM selector heuristics, reducing test maintenance overhead by 40%.",
-            "Integrated role-based access control (RBAC), deterministic DOM state capture, and automated PDF audit report generation for enterprise compliance.",
+            "Architected and deployed end-to-end regression automation infrastructure for Oracle Fusion ERP across 50+ business entities, building a three-tier execution engine (MV3 + Node runner + Playwright) cutting regression cycles by 40%.",
+            "Built a high-throughput Playwright execution engine with deterministic DOM state assertion, self-healing selectors, and automated SOC2 compliance audit trails.",
+            "Architected Spring Boot API gateway layers with fine-grained role-based access control (RBAC) and multi-tenant persistence.",
           ],
         },
         {
           client: "SamMegh Technologies",
           period: "Dec 2024 – Sep 2025 (Completed)",
           points: [
-            "Diagnosed database execution bottlenecks and refactored Spring Boot query paths, cutting endpoint latency from ~800ms to <300ms.",
-            "Engineered robust microservice integration pipelines and maintained 80%+ unit and integration test coverage.",
+            "Diagnosed database execution bottlenecks and refactored Spring Boot query paths, reducing end-to-end API response latency from ~800ms to under 300ms.",
+            "Implemented database query plan indexing, statement caching, and refactored entity fetching to eliminate N+1 queries across core microservices.",
           ],
         },
       ],
     },
     {
-      role: "Software Engineer",
+      role: "Software Engineer — Platform & Enterprise Retail",
       period: "Nov 2021 – Mar 2024",
       org: "Reflexis Systems (Zebra Technologies) · Pune, India",
       points: [
-        "Maintained and scaled high-throughput workforce management and store operations platforms serving 150K+ daily retail workers across 400+ enterprise store locations.",
-        "Refactored legacy monolithic services into domain-aligned microservices with isolated persistence boundaries and clean REST contracts.",
+        "Engineered and scaled enterprise retail workforce management platforms serving 150K+ daily active store associates across 400+ locations under strict sub-100ms API SLAs.",
+        "Refactored monolithic legacy services into domain-bounded Spring Boot microservices with isolated DB2 persistence schemas.",
+        "Maintained high-availability retail store services; diagnosed memory bottlenecks, analyzed heap dumps, and tuned G1GC parameters to increase transaction throughput by 30% during retail peak surges.",
         "Overhauled automated Jenkins CI/CD deployment pipelines, cutting production release cycles from bi-weekly to under 2 days.",
-        "Conducted JVM profiling, heap dump analysis, and garbage collection tuning, boosting peak transaction throughput by 30%.",
       ],
     },
   ],
   projects: [
     {
-      name: "Workflow Studio",
-      role: "Autonomous Multi-Agent SDLC Orchestrator",
-      url: "https://workflow.shivambhaipatel.com",
-      stack: "TypeScript, Node.js, SQLite, Atlassian APIs",
+      name: "PracharFlow",
+      role: "Lead Enterprise Microservice (Deterministic Skia Canvas)",
+      url: "https://prachar.shivambhaipatel.com",
+      stack: "Java 21 · Spring Boot 3 · Skija (Skia) · PostgreSQL · Flyway · Telegram API",
       points: [
-        "Engineered an autonomous task decomposition engine that ingests unstructured PRDs and computes dependency-ordered task DAGs.",
-        "Implemented an isolated Git branch provisioner, zero-trust automated reviewer agent, and bidirectional Jira/Bitbucket webhook synchronizers.",
-        "Enforced strict package isolation behind @workflow-studio/core, eliminating UI symbol leaks via Node-only tsconfig.",
+        "Designed a deterministic graphic rendering engine in Java 21 / Spring Boot 3 replacing generative diffusion models for vernacular regional typography (Devanagari/Gujarati).",
+        "Achieved 100% deterministic pixel-perfect output rendering in under 150ms per creative asset on raster surfaces with zero GPU infrastructure overhead.",
       ],
     },
     {
-      name: "PracharFlow",
-      role: "Parametric Template Composition Engine",
-      url: "https://prachar.shivambhaipatel.com",
-      stack: "Java 21 · Spring Boot 3 · Skija (Skia) · PostgreSQL · Telegram",
+      name: "Workflow Studio",
+      role: "Full-Stack Multi-Agent Orchestrator (Next.js + Node Engine)",
+      url: "https://workflow.shivambhaipatel.com",
+      stack: "React, Next.js, TypeScript, Node.js, SQLite, Atlassian APIs",
       points: [
-        "Designed a deterministic graphic rendering engine replacing generative diffusion for Indian regional languages (Devanagari/Gujarati).",
-        "Achieved 100% deterministic pixel-perfect output rendering in under 150ms per creative asset on GPU/raster surfaces.",
+        "Engineered an autonomous task decomposition engine computing dependency-ordered DAGs using Kahn's topological sort and cycle detection.",
+        "Implemented distributed task leases with monotonic fencing tokens to reject stale writes and prevent split-brain state across concurrent agents.",
+        "Decoupled the dispatch engine into @workflow-studio/core with strict Node-only tsconfig boundaries, powering the Web UI, CLI runner, and TradeSense terminal.",
       ],
     },
     {
       name: "DealDekho",
-      role: "E-Commerce Price Tracking & Telemetry Engine",
-      url: "https://github.com/ShivamBhaiPatel/DealDekho",
-      stack: "Next.js 15, TypeScript, PostgreSQL, Redis, BullMQ",
+      role: "E-Commerce Price Discovery Platform",
+      url: "https://dealdekho.shivambhaipatel.com",
+      stack: "Next.js 15, React, TypeScript, PostgreSQL, Redis, BullMQ",
       points: [
-        "Architected multi-aggregator product search and price tracking paired with verified client telemetry from the ShopLens extension.",
+        "Architected multi-aggregator product search and price tracking paired with client-side telemetry from the ShopLens browser extension, normalizing price variance across marketplaces.",
       ],
     },
   ],

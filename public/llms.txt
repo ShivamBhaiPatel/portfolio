@@ -1,6 +1,6 @@
-# Shivam Bhai Patel — Backend & Platform Automation Engineer
+# Shivam Bhai Patel — Senior Full-Stack & Backend Engineer
 
-> High-throughput JVM backends, browser-automation engines, and developer platform tooling.
+> Java & Spring Boot Core · React / Next.js · Distributed Systems
 
 Portfolio: https://shivambhaipatel.com
 Full Architectural Context: https://shivambhaipatel.com/llms-full.txt
@@ -15,11 +15,14 @@ https://shivambhaipatel.com/llms-full.txt.
 
 ## About
 
-Backend and platform automation engineer with four years' experience across
-enterprise JVM backends, deterministic Playwright automation engines, and
-developer tooling.
+Senior Full-Stack & Backend Engineer with 4+ years of experience engineering
+high-throughput Spring Boot backends, distributed systems, and production React/Next.js
+interfaces. 2.5 years scaling enterprise retail workforce platforms at Zebra Technologies
+(150K+ daily active store associates under sub-100ms SLAs); expanded through independent
+engineering contracts building headless workflow engines, deterministic graphics microservices,
+and resilient automation pipelines.
 
-- Role: Backend & Platform Automation Engineer
+- Role: Senior Full-Stack & Backend Engineer (Java & Spring Boot Core · React / Next.js)
 - Location: India. Open to Bangalore, NCR, or Remote (IST · UTC+5:30).
 - Availability: Within 1 week, Full-Time or Contract.
 - Contact: shivambhaipatel1997@gmail.com
@@ -44,9 +47,25 @@ developer tooling.
 
 ## Production Systems
 
+### PracharFlow
+- Case Study: https://shivambhaipatel.com/work/pracharflow/
+- Live Banner Studio: https://prachar.shivambhaipatel.com
+High-throughput vernacular marketing creative rendering engine delivering localized
+promotional creatives in under 150ms over Telegram bots.
+
+Generative diffusion models hallucinate Devanagari and Gujarati ligatures, distort official
+brand and political party logos, and take 8+ seconds per generation. Campaigns require
+guaranteed typographic accuracy, strict party symbol integrity, and sub-second delivery.
+Rejected generative pipelines in favor of a deterministic parametric canvas engine built
+in Java 21 / Spring Boot 3 using Google's Skia (via Skija), rasterizing structured layout
+trees directly into PNG buffers in under 150ms with zero GPU infrastructure costs.
+
+Stack: Java 21, Spring Boot 3, PostgreSQL, Flyway, Skija (Google Skia).
+Status: Delivery over Telegram is in production. WhatsApp delivery is implemented.
+
 ### Workflow Studio
 - Case Study: https://shivambhaipatel.com/work/workflow-studio/
-- Live Control Plane: https://workflow.shivambhaipatel.com
+- Live Interactive Sandbox: https://workflow.shivambhaipatel.com
 Control plane for running several AI coding agents on one codebase without them
 duplicating each other's work or colliding on git trees. Task queue, DAG runtime,
 agent dispatch, Jira mirror, inter-agent messaging.
@@ -54,11 +73,13 @@ agent dispatch, Jira mirror, inter-agent messaging.
 The core engineering point is an architectural package boundary: the engine lives
 behind `@workflow-studio/core`, whose tsconfig restricts types to Node — so importing
 editor APIs (like VS Code) from the core engine is a compile-time error rather than
-a runtime crash. Four distinct surfaces consume that same core: the VS Code extension,
-the headless CLI runner (`bin/workflow-studio.mjs`), the dashboard web UI, and TradeSense.
+a runtime crash. Topological sort uses Kahn's algorithm with strict cycle detection,
+and task leases use monotonic fencing tokens to prevent split-brain state. Four distinct
+surfaces consume that same core: the VS Code extension, the headless CLI runner
+(`bin/workflow-studio.mjs`), the dashboard web UI, and TradeSense.
 TradeSense is an independent product that imports `@workflow-studio/core` as a strict package.
 
-Stack: TypeScript, Node, SQLite via sql.js (WebAssembly, zero native addon compilation),
+Stack: React, Next.js, TypeScript, Node, SQLite via sql.js (WebAssembly, zero native addon compilation),
 optional Postgres for distributed multi-machine coordination.
 
 ### FlowTrace
@@ -81,22 +102,6 @@ Two design commitments:
 Three components: Chrome MV3 recorder extension, desktop runner, and Playwright replay
 service. 45 defect-specific behavioral regression checks. The recorder and replayer share
 zero code at runtime, communicating solely via the recording JSON contract.
-
-### PracharFlow
-- Case Study: https://shivambhaipatel.com/work/pracharflow/
-- Live Banner Studio: https://prachar.shivambhaipatel.com
-High-throughput vernacular marketing creative rendering engine delivering localized
-promotional creatives in under 150ms over Telegram bots.
-
-Generative diffusion models hallucinate Devanagari and Gujarati ligatures, distort official
-brand and political party logos, and take 8+ seconds per generation. Campaigns require
-guaranteed typographic accuracy, strict party symbol integrity, and sub-second delivery.
-Rejected generative pipelines in favor of a deterministic parametric canvas engine built
-in Java 21 / Spring Boot 3 using Google's Skia (via Skija), rasterizing structured layout
-trees directly into PNG buffers in under 150ms with zero GPU infrastructure costs.
-
-Stack: Java 21, Spring Boot 3, PostgreSQL, Flyway, Skija (Google Skia).
-Status: Delivery over Telegram is in production. WhatsApp delivery is implemented.
 
 ## Compact & Domain Platforms
 

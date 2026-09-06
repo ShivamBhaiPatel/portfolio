@@ -24,12 +24,12 @@ export interface ExperienceItem {
 
 export const experience: ExperienceItem[] = [
   {
-    role: "Independent Software Consultant — Backend & Automation",
-    company: "Client Advisory & Engineering",
+    role: "Independent Software Consultant — Full-Stack & Systems Automation",
+    company: "Client Advisory & Independent Engineering",
     location: "Remote, India (Prayagraj)",
     period: "Apr 2024 – Present",
     summary:
-      "Enterprise systems automation, ERP regression infrastructure, and backend query optimization across multiple client engagements.",
+      "Enterprise backend systems, high-concurrency Spring Boot microservices, ERP integration pipelines, and deterministic automation engines across commercial client engagements.",
     clients: [
       {
         name: "FirstCron Services Pvt Ltd",
@@ -40,13 +40,13 @@ export const experience: ExperienceItem[] = [
         status: "ongoing",
         statusLabel: "Current client · Ongoing",
         summary:
-          "Engineered SyntraFlow, an Oracle Fusion ERP automation and regression verification platform operating across 50+ business entities at a single client.",
+          "Engineered SyntraFlow, an enterprise Oracle Fusion ERP automation and regression verification platform operating across 50+ business entities at a single enterprise client.",
         highlights: [
-          "Built a Playwright batch-replay execution engine with deterministic DOM state verification, self-healing selectors, and automated compliance audit reports.",
-          "Architected a three-tier execution model (Chrome MV3 extension + local runner + Playwright engine) cutting regression execution time by 40%.",
-          "Designed operational monitoring dashboards with granular role-based access control (RBAC).",
+          "Architected and deployed end-to-end regression automation infrastructure for Oracle Fusion ERP across 50+ business entities, building a three-tier execution engine (MV3 + Node runner + Playwright) cutting regression cycles by 40%.",
+          "Built a high-throughput Playwright execution engine with deterministic DOM state assertion, self-healing selectors, and automated SOC2 compliance audit trails.",
+          "Architected Spring Boot API gateway layers with fine-grained role-based access control (RBAC) and multi-tenant persistence.",
         ],
-        stack: ["Java", "Spring Boot", "TypeScript", "Playwright", "React", "MySQL", "AWS"],
+        stack: ["Java 21", "Spring Boot 3", "TypeScript", "Playwright", "React", "MySQL", "AWS"],
       },
       {
         name: "SamMegh Technologies",
@@ -56,15 +56,16 @@ export const experience: ExperienceItem[] = [
         status: "contract",
         statusLabel: "Contract engagement · Completed",
         summary:
-          "Enterprise systems consulting, database query optimization, and backend performance tuning.",
+          "Enterprise systems consulting, database query optimization, and Spring Boot backend performance tuning.",
         highlights: [
-          "Diagnosed database execution bottlenecks and refactored Spring Boot query paths, reducing end-to-end API response latency from ~800 ms to under 300 ms.",
-          "Implemented query plan indexing and connection pool tuning for high-throughput enterprise services.",
+          "Diagnosed database execution bottlenecks and refactored Spring Boot query paths, reducing end-to-end API response latency from ~800 ms to under 300 ms. Implemented query plan indexing and connection pool tuning for high-throughput services.",
+          "Implemented database query plan indexing, statement caching, and refactored entity fetching to eliminate N+1 queries across core microservices.",
+          "Hardened REST contracts and persistence boundaries with strict DTO validation and idempotency keys.",
         ],
-        stack: ["Java", "Spring Boot", "Microservices", "REST APIs", "SQL Optimization"],
+        stack: ["Java", "Spring Boot 3", "Microservices", "PostgreSQL", "HikariCP", "REST APIs"],
       },
     ],
-    stack: ["Java", "Spring Boot", "TypeScript", "Playwright", "React", "MySQL", "AWS"],
+    stack: ["Java 21", "Spring Boot 3", "React", "Next.js", "TypeScript", "Playwright", "PostgreSQL", "AWS"],
   },
   {
     role: "Software Engineer — Platform & Enterprise Retail",
@@ -72,13 +73,14 @@ export const experience: ExperienceItem[] = [
     location: "Pune, India",
     period: "Nov 2021 – Mar 2024",
     summary:
-      "Core engineering on enterprise retail workforce management platforms serving 150K+ daily active store workers across 400+ enterprise retail store locations.",
+      "Core engineering on enterprise retail workforce management platforms servicing 150K+ daily active store associates across 400+ enterprise retail store locations under strict sub-100ms API SLAs.",
     highlights: [
-      "Maintained and scaled high-throughput workforce management and store operations platforms deployed across Fortune 500 enterprise retail chains.",
-      "Refactored legacy monolithic services into domain-aligned microservices with isolated persistence boundaries and clean REST contracts.",
+      "Engineered and scaled enterprise retail workforce management platforms serving 150K+ daily active store associates across 400+ locations under strict sub-100ms API SLAs.",
+      "Refactored monolithic legacy services into domain-bounded Spring Boot microservices with isolated DB2 persistence schemas.",
+      "Maintained high-availability retail store services; diagnosed memory bottlenecks, analyzed heap dumps, and tuned G1GC parameters to increase transaction throughput by 30% during retail peak surges.",
       "Overhauled automated Jenkins CI/CD deployment pipelines, cutting production release cycles from bi-weekly to under 2 days.",
-      "Conducted JVM profiling, heap dump analysis, and garbage collection tuning, boosting peak transaction throughput by 30% under heavy retail surges.",
+      "Expanded integration and unit test coverage across core scheduling services, reducing post-release defect tickets by ~25%.",
     ],
-    stack: ["Java", "Spring Boot", "DB2", "Microservices", "Jenkins", "Docker", "JVM Tuning"],
+    stack: ["Java", "Spring Boot", "IBM DB2", "Microservices", "JVM Tuning", "Eclipse MAT", "Jenkins", "Docker"],
   },
 ];

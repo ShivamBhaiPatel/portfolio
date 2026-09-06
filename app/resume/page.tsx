@@ -6,7 +6,7 @@ import { PrintButton } from "./print-button";
 
 export const metadata: Metadata = {
   title: `Resume — ${site.name} | ${site.role}`,
-  description: `Official technical resume of ${site.name}. 4+ years across enterprise JVM backends, deterministic Playwright automation engines, and developer platform tooling.`,
+  description: `Official technical resume of ${site.name}. 4+ years architecting robust Spring Boot APIs, deterministic Playwright automation engines, and modern Next.js/React full-stack applications.`,
   alternates: {
     canonical: "https://shivambhaipatel.com/resume/",
   },

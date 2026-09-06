@@ -16,7 +16,7 @@ export function Footer() {
       href,
       isExternal,
       status: p.live?.status,
-      statusLabel: p.live?.status === "up" ? "Live" : (p.live?.note || "Archived"),
+      statusLabel: p.live?.note ? p.live.note.replace(/ ↗$/, "") : (p.live?.status === "up" ? "Live" : "Archived"),
     };
   });
 
@@ -35,7 +35,7 @@ export function Footer() {
               </span>
             </div>
             <p className="text-sm text-muted max-w-[var(--measure-prose)] leading-relaxed">
-              Autonomous developer tooling, high-throughput JVM backends, and self-healing browser automation engines.
+              Spring Boot APIs, deterministic browser automation engines, and modern Next.js applications.
             </p>
           </div>
 

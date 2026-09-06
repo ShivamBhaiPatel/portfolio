@@ -31,46 +31,85 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "pracharflow",
+    name: "PracharFlow",
+    summary:
+      "High-throughput vernacular banner rendering engine delivering localized Hindi and Gujarati promotional creatives in under 150ms over Telegram bots.",
+    situation:
+      "Campaigns and businesses require hundreds of localized banner creatives daily with accurate regional typography, official emblems, and portraits delivered instantly via messaging bots.",
+    tension:
+      "Generative diffusion models hallucinate Devanagari and Gujarati ligatures, distort official brand and political party logos, and take 8+ seconds per generation. Campaigns required guaranteed typography accuracy and sub-second generation.",
+    decision:
+      "Rejected generative image pipelines in favor of a deterministic parametric canvas engine. Built in Java 21 / Spring Boot 3 using Google's Skia (via Skija), rendering structured layout trees with typed slot constraints directly to PNG buffers.",
+    consequence:
+      "Pixel-perfect regional typography and exact logo rendering in under 150ms with zero GPU infrastructure costs, serving automated Telegram bot workflows.",
+    evidence: [
+      {
+        quote:
+          "try (Surface surface = Surface.makeRaster(ImageInfo.makeN32Premul(width, height))) {\n    // NON-OWNING. Owned by `surface`. Never closed, never in try-with-resources.\n    Canvas canvas = surface.getCanvas();",
+        source: "pracharflow/render/.../CompositorService.java:214-216",
+        lang: "java",
+      },
+    ],
+    stack: ["Java 21", "Spring Boot 3", "Skija / Skia", "PostgreSQL", "Flyway", "Telegram Bot API"],
+    live: {
+      url: "https://prachar.shivambhaipatel.com",
+      status: "up",
+      note: "Live Microservice ↗",
+    },
+    tier: "featured",
+    roadmap: [
+      "WhatsApp Business Cloud API webhook automation",
+      "Self-service web template designer with drag-and-drop constraints",
+    ],
+    whatItCost:
+      "Authoring templates takes structured JSON design work upfront rather than freeform text prompts. Every layout variant must be coded with explicit font metric fallbacks.",
+  },
+  {
     slug: "workflow-studio",
     name: "Workflow Studio",
     summary:
-      "A control panel that coordinates autonomous AI coding agents on shared codebases without task collision or state corruption. Built on an isolated task-dispatch engine backed by a local SQLite DAG.",
+      "Full-Stack Multi-Agent Orchestrator (Next.js + Node Engine). Coordinates autonomous AI coding agents on shared codebases without task collision or state corruption. Built on an isolated task-dispatch engine backed by a local SQLite DAG.",
     situation:
       "Running multiple coding agents (Claude, Codex, Antigravity) across active worktrees creates constant branch drift, overlapping file edits, and untracked task states.",
     tension:
       "The engine originally lived coupled inside a VS Code extension, making it impossible to drive from CLI scripts, CI test suites, or headless worker sessions without booting a full editor instance.",
     decision:
-      "Decoupled the task-dispatch engine into a standalone Node package (`@workflow-studio/core`) backed by a SQLite task DAG. The core tsconfig restricts types strictly to Node, ensuring that any editor-only dependency is a compile error rather than a runtime crash.",
+      "Decoupled the task-dispatch engine into a standalone Node package (`@workflow-studio/core`) backed by a SQLite task DAG. Implemented Kahn's algorithm for topological task ordering with strict cycle detection, and distributed task leases with monotonic fencing tokens to reject stale writes.",
     consequence:
       "Four separate surfaces consume the exact same core engine: the VS Code extension, the CLI, the dashboard SPA, and TradeSense. Headless CI runs the full task loop without mocking the VS Code host.",
     evidence: [
       {
-        quote: '"@workflow-studio/core": "link:../workflow-studio/packages/core"',
-        source: "tradesense/package.json:21",
-        lang: "json",
-      },
-      {
-        quote: '"types": ["node"]',
-        source: "packages/core/tsconfig.json:19",
-        lang: "json",
+        quote:
+          "export function topologicalSort(def: WorkflowDefinition): string[] {\n  const adj = new Map<string, string[]>();\n  const inDeg = new Map<string, number>();",
+        source: "workflow-studio/src/workflows/executor.ts:41-44",
+        lang: "ts",
       },
       {
         quote:
-          "// Everything re-exported here must run headless — no VS Code extension host.\n// The build is scoped in tsconfig.json to this exact dependency closure so that\n// pulling in an editor-only module is a compile error rather than a runtime\n// \"Cannot find module 'vscode'\" crash (WFST-70).",
-        source: "packages/core/src/index.ts:7-10",
+          "if (order.length !== def.nodes.length) {\n    throw new Error('Workflow contains a cycle — not a valid DAG');\n  }",
+        source: "workflow-studio/src/workflows/executor.ts:79-81",
+        lang: "ts",
+      },
+      {
+        quote:
+          "export function isFenceCurrent(store: TaskLeaseStore, taskId: string, epoch: number): boolean {\n  const lease = store.leases[normalizeTaskId(taskId)];\n  if (!lease) return false;\n  return leaseEpochFor(lease) === epoch;\n}",
+        source: "workflow-studio/src/taskLeases.ts:79-83",
         lang: "ts",
       },
     ],
     stack: [
+      "React",
+      "Next.js",
       "TypeScript",
       "Node.js",
       "SQLite / PostgreSQL",
       "VS Code API",
-      "Vite SPA",
     ],
     live: {
       url: "https://workflow.shivambhaipatel.com",
       status: "up",
+      note: "Interactive Sandbox ↗",
     },
     tier: "flagship",
     roadmap: [
@@ -112,7 +151,7 @@ export const projects: Project[] = [
     live: {
       url: "https://flowtrace.shivambhaipatel.com",
       status: "up",
-      note: "Live ↗",
+      note: "Live Engine ↗",
     },
     tier: "featured",
     roadmap: [
@@ -121,40 +160,6 @@ export const projects: Project[] = [
     ],
     whatItCost:
       "Extracting Playwright's internal selector generator requires marker-based string extraction of bundled source during build, which requires pinned dependencies and strict CI validation against Playwright upgrades.",
-  },
-  {
-    slug: "pracharflow",
-    name: "PracharFlow",
-    summary:
-      "High-throughput vernacular banner rendering engine delivering localized Hindi and Gujarati promotional creatives in under 150ms over Telegram bots.",
-    situation:
-      "Campaigns and businesses require hundreds of localized banner creatives daily with accurate regional typography, official emblems, and portraits delivered instantly via messaging bots.",
-    tension:
-      "Generative diffusion models hallucinate Devanagari and Gujarati ligatures, distort official brand and political party logos, and take 8+ seconds per generation. Campaigns required guaranteed typography accuracy and sub-second generation.",
-    decision:
-      "Rejected generative image pipelines in favor of a deterministic parametric canvas engine. Built in Java 21 / Spring Boot 3 using Google's Skia (via Skija), rendering structured layout trees with typed slot constraints directly to PNG buffers.",
-    consequence:
-      "Pixel-perfect regional typography and exact logo rendering in under 150ms with zero GPU infrastructure costs, serving automated Telegram bot workflows.",
-    evidence: [
-      {
-        quote:
-          "try (Surface surface = Surface.makeRaster(ImageInfo.makeN32Premul(width, height))) {\n    // NON-OWNING. Owned by `surface`. Never closed, never in try-with-resources.\n    Canvas canvas = surface.getCanvas();",
-        source: "pracharflow/render/.../CompositorService.java:214-216",
-        lang: "java",
-      },
-    ],
-    stack: ["Java 21", "Spring Boot 3", "Skija / Skia", "PostgreSQL", "Flyway", "Telegram Bot API"],
-    live: {
-      url: "https://prachar.shivambhaipatel.com",
-      status: "up",
-    },
-    tier: "featured",
-    roadmap: [
-      "WhatsApp Business Cloud API webhook automation",
-      "Self-service web template designer with drag-and-drop constraints",
-    ],
-    whatItCost:
-      "Authoring templates takes structured JSON design work upfront rather than freeform text prompts. Every layout variant must be coded with explicit font metric fallbacks.",
   },
   {
     slug: "tradesense",
@@ -178,6 +183,7 @@ export const projects: Project[] = [
     live: {
       url: "https://tradesense.shivambhaipatel.com",
       status: "up",
+      note: "Live Terminal ↗",
     },
     tier: "compact",
   },
@@ -203,7 +209,7 @@ export const projects: Project[] = [
     live: {
       url: "https://platform.shivambhaipatel.com",
       status: "up",
-      note: "Live ↗",
+      note: "Live Prototype ↗",
     },
     tier: "compact",
   },
@@ -230,7 +236,7 @@ export const projects: Project[] = [
     live: {
       url: "https://dealdekho.shivambhaipatel.com",
       status: "up",
-      note: "Live ↗",
+      note: "Live Platform ↗",
     },
     tier: "compact",
   },

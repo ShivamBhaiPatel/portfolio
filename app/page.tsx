@@ -28,7 +28,7 @@ export default function Home() {
       <Section
         id="work"
         kicker="01 / Production Systems"
-        subkicker="High-Throughput JVM Backends, Playwright Automation & Developer Tooling"
+        subkicker="Full-Stack Applications, Distributed Backends & Automation Engines"
         title="Selected Work"
         rule={true}
         width="wide"
@@ -37,89 +37,18 @@ export default function Home() {
           Production software built under real performance, concurrency, and reliability constraints.
         </p>
 
-        {/* Treatment 1: Flagship (Workflow Studio) */}
-        {flagship ? <ProjectFlagship project={flagship} /> : null}
-
-        {/* Treatment 2: FlowTrace — Two-Column Card with Simulator */}
-        {flowtrace ? (
-          <TiltCard className="my-2xl rounded-sm border border-rule bg-raised p-md md:p-lg relative">
-            <div className="flex flex-wrap items-baseline justify-between gap-xs mb-xs">
-              <span className="font-mono text-meta tracking-meta text-accent uppercase font-semibold">
-                Featured System · Two-Tier Isolation
-              </span>
-              {flowtrace.live && flowtrace.live.status === "up" ? (
-                <span className="font-mono text-meta text-muted flex items-center gap-1.5">
-                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent" />
-                  <a href={flowtrace.live.url} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                    Live Platform ↗
-                  </a>
-                </span>
-              ) : null}
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-xl items-start">
-              {/* Left Column: Problem & Decision Narrative */}
-              <div className="lg:col-span-6 space-y-md">
-                <h3 className="text-display font-display text-ink text-2xl md:text-3xl">
-                  {flowtrace.name}
-                </h3>
-                <p className="text-body text-ink font-medium leading-snug">
-                  {flowtrace.summary}
-                </p>
-
-                <div className="space-y-sm text-sm text-muted leading-relaxed">
-                  <div>
-                    <h4 className="font-mono text-meta uppercase tracking-meta text-muted mb-1 font-semibold">
-                      The Constraint &amp; Trade-off
-                    </h4>
-                    <p>{flowtrace.tension}</p>
-                  </div>
-                  <div>
-                    <h4 className="font-mono text-meta uppercase tracking-meta text-muted mb-1 font-semibold">
-                      Architecture Decision
-                    </h4>
-                    <p>{flowtrace.decision}</p>
-                  </div>
-                </div>
-
-                <div className="pt-sm flex flex-wrap items-center justify-between gap-sm border-t border-rule">
-                  <div className="flex flex-wrap gap-xs font-mono text-meta text-muted">
-                    {flowtrace.stack.map((item) => (
-                      <span key={item} className="bg-wash px-2xs py-1 rounded-sm border border-rule">
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                  <Link
-                    href={`/work/${flowtrace.slug}`}
-                    className="font-mono text-sm text-accent underline underline-offset-4 hover:opacity-80 whitespace-nowrap"
-                  >
-                    Case study →
-                  </Link>
-                </div>
-              </div>
-
-              {/* Right Column: Inline SVG Diagram + Selector Fallback Tree */}
-              <div className="lg:col-span-6 space-y-md">
-                <FlowTraceDiagram />
-                <FlowTraceInteractive />
-              </div>
-            </div>
-          </TiltCard>
-        ) : null}
-
-        {/* Treatment 3: PracharFlow — Prose-Led (No Card) */}
+        {/* Treatment 1: PracharFlow — Lead Enterprise Microservice */}
         {pracharflow ? (
-          <article className="my-2xl pt-xl border-t border-rule">
+          <article className="mb-2xl pt-md">
             <div className="flex flex-wrap items-baseline justify-between gap-xs mb-xs">
               <span className="font-mono text-meta tracking-meta text-accent uppercase font-semibold">
-                Featured System · Deterministic Composition
+                Enterprise Backend · Deterministic Skia Composition
               </span>
               {pracharflow.live && pracharflow.live.status === "up" ? (
                 <span className="font-mono text-meta text-muted flex items-center gap-1.5">
                   <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent" />
                   <a href={pracharflow.live.url} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                    Live Platform ↗
+                    {pracharflow.live.note || "Live Microservice ↗"}
                   </a>
                 </span>
               ) : null}
@@ -176,6 +105,77 @@ export default function Home() {
               </div>
             </div>
           </article>
+        ) : null}
+
+        {/* Treatment 2: Flagship (Workflow Studio) */}
+        {flagship ? <ProjectFlagship project={flagship} /> : null}
+
+        {/* Treatment 3: FlowTrace — Two-Column Card with Simulator */}
+        {flowtrace ? (
+          <TiltCard className="my-2xl rounded-sm border border-rule bg-raised p-md md:p-lg relative">
+            <div className="flex flex-wrap items-baseline justify-between gap-xs mb-xs">
+              <span className="font-mono text-meta tracking-meta text-accent uppercase font-semibold">
+                Platform Automation · Two-Tier Isolation &amp; Replay
+              </span>
+              {flowtrace.live && flowtrace.live.status === "up" ? (
+                <span className="font-mono text-meta text-muted flex items-center gap-1.5">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent" />
+                  <a href={flowtrace.live.url} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    {flowtrace.live.note || "Live Platform ↗"}
+                  </a>
+                </span>
+              ) : null}
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-xl items-start">
+              {/* Left Column: Problem & Decision Narrative */}
+              <div className="lg:col-span-6 space-y-md">
+                <h3 className="text-display font-display text-ink text-2xl md:text-3xl">
+                  {flowtrace.name}
+                </h3>
+                <p className="text-body text-ink font-medium leading-snug">
+                  {flowtrace.summary}
+                </p>
+
+                <div className="space-y-sm text-sm text-muted leading-relaxed">
+                  <div>
+                    <h4 className="font-mono text-meta uppercase tracking-meta text-muted mb-1 font-semibold">
+                      The Constraint &amp; Trade-off
+                    </h4>
+                    <p>{flowtrace.tension}</p>
+                  </div>
+                  <div>
+                    <h4 className="font-mono text-meta uppercase tracking-meta text-muted mb-1 font-semibold">
+                      Architecture Decision
+                    </h4>
+                    <p>{flowtrace.decision}</p>
+                  </div>
+                </div>
+
+                <div className="pt-sm flex flex-wrap items-center justify-between gap-sm border-t border-rule">
+                  <div className="flex flex-wrap gap-xs font-mono text-meta text-muted">
+                    {flowtrace.stack.map((item) => (
+                      <span key={item} className="bg-wash px-2xs py-1 rounded-sm border border-rule">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                  <Link
+                    href={`/work/${flowtrace.slug}`}
+                    className="font-mono text-sm text-accent underline underline-offset-4 hover:opacity-80 whitespace-nowrap"
+                  >
+                    Case study →
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right Column: Inline SVG Diagram + Selector Fallback Tree */}
+              <div className="lg:col-span-6 space-y-md">
+                <FlowTraceDiagram />
+                <FlowTraceInteractive />
+              </div>
+            </div>
+          </TiltCard>
         ) : null}
       </Section>
 

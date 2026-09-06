@@ -85,14 +85,14 @@ export function ResumeSheet() {
         <div className="mb-1.5">
           <div className="flex justify-between items-baseline font-bold text-black text-[9pt] print:table print:w-full">
             <span className="print:table-cell print:w-[65%] print:text-left">
-              Independent Systems &amp; Software Consultant
+              Independent Software Consultant — Full-Stack &amp; Systems Automation
             </span>
             <span className="text-neutral-600 text-[8.5pt] font-normal print:table-cell print:w-[35%] print:text-right print:whitespace-nowrap">
               Apr 2024 – Present
             </span>
           </div>
           <div className="italic text-neutral-800 text-[8.5pt] mb-0.5">
-            Self-Employed · Remote (Prayagraj, India)
+            Client Advisory &amp; Independent Engineering · Remote (Prayagraj, India)
           </div>
           <ul className="list-disc list-outside pl-4 space-y-0.5 text-neutral-900 text-[8.5pt] leading-snug">
             <li>
@@ -106,16 +106,16 @@ export function ResumeSheet() {
               >
                 SyntraFlow (powered by FlowTrace) ↗
               </a>
-              , an enterprise browser automation and regression execution engine deployed across 50+ business entities at a single client for FirstCron Services Pvt Ltd.
+              , deploying end-to-end regression automation infrastructure across 50+ business entities at a single enterprise client for FirstCron Services Pvt Ltd.
             </li>
             <li>
-              Engineered a three-tier execution system (Chrome MV3 extension + desktop daemon + Playwright replay engine) with self-healing DOM selector heuristics, reducing test maintenance overhead by 40%.
+              Engineered a three-tier execution engine (Chrome MV3 extension + desktop runner daemon + headless Playwright service) with self-healing DOM locators, cutting regression cycles by 40%.
             </li>
             <li>
-              Diagnosed database execution bottlenecks and refactored Spring Boot query paths for SamMegh Technologies, cutting endpoint latency from ~800ms to &lt;300ms.
+              Diagnosed database execution bottlenecks and refactored Spring Boot query paths for SamMegh Technologies, reducing end-to-end API response latency from ~800ms to &lt;300ms.
             </li>
             <li>
-              Integrated role-based access control (RBAC), deterministic DOM state capture, and automated PDF audit report generation for enterprise compliance.
+              Architected Spring Boot API gateways with role-based access control (RBAC), multi-tenant persistence, and SOC2 compliance audit report generation.
             </li>
           </ul>
         </div>
@@ -124,7 +124,7 @@ export function ResumeSheet() {
         <div className="mb-1.5">
           <div className="flex justify-between items-baseline font-bold text-black text-[9pt] print:table print:w-full">
             <span className="print:table-cell print:w-[65%] print:text-left">
-              Software Engineer
+              Software Engineer — Platform &amp; Enterprise Retail
             </span>
             <span className="text-neutral-600 text-[8.5pt] font-normal print:table-cell print:w-[35%] print:text-right print:whitespace-nowrap">
               Nov 2021 – Mar 2024
@@ -135,16 +135,16 @@ export function ResumeSheet() {
           </div>
           <ul className="list-disc list-outside pl-4 space-y-0.5 text-neutral-900 text-[8.5pt] leading-snug">
             <li>
-              Maintained and scaled high-throughput workforce management and store operations platforms serving 150K+ daily retail workers across 400+ enterprise store locations.
+              Engineered and scaled enterprise retail workforce management platforms serving 150K+ daily active store associates across 400+ locations under strict sub-100ms API SLAs.
             </li>
             <li>
-              Refactored legacy monolithic services into domain-aligned microservices with isolated persistence boundaries and clean REST contracts.
+              Refactored monolithic legacy services into domain-bounded Spring Boot microservices with isolated DB2 persistence schemas and clean REST contracts.
+            </li>
+            <li>
+              Maintained high-availability retail store services; diagnosed memory bottlenecks, analyzed heap dumps, and tuned G1GC parameters to increase transaction throughput by 30% during retail peak surges.
             </li>
             <li>
               Overhauled automated Jenkins CI/CD deployment pipelines, cutting production release cycles from bi-weekly to under 2 days.
-            </li>
-            <li>
-              Conducted JVM profiling, heap dump analysis, and garbage collection tuning, boosting peak transaction throughput by 30%.
             </li>
           </ul>
         </div>

@@ -43,18 +43,42 @@ export function Hero() {
             {site.bio}
           </p>
 
-          {/* Engineering Metadata Strip */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 pb-2 border-y border-rule font-mono text-xs text-muted">
+          {/* Engineering Technical Matrix */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-3 pb-3 border-y border-rule font-mono text-xs">
+            <div className="space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-accent font-semibold block">
+                Primary Backend &amp; APIs
+              </span>
+              <p className="text-ink font-medium leading-relaxed">
+                Java 21 · Spring Boot 3 · REST APIs · Microservices · PostgreSQL · MySQL · DB2
+              </p>
+            </div>
+            <div className="space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-muted font-semibold block">
+                Frontend &amp; Full-Stack
+              </span>
+              <p className="text-ink font-medium leading-relaxed">
+                Next.js 15 (App Router) · React · TypeScript · Tailwind CSS
+              </p>
+            </div>
+            <div className="space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-muted font-semibold block">
+                Platform Automation &amp; Tooling
+              </span>
+              <p className="text-ink font-medium leading-relaxed">
+                Playwright Runtime · Headless Node Daemons · Chrome MV3 · Docker
+              </p>
+            </div>
+          </div>
+
+          {/* Location & Direct Inquiry Strip */}
+          <div className="flex flex-wrap items-baseline justify-between gap-2 font-mono text-xs text-muted pt-1">
             <div>
-              <span className="text-[10px] uppercase tracking-wider text-muted block mb-0.5">Location &amp; Mobility</span>
+              <span className="text-muted text-[11px] uppercase tracking-wider mr-2">Location &amp; Mobility:</span>
               <span className="text-ink font-medium">{site.location}</span>
             </div>
             <div>
-              <span className="text-[10px] uppercase tracking-wider text-muted block mb-0.5">Core Competencies</span>
-              <span className="text-ink font-medium">Java 21 · Spring Boot · Playwright · TS</span>
-            </div>
-            <div>
-              <span className="text-[10px] uppercase tracking-wider text-muted block mb-0.5">Direct Inquiry</span>
+              <span className="text-muted text-[11px] uppercase tracking-wider mr-2">Direct Inquiry:</span>
               <a href={`mailto:${site.email}`} className="text-accent font-semibold hover:underline">
                 {site.email}
               </a>

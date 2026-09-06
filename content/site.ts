@@ -1,10 +1,10 @@
 export const site = {
   name: "Shivam Bhai Patel",
-  role: "Backend & Platform Automation Engineer",
-  tagline: "High-throughput JVM backends, browser-automation engines, and developer platform tooling.",
-  bio: "Four years across enterprise JVM backends, deterministic Playwright automation engines, and multi-agent developer tooling. Previously Reflexis / Zebra Technologies.",
+  role: "Full-Stack & Backend Systems Engineer",
+  tagline: "Spring Boot APIs · Next.js Applications · Platform Automation",
+  bio: "4+ years architecting robust Spring Boot APIs, deterministic Playwright automation engines, and modern Next.js/React full-stack applications. Production experience spanning enterprise retail platforms (Reflexis / Zebra) to distributed ERP automation.",
   availability: "Available within 1 week · Full-Time & Contract",
-  location: "Open to Bangalore, NCR, or Remote (IST · UTC+5:30)",
+  location: "Prayagraj / Remote (Open to Bangalore, NCR)",
   email: "shivambhaipatel1997@gmail.com",
   links: {
     github: "https://github.com/ShivamBhaiPatel",

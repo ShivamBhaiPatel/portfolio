@@ -11,7 +11,7 @@ export function ProjectFlagship({ project }: { project: Project }) {
       {/* Header Bar */}
       <div className="flex flex-wrap items-baseline justify-between gap-xs mb-xs">
         <span className="font-mono text-meta tracking-meta text-accent uppercase font-semibold">
-          Flagship Architecture
+          Flagship Architecture · Multi-Agent Control Plane
         </span>
         {project.live && project.live.status === "up" ? (
           <span className="font-mono text-meta text-muted flex items-center gap-1.5">
@@ -20,7 +20,7 @@ export function ProjectFlagship({ project }: { project: Project }) {
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-accent" />
             </span>
             <a href={project.live.url} target="_blank" rel="noopener noreferrer" className="hover:underline">
-              Live Dashboard ↗
+              {project.live.note || "Interactive Sandbox ↗"}
             </a>
           </span>
         ) : null}
