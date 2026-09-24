@@ -207,9 +207,8 @@ export const projects: Project[] = [
     ],
     stack: ["Java 21", "Spring Boot 3", "REST APIs", "Microservices"],
     live: {
-      url: "https://platform.shivambhaipatel.com",
-      status: "up",
-      note: "Live Prototype ↗",
+      url: "https://shivambhaipatel.com",
+      status: "Prototype",
     },
     tier: "compact",
   },
