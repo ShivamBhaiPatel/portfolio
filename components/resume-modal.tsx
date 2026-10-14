@@ -36,13 +36,6 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
     setTimeout(() => setCopied(false), 2500);
   }
 
-  function handlePrint() {
-    const printWin = window.open("/resume/?print=true", "_blank");
-    if (!printWin) {
-      window.location.href = "/resume/?print=true";
-    }
-  }
-
   if (!isOpen) return null;
 
   return (

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 /**
  * Spec §5 Tokens: dark is "prefers-color-scheme + explicit toggle". Both, not
@@ -41,20 +41,28 @@ function apply(mode: Mode) {
   } catch {
     // Non-fatal: the choice just does not survive a reload.
   }
+  window.dispatchEvent(new Event("theme-change"));
+}
+
+function subscribe(callback: () => void) {
+  window.addEventListener("theme-change", callback);
+  window.addEventListener("storage", callback);
+  return () => {
+    window.removeEventListener("theme-change", callback);
+    window.removeEventListener("storage", callback);
+  };
+}
+
+function getSnapshot(): Mode {
+  return read();
+}
+
+function getServerSnapshot(): Mode {
+  return "system";
 }
 
 export function ThemeToggle() {
-  // Server-rendered as "system" and corrected on mount. The inline script in
-  // app/layout.tsx has already painted the right colours by then, so this
-  // catches up the button label only — there is no flash to fix here.
-  const [mode, setMode] = useState<Mode>("system");
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMode(read());
-    setMounted(true);
-  }, []);
-
+  const mode = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   const next = MODES[(MODES.indexOf(mode) + 1) % MODES.length] as Mode;
 
   return (
@@ -62,7 +70,6 @@ export function ThemeToggle() {
       type="button"
       onClick={() => {
         apply(next);
-        setMode(next);
       }}
       // The visible text already reads "Theme: Light"; the label spells out
       // what pressing it does, which the visible text cannot.
@@ -74,7 +81,7 @@ export function ThemeToggle() {
     >
       {/* suppressHydrationWarning: the label is intentionally different after
           mount, because only the client knows what is in localStorage. */}
-      <span suppressHydrationWarning>{mounted ? LABEL[mode] : LABEL.system}</span>
+      <span suppressHydrationWarning>{LABEL[mode]}</span>
     </button>
   );
 }

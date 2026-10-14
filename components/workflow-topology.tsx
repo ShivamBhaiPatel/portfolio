@@ -200,7 +200,7 @@ export function WorkflowTopologyDiagram() {
       {/* Contract Inspection Tray */}
       <div className="mt-md pt-2 border-t border-rule text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-muted">
         <div className="flex items-center gap-2">
-          <span className="text-muted font-bold">// ACTIVE CONTRACT:</span>
+          <span className="text-muted font-bold">{"//"} ACTIVE CONTRACT:</span>
           <span className="text-ink font-semibold">{activeNode.name}</span>
         </div>
         <div className="text-meta text-accent truncate max-w-lg font-medium">
